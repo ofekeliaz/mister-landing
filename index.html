@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>מיסטר — בקרוב</title>
+  <meta name="description" content="דף הנחיתה בבנייה. בקרוב כאן." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --fg: #f2f4f7;
+      --muted: #8b949e;
+      --accent: #3b82f6;
+      --line: rgba(255, 255, 255, 0.08);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Assistant", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      text-align: center;
+    }
+    main { max-width: 520px; }
+    .badge {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: .08em;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 14px;
+      margin-bottom: 28px;
+    }
+    h1 {
+      font-size: clamp(32px, 7vw, 56px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 0 0 16px;
+    }
+    h1 span { color: var(--accent); }
+    p {
+      font-size: clamp(16px, 2.4vw, 19px);
+      line-height: 1.7;
+      color: var(--muted);
+      margin: 0 auto;
+    }
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="badge">בבנייה</div>
+    <h1>בקרוב<span>.</span></h1>
+    <p>דף הנחיתה נמצא בהקמה. האחסון והדומיין כבר מחוברים — נשאר רק להעלות את הדף.</p>
+    <footer>מיסטר</footer>
+  </main>
+</body>
+</html>

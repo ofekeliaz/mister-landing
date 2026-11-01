@@ -1,73 +1,521 @@
 <!doctype html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>מיסטר — בקרוב</title>
-  <meta name="description" content="דף הנחיתה בבנייה. בקרוב כאן." />
-  <meta name="robots" content="noindex, nofollow" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #0b0d10;
-      --fg: #f2f4f7;
-      --muted: #8b949e;
-      --accent: #3b82f6;
-      --line: rgba(255, 255, 255, 0.08);
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: "Assistant", system-ui, -apple-system, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      text-align: center;
-    }
-    main { max-width: 520px; }
-    .badge {
-      display: inline-block;
-      font-size: 13px;
-      letter-spacing: .08em;
-      color: var(--muted);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 6px 14px;
-      margin-bottom: 28px;
-    }
-    h1 {
-      font-size: clamp(32px, 7vw, 56px);
-      font-weight: 800;
-      line-height: 1.1;
-      margin: 0 0 16px;
-    }
-    h1 span { color: var(--accent); }
-    p {
-      font-size: clamp(16px, 2.4vw, 19px);
-      line-height: 1.7;
-      color: var(--muted);
-      margin: 0 auto;
-    }
-    footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-      font-size: 14px;
-      color: var(--muted);
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>הניודס הראשון שלי — מיסטר קונפשנס</title>
+<meta name="description" content="15 שיעורים קצרים: איך גבר שנראה ממוצע לגמרי מחרמן בחורות בהודעות טקסט בלבד.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="הניודס הראשון שלי — מיסטר קונפשנס">
+<meta property="og:description" content="מה גרם למעל 400 בחורות לכתוב לי שהן חרמניות עלי בלי שהן יודעות איך אני נראה.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000;
+    --fg: #fff;
+    --muted: #9aa0a6;
+    --dim: #6b7177;
+    --line: rgba(255,255,255,.12);
+    --panel: rgba(255,255,255,.035);
+    --blue: #22c3fb;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: Assistant, system-ui, "Segoe UI", Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 20px 40px; }
+  p { margin: 0 0 22px; color: #d6d9dc; }
+  h1 { font-size: 2rem; font-weight: 800; line-height: 1.25; margin: 0 0 22px; }
+  h2 { font-size: 1.6rem; font-weight: 800; line-height: 1.3; margin: 56px 0 20px; }
+  h3 { font-size: 1.3rem; font-weight: 800; margin: 40px 0 18px; }
+  .eyebrow { color: var(--muted); font-size: 1rem; }
+  .punch { color: #fff; font-weight: 800; font-size: 1.25rem; line-height: 1.45; }
+  .shot {
+    margin: 32px 0; padding: 46px 20px; text-align: center;
+    border: 2px dashed var(--line); border-radius: 14px; background: var(--panel);
+    color: var(--dim); font-size: .9rem; line-height: 1.6;
+  }
+  .shot.tall { padding: 78px 20px; }
+  .shots { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
+  .shots .shot { margin: 0; }
+  ul.discoveries { margin: 0 0 30px; padding: 0 20px 0 0; border-right: 2px solid rgba(34,195,251,.5); list-style: none; }
+  ul.discoveries li { color: #d6d9dc; margin-bottom: 12px; }
+  .rule {
+    display: flex; gap: 12px; align-items: flex-start;
+    border: 1px solid var(--line); border-radius: 12px; background: var(--panel);
+    padding: 16px; margin-bottom: 12px; color: #e6e8ea;
+  }
+  .rule b { color: var(--blue); }
+  .card { border: 1px solid var(--line); border-radius: 14px; background: var(--panel); padding: 20px; margin-bottom: 16px; }
+  .card h4 { margin: 0 0 8px; color: var(--blue); font-size: 1.1rem; }
+  .card p { margin: 0; font-size: .98rem; }
+  .bonus { border-color: rgba(34,195,251,.3); background: rgba(34,195,251,.05); }
+  .tag {
+    display: inline-block; margin-right: 8px; padding: 2px 10px; border-radius: 999px;
+    background: rgba(34,195,251,.18); color: var(--blue); font-size: .75rem; font-weight: 800;
+  }
+  .guarantee { border: 1px solid var(--line); border-radius: 18px; background: var(--panel); padding: 26px; text-align: center; margin: 48px 0; }
+  .guarantee h3 { margin-top: 0; }
+  .price {
+    border: 1px solid rgba(34,195,251,.4); border-radius: 18px; background: rgba(34,195,251,.05);
+    padding: 32px; text-align: center; margin: 32px 0;
+  }
+  .price .was { color: var(--dim); text-decoration: line-through; font-size: 1.4rem; margin: 0 0 4px; }
+  .price .now { color: var(--blue); font-size: 3.4rem; font-weight: 800; line-height: 1; margin: 0; }
+  .price .alt { color: #d6d9dc; margin: 10px 0 0; }
+  form { display: grid; gap: 12px; }
+  input {
+    width: 100%; padding: 16px; font-family: inherit; font-size: 1.05rem;
+    color: #fff; background: rgba(255,255,255,.05);
+    border: 1px solid var(--line); border-radius: 12px; outline: none;
+  }
+  input::placeholder { color: #6b7177; }
+  input:focus { border-color: var(--blue); }
+  button.cta {
+    width: 100%; padding: 20px 16px; border: 0; border-radius: 12px; cursor: pointer;
+    background: var(--blue); color: #001018; font-family: inherit; font-size: 1.15rem;
+    font-weight: 800; line-height: 1.3;
+  }
+  button.cta:disabled { opacity: .6; cursor: default; }
+  .reassure { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: center; margin-top: 18px; color: var(--dim); font-size: .9rem; }
+  .discreet { text-align: center; color: var(--muted); font-size: .92rem; margin-bottom: 20px; }
+  .error { color: #ff6b6b; text-align: center; font-size: .95rem; margin: 0; }
+  .existing { border: 1px solid rgba(34,195,251,.4); border-radius: 18px; background: var(--panel); padding: 26px; text-align: center; }
+  .existing a {
+    display: inline-block; margin-top: 14px; padding: 16px 32px; border-radius: 12px;
+    background: var(--blue); color: #001018; font-weight: 800; text-decoration: none;
+  }
+  .existing button { margin-top: 14px; background: none; border: 0; color: var(--dim); text-decoration: underline; cursor: pointer; font-family: inherit; font-size: .9rem; }
+  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); text-align: center; color: #555b60; font-size: .8rem; }
+  footer a { color: #555b60; }
+  .sticky {
+    position: sticky; bottom: 0; z-index: 10; padding: 10px 14px;
+    background: rgba(0,0,0,.95); border-top: 1px solid var(--line);
+    backdrop-filter: blur(8px);
+  }
+  .sticky button { width: 100%; padding: 16px; border: 0; border-radius: 12px; background: var(--blue); color: #001018; font-family: inherit; font-size: 1rem; font-weight: 800; cursor: pointer; }
+  @media (min-width: 640px) {
+    body { font-size: 19px; }
+    h1 { font-size: 2.5rem; }
+    .sticky { display: none; }
+  }
+  @media (max-width: 480px) { .shots { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
-  <main>
-    <div class="badge">בבנייה</div>
-    <h1>בקרוב<span>.</span></h1>
-    <p>דף הנחיתה נמצא בהקמה. האחסון והדומיין כבר מחוברים — נשאר רק להעלות את הדף.</p>
-    <footer>מיסטר</footer>
-  </main>
+<main>
+  <p class="eyebrow">
+    בעידן שבו כל בחורה 6/10 תופסת תחת כאילו היא עדי הימלבלוי, מיסטר קונפשנס, שעומד מאחורי קהילת
+    הווידויים הכי גדולה בארץ, חושף את האמת האפלה על המוח הנשי:
+  </p>
+
+  <h1>
+    "מה גרם למעל 400 בחורות במדינת ישראל לכתוב לי שהן חרמניות עלי בלי שהן יודעות איך אני נראה,
+    ואיך כל גבר שנראה ממוצע לגמרי יכול להתכתב ולחרמן בחורות בהודעות טקסט בלבד?"
+  </h1>
+
+  <p>
+    כבר מסדרת התכתבות של 5-10 הודעות שאתה יכול לשלוח לה כבר מהיום, גם אם אין לך פרופיל אינסטגרם
+    או טינדר של דוגמן.
+  </p>
+
+  <div class="shot">החץ המפורסם של ניב</div>
+
+  <p>
+    לא, זה לא עוד קורס של אמן פיקאפ עם טכניקות משנות ה-90 על משפטי פתיחה קיטשיים ומטרידים.
+    זה על מה שקורה במוח של הבחורה בשניות הראשונות שהיא קוראת את ההודעה הראשונה שלך, ומה שגורם לה
+    לשלוח הודעות כאלו לגברים שהיא לא מכירה.
+  </p>
+
+  <div class="shot tall">צילומי מסך של ניודס איכותי שאותן בנות אהובות וחסודות שלחו</div>
+
+  <p class="punch">אם בכל פעם שאתה מתכתב עם בחורות הן עונות לך במילה אחת…</p>
+
+  <p>
+    "חחח" ו-"כן" זה לא בגלל שאתה לא 'הטייפ' שלהן, ולא בגלל שאתה לא 1.90 עם קוביות בבטן ואין לך
+    קו לסת מרשים.
+  </p>
+  <p>
+    אם היה לכם מאץ' והיא הביאה לך את המספר וענתה להודעה שלך — זה אומר שהיא אהבה את מה שהיא ראתה.
+  </p>
+
+  <p class="punch">הבעיה שלך היא מה שקורה אחר כך…</p>
+
+  <p>היא ראתה את ההודעה, קראה אותה בשנייה וחצי, ובאותה שנייה וחצי היא דמיינה קול של גבר מקריא אותה.</p>
+  <p>
+    לא הקול שלך — היא עדיין לא מכירה את הקול שלך. היא שמעה אותה באותו קול של "עוד הזוי" שהיא שמעה
+    מ-15 גברים אחרים ששלחו לה הודעה באותו יום.
+  </p>
+  <p>
+    בגלל זה היא עונה לך במילה אחת, אומרת לך 'אני אעדכן אותך', או שהיא נעלמת ואתה לא מבין מה עשית
+    לא נכון.
+  </p>
+  <p>
+    אבל החדשות הטובות הן שאתה יכול לשנות את הקול שהיא שומעת — כמו כל הבחורות האלו ששומעות את הקול
+    שלי בצורה שונה.
+  </p>
+
+  <div class="shots">
+    <div class="shot">צילום מסך 1</div>
+    <div class="shot">צילום מסך 2</div>
+    <div class="shot">צילום מסך 3</div>
+    <div class="shot">צילום מסך 4</div>
+  </div>
+
+  <p style="margin-top:32px">
+    הן מתחננות שאזיין אותן למרות שהן לא מכירות אותי, מדברות אליי מלוכלך ומספרות לי שהן ליטרלי
+    רטובות מרוב שאני סקסי.
+  </p>
+
+  <p class="punch">
+    ורגע לפני שאתה חושב שאני צ'אד מטר 1.88 עם קוביות בבטן, ושובר לבבות סדרתי שמאז התיכון בחורות
+    נופלות לרגליו —
+  </p>
+
+  <p>
+    זה הכי רחוק מהאמת. אני מטר 1.70, יש לי פרצוף ממוצע לגמרי, וכנראה שאם הייתי עובר ברחוב בחורות
+    לא היו מסובבות את הראש כדי להסתכל עליי.
+  </p>
+
+  <div class="shot">תמונה מטושטשת של הפרצוף של מיסטר</div>
+
+  <p>
+    אבל בגלל שאני יודע איך לגרום לה לשמוע את הקול שלי בראש שלה כמו שאני רוצה, היא לא שומעת קול
+    נואש וחלש כמו שהיא רגילה לשמוע משאר הגברים. היא שומעת קול שגורם לה להיות חרמנית, להרגיש שובבה,
+    עד שהיא שולחת לי ניודס בעצמה.
+  </p>
+
+  <p class="punch">זה רק בגלל שאני מכיר את המוח הנשי יותר טוב מהן.</p>
+
+  <p>
+    ויש דרך להבין איך להדליק את מתג המשיכה של בחורות ולגרום להן לראות בך משהו מיני תוך כמה דקות
+    מרגע שאתם מתכתבים, לחרמן אותה ולגרום לה לפתח אלייך אובססיה ולרצות להיכנס איתך למיטה. וזה שיפט
+    שאתה יכול לעשות כבר מההודעה הבאה שאתה שולח לה.
+  </p>
+  <p>אני יודע שזה נשמע כמו הבטחה גדולה מאוד, אז תקרא את הדף הקצר הזה מילה במילה עד הסוף.</p>
+
+  <h2>קוראים לי מיסטר קונפשנס, ויש לי את קהילת הווידויים הכי גדולה במדינת ישראל</h2>
+
+  <p>
+    לפני יותר מחמש שנים פתחתי עמוד באינסטגרם שבו אנשים מתוודים באנונימי על מה שהם לא מספרים לאף
+    אחד. היום זו קהילת המיניות הכי גדולה בישראל: מעל 60 אלף עוקבים, וכ-10 מיליון צפיות בחודש.
+  </p>
+  <p>
+    יש לי פודקאסט שבו ישבתי מול גניקולוג, מול יוצרת אונליפאנס ומול מלכת BDSM, ודיברנו על כל מה
+    שלא לימדו אותך בבית הספר.
+  </p>
+
+  <p class="punch">
+    ולמרות שבחורות תופסות ממני אליל מין ומתחרמנות מהקול שלי — שנים הייתי הגבר הזה שבחורות לא
+    רואות בו משהו מיני, למרות שעשיתי כל מה שבחורות אמרו שהן רוצות.
+  </p>
+
+  <p>
+    מקשיב להן שעות עד שהיינו מגיעים לשיחות על האקסים שלהן. מכבד, תקשורתי, פתוח ותמיד זמין להן.
+    אבל בסוף היום מוצא את עצמי עם היד עמוק במכנסיים.
+  </p>
+  <p>
+    לא הבנתי איך זה הגיוני שהן אומרות שהן רוצות גבר מכיל ורגיש, אבל הולכות עם הערסים והדושים שלא
+    סופרים אותן.
+  </p>
+
+  <p class="punch">הפכתי לאובססיבי…</p>
+
+  <p>
+    רציתי לגרום לבחורות להימשך אליי בחזרה, להסתכל עליי באותה תשוקה שאני מסתכל עליהן, לפנטז עליי,
+    ולרצות לשכב איתי בזמן שאני מסתכל להן בעיניים.
+  </p>
+  <p>
+    ומה שגיליתי בחודשים הבאים היה מטורף. כל החיים האמנתי במיתוס שנשים לא אוהבות סקס, ושבחורה עושה
+    לך טובה כשהיא שוכבת איתך. אבל אז גיליתי:
+  </p>
+
+  <ul class="discoveries">
+    <li>שהספר "חמישים גוונים של אפור" הרטיב מיליוני נשים בכל העולם.</li>
+    <li>שתעשיית הוויברטורים היא תעשייה של 15 מיליארד דולר בשנה.</li>
+    <li>שרוב הספרים האירוטיים רבי המכר באמזון הם סיפורים על בחורה תמימה שנלקחת על ידי גבר חזק וחסון.</li>
+  </ul>
+
+  <p class="punch">ומה שגיליתי זה שנשים לא רק אוהבות סקס — הן מתות עליו.</p>
+
+  <p>
+    בחורות היום מסתובבות כל יום חרמניות בטירוף, מפנטזות על סקס הרבה יותר מאיתנו הגברים, ומחכות
+    לרגע שיגיע הגבר הנכון ויגשים להן את הפנטזיות המלוכלכות שלהן.
+  </p>
+
+  <div class="shot tall">צילומי מסך של הודעות שבחורות שולחות למיסטר</div>
+
+  <p class="punch">"אם בחורות כאלו חרמניות, למה אני לא מזיין כל לילה בחורה אחרת?"</p>
+
+  <p>
+    זה בגלל שלא משנה כמה בחורה משתוקקת למגע של גבר וכמה היא רוצה שהוא יגשים לה את הפנטזיות הכי
+    אפלות שלה — היא לא תעיז להודות בזה בפני אף גבר.
+  </p>
+  <p>
+    בגלל שהיא מפחדת מדחייה ומתביישת. לימדו בחורות שרק 'שרמוטות' רוצות סקס לוהט וחייתי עם גבר,
+    שהיא צריכה להסתיר את זה שבא לה ולהיות ילדה טובה. אז היא מסתירה את הרצון הזה עמוק בפנים.
+  </p>
+  <p>
+    אבל גם ל'ילדות הכי טובות' שמתביישות יש שפה נסתרת של תשוקה שרוב הגברים לא מבינים אותה. מילות
+    קסם ותיאורים שמשחררים את הדמיון שלה וגורמים לה להיות שובבה ומשוחררת — עד שהיא תחשוב שזה היה
+    רעיון שלה להיות חרמנית עליך.
+  </p>
+
+  <p class="punch">לא גיליתי את זה במקרה.</p>
+
+  <p>
+    במשך 5 שנים העליתי מאות ווידויים אנונימיים, והתכתבתי עם מאות בנות שהחליקו ל-DM שלי וסיפרו לי
+    את הפנטזיות הכי כמוסות שלהן: מה מעורר ומדליק אותן, אילו מילים פוגעות במרכזי העונג שלהן
+    וגורמות להן לקרוא את ההודעות שלי בטון שאני רוצה.
+  </p>
+
+  <div class="shot">עוד צילומי מסך של הודעות</div>
+
+  <h2>זה לא רק כוח. זו אחריות.</h2>
+
+  <p>
+    ברגע שתדע לגרום לבחורה לקרוא את ההודעות שלך בקול שאתה רוצה, היא תפתח לך דלת שהיא לא פותחת
+    לאף אחד. ולכן יש שני כללים שאתה חייב להקפיד עליהם:
+  </p>
+
+  <div class="rule"><b>1</b><span>מה שהיא שלחה נשאר אצלך. לא מעבירים, לא מצלמים מסך, לא מראים לחבר'ה.</span></div>
+  <div class="rule"><b>2</b><span>רק בגירים. אתה והיא, 18 ומעלה — גם אחרי שנגמר הקשר.</span></div>
+
+  <p style="margin-top:22px">גבר ששומר על הכללים האלה הוא בדיוק הגבר שהיא סומכת עליו מספיק כדי לשלוח לו.</p>
+
+  <h2>אז הנה העסקה.</h2>
+
+  <p>
+    הידע כאן הוא תוצאה של יותר מחמש שנים שבהן נשים כתבו לי באנונימי את מה שהן לא מספרות לאף גבר.
+    מה מדליק אותן, למי הן שלחו, ולמה דווקא לו.
+  </p>
+  <p>
+    זה לא קורס שבו אני אומר לך לשנות את מי שאתה, וזה גם לא אוסף משפטים להעתיק — כי אלה נשמעים
+    בדיוק כמו "עוד הזוי". זה מדריך הפעלה לאיבר המין הכי חשוב של הבחורה: הדמיון שלה.
+  </p>
+
+  <p style="text-align:center;color:#9aa0a6;margin-top:48px">אז אני סופר מתרגש להציג בפנייך את:</p>
+  <h2 style="text-align:center;color:var(--blue);font-size:2.6rem;margin-top:0">"הניודס הראשון שלי"</h2>
+
+  <div class="shot tall">מוקאפ של הקורס</div>
+
+  <p class="punch" style="text-align:center">
+    15 שיעורים קצרים שיראו לך איך כל גבר שנראה ממוצע לגמרי יכול להתכתב ולחרמן בחורות בהודעות
+    טקסט בלבד
+  </p>
+
+  <h3>והנה רק טעימה ממה שאתה הולך לגלות:</h3>
+
+  <div class="card">
+    <h4>קוד הפריים</h4>
+    <p>למה היא מייבשת אותך עוד לפני שאמרת משהו מיני, ו-4 הטעויות ה"מנומסות" שמחסלות משיכה (אתה עושה לפחות שתיים מהן. כולם עושים). תזהה את עצמך בשיעור הראשון — ותפסיק באותו ערב.</p>
+  </div>
+  <div class="card">
+    <h4>הפתיחה שהיא לא מסוגלת להתעלם ממנה</h4>
+    <p>15 פתיחות לפי סיטואציה: סטורי, טינדר, מישהי שאתה כבר מכיר. בלי "היי מה קורה" ובלי להישמע כמו עוד אחד מה-15 שכתבו לה היום.</p>
+  </div>
+  <div class="card">
+    <h4>מד החום של מיסטר</h4>
+    <p>המערכת שמגלה לך בדיוק באיזו טמפרטורה היא עכשיו: קרה, מתחממת או רותחת. 12 תרחישים אמיתיים וטבלת החלטות. תפסיק לנחש "אם זה הרגע" — תדע. זה השיעור שיחסוך לך את כל ההודעות שאתה מוחק ומקליד מחדש ב-23:00.</p>
+  </div>
+  <div class="card">
+    <h4>להדליק את הדמיון שלה</h4>
+    <p>הטיזינג, המשיכה-דחיפה, וההודעות שנגמרות שנייה לפני הפואנטה — כך שהיא משלימה את התמונה לבד בראש. אתה לא כותב כלום בוטה; היא זאת שהופכת את השיחה למינית.</p>
+  </div>
+  <div class="card">
+    <h4>קוד הביטחון</h4>
+    <p>הסיבה האמיתית שהיא לא שולחת גם כשבא לה, ואיך משדרים לה "אתה כספת" בלי להגיד אף מילה על דיסקרטיות. זאת החוגה שכל המרימים שוברים — ולמה להם היא שולחת פעם אחת ונעלמת, ולך שוב ושוב.</p>
+  </div>
+  <div class="card">
+    <h4>היא שלחה. מה עכשיו?</h4>
+    <p>מה עונים בעשר הדקות הקריטיות אחרי (ומה אסור בשום פנים ואופן), כך שניודס אחד הופך לדינמיקה קבועה — ולא לרגע מביך שהיא מתחרטת עליו.</p>
+  </div>
+  <div class="card">
+    <h4>מהמסך למיטה</h4>
+    <p>איך מזמינים אותה בלי למרוח שבועות, מה עונים ל"נראה", ואיך מביאים את אותה אנרגיה מההתכתבות לדייט עצמו. כי ניודס זה לא קו הסיום — זה שער הכניסה.</p>
+  </div>
+
+  <h3>וזה לא הכל. מי שנכנס היום מקבל גם:</h3>
+
+  <div class="card bonus">
+    <h4>כספת ההתכתבויות של מיסטר <span class="tag">בשווי 197₪ · במתנה</span></h4>
+    <p>20 התכתבויות אמיתיות מפורקות לעומק — מה הוא כתב, מה היא ענתה, איפה הוא כמעט הרס, ומה הפך את זה. ועוד 30 דוגמאות קצרות לתרגול מהיר. לקרוא מעבר לכתף של גברים שהיא כבר שלחה להם.</p>
+  </div>
+  <div class="card bonus">
+    <h4>מילון 25 ההודעות המקררות <span class="tag">בשווי 97₪ · במתנה</span></h4>
+    <p>ההודעות שמורידות את הטמפרטורה לאפס בשנייה — ומה כותבים במקום. תזהה את עצמך לפחות בחמש מהן.</p>
+  </div>
+
+  <div class="guarantee">
+    <h3>100% נסיעת מבחן — 14 יום</h3>
+    <p>
+      אם צפית בכל הקורס, עברת את אתגר 14 הימים ויישמת על שיחות אמיתיות, ולא ראית שינוי באיך
+      שבחורות עונות לך — שלח הודעה קצרה ל־<a href="mailto:bhcua741852@gmail.com" style="color:var(--blue)">bhcua741852@gmail.com</a>
+      ותקבל החזר כספי מלא.
+    </p>
+    <p style="margin:0;font-weight:800;color:#e6e8ea">
+      בלי שאלות, בלי פרצופים, בלי אותיות קטנות. אם זה לא עבד לך, לא מגיע לי הכסף שלך.
+    </p>
+  </div>
+
+  <h3>כמה תכל'ס זה עולה?</h3>
+
+  <p>
+    ליווי אישי איתי, בתוכנית ART OF MISTER, עולה לא פחות מ-5,900 ₪. ותכל'ס? יכולתי לגבות על הקורס
+    הזה 497 ₪ וזה עדיין היה שווה לך את הכסף.
+  </p>
+  <p>
+    אבל יש לי רק 24 שעות ביממה, ואני לא יכול לשבת עם כל גבר בישראל על הוואטסאפ שלו. לקחתי את מה
+    שאני מלמד בליווי האישי וארזתי אותו לקורס דיגיטלי שאתה עובר לבד, בזמן שלך. וזה מה שמאפשר לי
+    לחסוך 90% מהעלויות ולהוריד לך את המחיר.
+  </p>
+
+  <div class="price">
+    <p class="was">497 ₪</p>
+    <p class="now"><span id="price">197</span> ₪</p>
+    <p class="alt" id="installments" hidden></p>
+  </div>
+
+  <div id="form-area">
+    <p>
+      כדי לקבל גישה ל"הניודס הראשון שלי", תשאיר פרטים בטופס, תאשר תשלום — והקורס, הכספת והמילון
+      יחכו לך בחשבון שלך.
+    </p>
+
+    <p class="discreet">🔒 חיוב דיסקרטי. בפירוט האשראי לא מופיע שם המוצר.</p>
+
+    <form id="lead-form" novalidate>
+      <input id="name" name="name" required autocomplete="name" placeholder="השם שלך">
+      <input id="email" name="email" required type="email" autocomplete="email" placeholder="המייל שלך" dir="ltr" style="text-align:right">
+      <input id="phone" name="phone" required type="tel" autocomplete="tel" placeholder="טלפון">
+      <p class="error" id="error" hidden></p>
+      <button class="cta" type="submit" id="submit">מיסטר, תראה לי איך לחרמן אותה בהודעות</button>
+    </form>
+
+    <div class="existing" id="existing" hidden>
+      <h3 style="margin-top:0">המייל הזה כבר רשום אצלנו</h3>
+      <p style="margin:0">תתחבר לחשבון הקיים שלך ונמשיך ישר לתשלום — העגלה כבר מחכה.</p>
+      <a id="login-link" href="#">התחבר והמשך לרכישה</a>
+      <br>
+      <button type="button" id="back-to-form">זה לא המייל שלי, תן לי לתקן</button>
+    </div>
+
+    <div class="reassure">
+      <span>✓ גישה מיידית</span>
+      <span>✓ 14 יום החזר כספי</span>
+      <span>✓ חיוב דיסקרטי</span>
+    </div>
+  </div>
+
+  <footer>
+    <p style="margin:0 0 8px">התוכן מיועד לבני 18 ומעלה.</p>
+    <a href="https://mister.cyou/terms">תקנון ותנאי שימוש</a>
+  </footer>
+</main>
+
+<div class="sticky">
+  <button type="button" id="sticky-cta">אני רוצה את הקורס — <span id="sticky-price">197</span> ₪</button>
+</div>
+
+<script>
+(function () {
+  // הדף סטטי, אבל המחיר והפריסה מגיעים מהמערכת — כדי שלא תהיה סתירה בין מה
+  // שכתוב כאן לבין מה שגובים בצ'קאאוט.
+  var SUPABASE_URL = 'https://ffdzmgpnyfuoloirwfwg.supabase.co';
+  var ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmZHptZ3BueWZ1b2xvaXJ3ZndnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg5NjMzMDksImV4cCI6MjA2NDUzOTMwOX0.JUPm1zBYo-gPJjajcXVgeqeNNhtq4nkJU0vLdq-CU4Y';
+  var SLUG = 'first-nudes';
+
+  var form = document.getElementById('lead-form');
+  var submit = document.getElementById('submit');
+  var errorBox = document.getElementById('error');
+  var existing = document.getElementById('existing');
+
+  fetch(SUPABASE_URL + '/rest/v1/rpc/get_academy_course_offer', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', apikey: ANON_KEY },
+    body: JSON.stringify({ p_slug: SLUG })
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (offer) {
+      if (!offer || !offer.price) return;
+      document.getElementById('price').textContent = offer.price;
+      document.getElementById('sticky-price').textContent = offer.price;
+      if (offer.installments_count > 1 && offer.installment_amount) {
+        var line = document.getElementById('installments');
+        line.textContent = 'או ' + offer.installments_count + ' תשלומים של ' + offer.installment_amount + ' ₪';
+        line.hidden = false;
+      }
+    })
+    .catch(function () { /* המחיר שבדף נשאר כפי שהוא */ });
+
+  document.getElementById('sticky-cta').addEventListener('click', function () {
+    document.getElementById('form-area').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.getElementById('name').focus({ preventScroll: true });
+  });
+
+  document.getElementById('back-to-form').addEventListener('click', function () {
+    existing.hidden = true;
+    form.hidden = false;
+  });
+
+  function utm(key) {
+    return new URLSearchParams(location.search).get(key) || '';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorBox.hidden = true;
+    submit.disabled = true;
+    submit.textContent = 'רגע…';
+
+    fetch(SUPABASE_URL + '/functions/v1/academy-funnel', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        slug: SLUG,
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        page_url: location.href,
+        utm_source: utm('utm_source'),
+        utm_medium: utm('utm_medium'),
+        utm_campaign: utm('utm_campaign'),
+        utm_content: utm('utm_content'),
+        utm_term: utm('utm_term')
+      })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (!data || !data.success) {
+          throw new Error((data && data.error) || 'שגיאה');
+        }
+        if (data.account_exists) {
+          document.getElementById('login-link').href = data.login_url;
+          form.hidden = true;
+          existing.hidden = false;
+          return;
+        }
+        location.href = data.checkout_url;
+      })
+      .catch(function (err) {
+        errorBox.textContent = err.message || 'משהו נתקע. נסה שוב.';
+        errorBox.hidden = false;
+      })
+      .then(function () {
+        submit.disabled = false;
+        submit.textContent = 'מיסטר, תראה לי איך לחרמן אותה בהודעות';
+      });
+  });
+})();
+</script>
 </body>
 </html>

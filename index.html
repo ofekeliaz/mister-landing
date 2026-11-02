@@ -89,12 +89,6 @@
   .reassure { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: center; margin-top: 18px; color: var(--dim); font-size: .9rem; }
   .discreet { text-align: center; color: var(--muted); font-size: .92rem; margin-bottom: 20px; }
   .error { color: #ff6b6b; text-align: center; font-size: .95rem; margin: 0; }
-  .existing { border: 1px solid rgba(34,195,251,.4); border-radius: 18px; background: var(--panel); padding: 26px; text-align: center; }
-  .existing a {
-    display: inline-block; margin-top: 14px; padding: 16px 32px; border-radius: 12px;
-    background: var(--blue); color: #001018; font-weight: 800; text-decoration: none;
-  }
-  .existing button { margin-top: 14px; background: none; border: 0; color: var(--dim); text-decoration: underline; cursor: pointer; font-family: inherit; font-size: .9rem; }
   footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); text-align: center; color: #555b60; font-size: .8rem; }
   footer a { color: #555b60; }
   .sticky {
@@ -401,14 +395,6 @@
       <button class="cta" type="submit" id="submit">מיסטר, תראה לי איך לחרמן אותה בהודעות</button>
     </form>
 
-    <div class="existing" id="existing" hidden>
-      <h3 style="margin-top:0">המייל הזה כבר רשום אצלנו</h3>
-      <p style="margin:0">תתחבר לחשבון הקיים שלך ונמשיך ישר לתשלום — העגלה כבר מחכה.</p>
-      <a id="login-link" href="#">התחבר והמשך לרכישה</a>
-      <br>
-      <button type="button" id="back-to-form">זה לא המייל שלי, תן לי לתקן</button>
-    </div>
-
     <div class="reassure">
       <span>✓ גישה מיידית</span>
       <span>✓ 14 יום החזר כספי</span>
@@ -437,7 +423,6 @@
   var form = document.getElementById('lead-form');
   var submit = document.getElementById('submit');
   var errorBox = document.getElementById('error');
-  var existing = document.getElementById('existing');
 
   fetch(SUPABASE_URL + '/rest/v1/rpc/get_academy_course_offer', {
     method: 'POST',
@@ -460,11 +445,6 @@
   document.getElementById('sticky-cta').addEventListener('click', function () {
     document.getElementById('form-area').scrollIntoView({ behavior: 'smooth', block: 'center' });
     document.getElementById('name').focus({ preventScroll: true });
-  });
-
-  document.getElementById('back-to-form').addEventListener('click', function () {
-    existing.hidden = true;
-    form.hidden = false;
   });
 
   function utm(key) {
@@ -498,12 +478,7 @@
         if (!data || !data.success) {
           throw new Error((data && data.error) || 'שגיאה');
         }
-        if (data.account_exists) {
-          document.getElementById('login-link').href = data.login_url;
-          form.hidden = true;
-          existing.hidden = false;
-          return;
-        }
+        // תמיד לצ'קאאוט. לקוח קיים מזדהה שם בחלון קטן, בלי לעזוב את התהליך.
         location.href = data.checkout_url;
       })
       .catch(function (err) {

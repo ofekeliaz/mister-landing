@@ -1,417 +1,1527 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>הניודס הראשון שלי — מיסטר קונפשנס</title>
 <meta name="description" content="15 שיעורים קצרים: איך גבר שנראה ממוצע לגמרי מחרמן בחורות בהודעות טקסט בלבד.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="הניודס הראשון שלי — מיסטר קונפשנס">
 <meta property="og:description" content="מה גרם למעל 400 בחורות לכתוב לי שהן חרמניות עלי בלי שהן יודעות איך אני נראה.">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/rubik-900-hebrew.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/rubik-400-hebrew.woff2" crossorigin>
 <style>
-  :root {
-    --bg: #000;
-    --fg: #fff;
-    --muted: #9aa0a6;
-    --dim: #6b7177;
-    --line: rgba(255,255,255,.12);
-    --panel: rgba(255,255,255,.035);
-    --blue: #22c3fb;
+@font-face{font-family:'Assistant';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/assistant-400-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/assistant-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/assistant-500-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/assistant-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/assistant-600-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/assistant-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/assistant-700-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/assistant-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/assistant-800-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/assistant-800-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:300;font-display:swap;src:url(assets/fonts/rubik-300-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:300;font-display:swap;src:url(assets/fonts/rubik-300-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/rubik-400-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/rubik-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/rubik-500-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/rubik-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/rubik-600-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/rubik-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/rubik-700-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/rubik-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/rubik-800-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/rubik-800-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:900;font-display:swap;src:url(assets/fonts/rubik-900-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:900;font-display:swap;src:url(assets/fonts/rubik-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+</style>
+<style>
+  :root{
+    --gold:#e0952f; --gold-deep:#bd7716; --gold-soft:#fdf3e4;
+    --purple:#1683d6;        /* brand accent = Mister's blue */
+    --purple-deep:#0a2540;   /* deep navy for headings/emphasis */
+    --purple-soft:#e9f4fd;
+    --green:#61ce70; --green-deep:#4bb85a;
+    --ink:#0e141a;           /* dark text on white */
+    --muted:#5a6570;
+    --bg:#ffffff; --panel:#f1f7fc; --panel2:#f7fbfe; --line:#d3e6f5;
+    --accent:#1683d6; --accent-deep:#0a2540;
   }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: Assistant, system-ui, "Segoe UI", Arial, sans-serif;
-    font-size: 18px;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#fff;color:var(--ink);font-family:'Rubik',-apple-system,"Segoe UI","Noto Sans Hebrew",Arial,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:780px;margin:0 auto;background:#fff;overflow:hidden}
+  img{max-width:100%;display:block}
+  /* RULE 18: body paragraphs — generous line-height (~27px) inside, ~65px gap between */
+  p{font-size:17px;color:#000;margin:24px auto;text-align:center;line-height:1.75;max-width:560px}
+  h1,h2,h3{font-family:'Rubik',sans-serif}
+  /* RULE 6: main headlines ALWAYS centered */
+  h1,h2,h3,.bighead,.huge,.big,.lead,.qhead,.modh,.bonh,.price-h,.em{text-align:center}
+  strong,b{font-weight:700;color:#000}
+  /* RULE 18: consistent section padding, first/last margin reset */
+  section{padding:16px 22px}
+  section > :first-child{margin-top:0}
+  section > :last-child{margin-bottom:0}
+  .center{text-align:center}
+  .nm{margin:0}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* ============ TOP BANNER (purple): "כפי שנצפתה ב:" + channel logo strip (RULE 19) ============ */
+  .topbar{background:var(--purple);text-align:center;padding:18px 18px 20px}
+  .topbar .bt{display:block;font-size:19px;font-weight:800;color:#fff;font-family:'Assistant',sans-serif;margin-bottom:14px}
+  .topbar .logos{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;max-width:440px;margin:0 auto}
+  .topbar .logos img{background:#fff;border-radius:8px;padding:7px 11px;max-height:40px;width:auto}
+  /* CSS text-logo badges for outlets with no asset (ערוץ/רשת 13, מעריב) — brand-styled, on white chips */
+  .chan{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:8px;padding:6px 12px;height:40px;line-height:1}
+  .chan.ch13{gap:0}
+  .chan.ch13 b{font-family:'Assistant',sans-serif;font-weight:900;font-size:26px;color:#1683d6;letter-spacing:-1px}
+  .chan.ch13 b span{color:#111}
+  .chan.maariv b{font-family:'Assistant','Times New Roman',serif;font-weight:900;font-size:22px;color:#111;letter-spacing:-.5px}
+  /* subtle greyscale wash so the strip reads as a tasteful "as seen in" row */
+  .topbar .logos img,.topbar .logos .chan{filter:saturate(.85)}
+  /* real "as seen on" logo strip (ynet · מעריב · 13 · לאשה) on the purple topbar */
+  .topbar .logos .logostrip{display:block;width:100%;max-width:440px;margin:2px auto 0;background:none;padding:0;filter:none;max-height:none;border-radius:0}
+
+  /* ============ HERO (white) — clean hierarchy (RULE 18) ============ */
+  .hero{padding:14px 22px;text-align:center}
+  .hero .intro{font-family:'Assistant',sans-serif;font-size:16.5px;font-weight:400;color:#000;line-height:1.5;margin:2px auto 8px;max-width:480px}
+  .hero h1{font-family:'Assistant',sans-serif;font-size:23px;font-weight:900;color:var(--purple-deep);line-height:1.4;margin:0 auto 12px;max-width:400px;text-wrap:balance}
+  .hero .sub{font-family:'Assistant',sans-serif;font-size:18px;font-weight:400;color:#000;margin:0 auto}
+
+  /* green CTA (single line) */
+  .cta-green{display:block;width:100%;max-width:560px;margin:20px auto;background:var(--green);color:#fff;
+     font-weight:900;font-size:17px;text-align:center;padding:16px 16px;border-radius:14px;text-decoration:none;
+     box-shadow:0 5px 0 var(--green-deep);transition:transform .15s}
+  .cta-green:hover{transform:translateY(2px)}
+
+  /* ===== text scale utilities — clear 3-tier hierarchy (RULE 18) ===== */
+  /* TIER 1 heading / TIER 2 subhead-punch / TIER 3 body */
+  .qhead{font-size:25px;font-weight:800;color:var(--purple-deep);margin:0 auto 14px;line-height:1.45}
+  .qbig{font-size:22px;font-weight:500;color:#000;margin:18px auto;line-height:1.55;max-width:540px}
+  .punch{font-size:24px;font-weight:900;color:var(--purple-deep);margin:24px auto 8px;line-height:1.45}
+  /* body copy — line-height 2.25 (~27px), 34px paragraph gap (~65px total rhythm) */
+  .big19{font-size:19px;font-weight:400;color:#000;line-height:1.7;margin:24px auto;max-width:540px}
+  .big20{font-size:20px;font-weight:400;color:#000;line-height:1.6;margin:20px auto;max-width:540px}
+  .big15{font-size:15px;font-weight:400;color:#000;line-height:1.6;margin:18px auto;max-width:540px}
+  .lead18{font-size:19px;font-weight:700;color:#000;margin:0 auto 12px;line-height:1.5}
+  .src12{font-size:13px;font-weight:400;color:#555;margin:0 auto 16px}
+  .quoted{font-size:23px;font-weight:800;color:var(--purple-deep);margin:18px auto;line-height:1.5}
+
+  /* ============ selfie / portrait photos ============ */
+  .selfie{width:60%;max-width:230px;margin:18px auto;border-radius:16px;overflow:hidden;box-shadow:0 10px 26px rgba(10,37,64,.22)}
+  .arrow{width:70px;margin:6px auto 8px;display:block}
+  .photo70{width:70%;max-width:300px;margin:18px auto;border-radius:12px;overflow:hidden}
+  .photo55{width:55%;max-width:230px;margin:16px auto;border-radius:12px;overflow:hidden}
+  .imgc{width:auto;margin:16px auto;border-radius:12px;overflow:hidden}
+  .imgc img{margin:0 auto}
+
+  /* presenter TRANSPARENT cutout — a figure standing up out of the purple section (RULE 8 + 20).
+     no rounded rect / no box / no shadow: just the cutout, lower body hidden behind .emerge top */
+  .presenter{width:47%;max-width:205px;margin:22px auto -40px;position:relative;z-index:1;display:block}
+  /* emerging purple section — its top edge overlaps the cutout's lower body so she rises out of it */
+  .emerge{background:linear-gradient(180deg,#1683d6,#0a2540);color:#fff;margin-top:-40px;padding-top:34px;position:relative;z-index:2}
+  .emerge p,.emerge .lead,.emerge .big19,.emerge .head26,.emerge .punch,.emerge .huge{color:#2a210c}
+  .emerge .lead,.emerge .head26,.emerge .punch,.emerge .huge{color:#241c08}
+  .emerge .profile,.emerge .banner{box-shadow:0 6px 20px rgba(0,0,0,.28)}
+
+  /* DM / screenshot images (real whatsapp shots) framed */
+  .dm{width:70%;max-width:300px;margin:18px auto;border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.14)}
+  .dm.wide{width:86%;max-width:340px}
+
+  /* small proof profile shots */
+  .profile{width:78%;max-width:340px;margin:14px auto;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+  .banner{width:88%;max-width:360px;margin:14px auto;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(10,37,64,.18)}
+  /* Spotify podcast-performance stats image (real proof: 353.5K plays) */
+  .spotify{width:96%;max-width:400px;margin:14px auto;border-radius:12px;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.28)}
+  /* press article about Liri (מעריב) */
+  .article{width:86%;max-width:350px;margin:14px auto;filter:drop-shadow(0 8px 16px rgba(0,0,0,.32))}
+  /* hero result-proof chat (client success) */
+  /* no orphan last lines: let the browser balance what we don't break by hand */
+  .big19,.lead,.lead18,.punch,.quoted,.reveal,.huge,.intro,.modh,.bonh,.stx,
+  .mod-card p,.bon-card p,.guar p,.notice p,.formbox p,.vitem span{text-wrap:pretty}
+  .hero h1,.quoted,.punch,.reveal,.lead{text-wrap:balance}
+  .heroproof{width:96%;max-width:390px;margin:18px auto;border-radius:14px;filter:drop-shadow(0 8px 18px rgba(22,131,214,.28))}
+  /* hero transformation row: before → arrow → after (2 tiles) */
+  .htrans{display:flex;align-items:center;justify-content:center;gap:4px;max-width:400px;margin:16px auto}
+  .htrans .htile{flex:1;aspect-ratio:4/5;border-radius:14px;display:flex;align-items:flex-end;justify-content:center;padding:12px 6px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.22)}
+  .htrans .htile span{font-family:'Assistant',sans-serif;font-weight:900;font-size:15px;line-height:1.2}
+  .htrans .htile.before{background:linear-gradient(160deg,#a1a1a9,#6a6a72)}
+  .htrans .htile.before span{color:#fff}
+  .htrans .htile.after{background:#faf6ea}
+  .htrans .htile.after span{color:#fff}
+  .htrans .harrow{width:30px;flex:0 0 auto;transform:rotate(90deg);filter:brightness(0) saturate(100%) invert(28%) sepia(83%) saturate(3000%) hue-rotate(258deg)}
+  /* hero transformation image (pain-chat → arrow → success-chat) */
+  .htransimg{width:98%;max-width:410px;margin:12px auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.22))}
+
+  /* ===== smartphone mockups: two tilted phones showing her profiles, hand-drawn RED circle on the follower count ===== */
+  .phones{display:flex;justify-content:center;align-items:center;gap:0;max-width:400px;margin:22px auto;position:relative}
+  .phone{position:relative;width:47%;max-width:178px;background:#111;border:1px solid #262626;border-radius:22px;padding:7px;box-shadow:0 12px 30px rgba(0,0,0,.45)}
+  .phone::before{content:"";position:absolute;top:4px;left:50%;transform:translateX(-50%);width:32%;height:4px;border-radius:3px;background:#333;z-index:3}
+  .phone img{width:100%;display:block;border-radius:15px;box-shadow:none}
+  .phone.tilt-r{transform:rotate(-6deg);z-index:2;margin-left:-13px}
+  .phone.tilt-l{transform:rotate(6deg);z-index:1;margin-right:-13px}
+  .phone .rc{position:absolute;pointer-events:none;z-index:5;overflow:visible}
+  .phone .rc .ring{fill:none;stroke:#e11;stroke-width:5;stroke-linecap:round}
+  .phone .rc .arw{fill:none;stroke:#e11;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+  /* per-phone circle placement OVER the follower number (tuned to each screenshot) */
+  .phone.tilt-r .rc{top:30%;left:31%;width:36%;height:22%;transform:rotate(-3deg)}
+  .phone.tilt-l .rc{top:19%;left:27%;width:36%;height:22%;transform:rotate(3deg)}
+  .press-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:560px;margin:14px auto}
+  .press-row .pframe{width:46%;max-width:250px;overflow:hidden;border-radius:12px;box-shadow:0 5px 16px rgba(0,0,0,.14)}
+  .press-row .pframe img{width:100%}
+
+  /* ============ headings / leads (RULE 18 hierarchy) ============ */
+  .lead{font-size:23px;font-weight:900;color:var(--purple-deep);margin:22px auto 8px;line-height:1.45}
+  .big{font-size:20px;font-weight:700;color:#000;margin:16px auto 8px}
+  .huge{font-size:32px;font-weight:700;color:var(--purple-deep);margin:22px auto 12px;line-height:1.35}
+  .head26{font-size:26px;font-weight:700;color:var(--purple-deep);margin:24px auto 10px;line-height:1.4}
+  .head29{font-size:29px;font-weight:700;color:var(--purple-deep);margin:24px auto 12px;line-height:1.4}
+  .underline{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+
+  /* pyramid / mechanism diagrams */
+  .pyr{width:80%;max-width:320px;margin:16px auto;border-radius:10px;overflow:hidden}
+  .pyr-slice{width:70%;max-width:280px;margin:12px auto;border-radius:8px;overflow:hidden}
+
+  /* ============ PURPLE full-bleed sections ============ */
+  .purple{background:linear-gradient(160deg,#1683d6,#0a2540);color:#fff}
+  .purple p,.purple .lead,.purple .big,.purple .huge,.purple .head26,.purple .head29,.purple .big19,.purple h2{color:#fff}
+  .purple .lead,.purple .huge,.purple .head26,.purple .head29,.purple .punch{color:#fff}
+
+  /* soft cream band (lighter than the --purple-soft component tint) */
+  .softp{background:#f1f7fc}
+
+  /* ============ SWITCH before/after — interactive + animated (RULE 22) ============ */
+  .switch-wrap{max-width:560px;margin:8px auto 0}
+  .switch{display:flex;align-items:stretch;justify-content:center;gap:12px;flex-wrap:nowrap}
+  .switch .card{flex:1;border-radius:18px;padding:24px 12px 22px;text-align:center;min-height:200px;position:relative;overflow:hidden;
+     display:flex;flex-direction:column;justify-content:flex-end;gap:10px;cursor:pointer;transition:transform .3s,box-shadow .3s,filter .3s,opacity .3s}
+  .switch .card .emoji{font-size:38px;position:relative;z-index:3}
+  .switch .card .lbl{font-size:17px;font-weight:900;line-height:1.35;position:relative;z-index:3}
+  /* OFF card — grey, desaturated, gloomy rain */
+  .switch .off{background:linear-gradient(180deg,#8f97a3 0%,#5c636e 100%);color:#eef;border:2px solid #7b828d;filter:grayscale(.5)}
+  .switch .off .rain{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+  .switch .off .rain i{position:absolute;top:-20%;width:2px;height:16px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(210,220,235,.75));border-radius:2px;animation:rainfall linear infinite}
+  @keyframes rainfall{0%{transform:translateY(-20px)}100%{transform:translateY(240px)}}
+  /* ON card — purple/hot, fire rising */
+  .switch .on{background:linear-gradient(180deg,var(--purple-deep) 0%,var(--purple) 100%);color:#fff;border:2px solid var(--purple-deep);box-shadow:0 0 26px 4px rgba(22,131,214,.55)}
+  .switch .on .fire{position:absolute;left:0;right:0;bottom:-6px;height:70%;z-index:1;pointer-events:none;overflow:hidden}
+  .switch .on .fire i{position:absolute;bottom:-24px;width:26px;height:26px;border-radius:50% 50% 50% 50%;
+     background:radial-gradient(circle at 50% 35%,#ffe17a,#ff7a18 55%,#e11d1d 80%,rgba(225,29,29,0));filter:blur(3px);animation:flamerise ease-in infinite}
+  @keyframes flamerise{0%{transform:translateY(0) scale(.7);opacity:0}20%{opacity:.95}100%{transform:translateY(-150px) scale(1.25);opacity:0}}
+  /* active/inactive emphasis (JS toggles .active) */
+  .switch .card.active{transform:translateY(-4px) scale(1.02)}
+  .switch .card:not(.active){opacity:.72;filter:grayscale(.35) brightness(.96)}
+  .switch .off.active{box-shadow:0 10px 24px rgba(60,66,75,.4)}
+  /* real sliding toggle knob under the cards */
+  .toggle-row{display:flex;align-items:center;justify-content:center;gap:12px;margin:20px auto 0}
+  .toggle-row .tl{font-size:14px;font-weight:800;color:#7b828d}
+  .toggle-row .tl.hot{color:var(--purple-deep)}
+  .toggle{width:78px;height:38px;border-radius:22px;background:#b9bec7;position:relative;cursor:pointer;flex:0 0 auto;
+     box-shadow:inset 0 2px 6px rgba(0,0,0,.25);transition:background .35s}
+  .toggle.on{background:var(--purple)}
+  .toggle .knob{position:absolute;top:4px;right:4px;width:30px;height:30px;border-radius:50%;background:#fff;
+     box-shadow:0 2px 6px rgba(0,0,0,.35);transition:right .35s cubic-bezier(.6,0,.3,1.4)}
+  .toggle.on .knob{right:44px}
+
+  /* ============ PROGRAM REVEAL — main device mockup ============ */
+  .devmain{width:92%;max-width:380px;margin:22px auto 8px;position:relative}
+  .laptop{background:#1c1c1e;border-radius:16px 16px 0 0;padding:12px 12px 0;box-shadow:0 18px 34px rgba(0,0,0,.3)}
+  .laptop .screen{background:#fff;border-radius:6px;overflow:hidden;aspect-ratio:16/10;display:flex;flex-direction:column}
+  .laptop .band{background:var(--purple);color:#fff;text-align:center;padding:14px 10px;font-size:22px;font-weight:900;font-family:'Assistant',sans-serif;letter-spacing:.5px}
+  .laptop .base{height:14px;background:#2a2a2c;border-radius:0 0 14px 14px;margin:0 -12px;position:relative}
+  .laptop .base::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:70px;height:5px;background:#444;border-radius:0 0 6px 6px}
+  .prog-name{font-size:34px;font-weight:900;color:var(--purple-deep);text-align:center;margin:16px auto 6px;font-family:'Assistant',sans-serif}
+  .prog-desc{font-size:17px;font-weight:400;color:#000;text-align:center;line-height:1.7;max-width:540px;margin:8px auto}
+
+  /* ---- rich device-collage mockup (laptops + phone + tablet + gifts + confetti + ribbon + seal) ---- */
+  .devcollage{position:relative;width:94%;max-width:360px;aspect-ratio:1/1.02;margin:26px auto 30px;overflow:hidden;border-radius:12px}
+  .devcollage img{display:block;max-width:100%}
+  /* laptop frame: dark body + screen + trapezoid keyboard deck (RULE 25) */
+  .dc-lap{position:absolute}
+  .dc-lap .dc-body{background:#1c1c1e;border-radius:9px 9px 0 0;padding:5px 5px 0;box-shadow:0 12px 24px rgba(0,0,0,.34)}
+  .dc-lap .dc-scr{border-radius:4px;overflow:hidden;background:#e3eff9}
+  .dc-lap .dc-scr img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 24%}
+  .dc-lap .dc-band{background:var(--purple);color:#fff;text-align:center;font-family:'Assistant',sans-serif;
+     font-weight:900;line-height:1.15;font-size:9px;padding:4px 3px;letter-spacing:.2px}
+  .dc-lap .dc-base{height:8px;width:126%;margin:0 -13%;background:linear-gradient(#d3d3da,#9a9aa4);
+     border-radius:1px 1px 8px 8px;clip-path:polygon(4% 0,96% 0,100% 100%,0 100%);box-shadow:0 6px 11px rgba(0,0,0,.26);position:relative}
+  .dc-lap .dc-base::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:34%;height:3px;background:#7d7d86;border-radius:0 0 5px 5px}
+  .dc-lap-main{width:50%;left:27%;top:15%;z-index:4}
+  .dc-lap-2{width:33%;left:30%;top:56%;z-index:5;transform:rotate(-5deg)}
+  /* right-side screen (thin-bezel display) */
+  .dc-tablet{position:absolute;width:28%;left:70%;top:25%;z-index:3;background:#1c1c1e;border-radius:8px;
+     padding:4px;box-shadow:0 10px 20px rgba(0,0,0,.32);transform:rotate(4deg)}
+  .dc-tablet img{width:100%;border-radius:4px;aspect-ratio:16/10;object-fit:cover;object-position:center 20%}
+  /* foreground phone (portrait) — presenter */
+  .dc-phone{position:absolute;width:18%;left:45%;top:38%;z-index:7;background:#111;border-radius:12px;
+     padding:3px;box-shadow:0 13px 24px rgba(0,0,0,.38)}
+  .dc-phone img{width:100%;border-radius:9px;aspect-ratio:9/17;object-fit:cover;object-position:52% 22%}
+  .dc-phone::after{content:"";position:absolute;top:5px;left:50%;transform:translateX(-50%);width:26%;height:3px;background:#333;border-radius:3px;z-index:2}
+  /* second phone (right) — WhatsApp-style chat */
+  .dc-phone2{position:absolute;width:17%;left:74%;top:45%;z-index:6;background:#111;border-radius:11px;
+     padding:3px;box-shadow:0 12px 22px rgba(0,0,0,.36);transform:rotate(5deg);overflow:hidden}
+  .dc-phone2 .wa{border-radius:8px;overflow:hidden;aspect-ratio:9/17;background:#e5ddd5;display:flex;flex-direction:column;font-family:'Assistant',sans-serif}
+  .dc-phone2 .wa-top{background:#075e54;color:#fff;font-size:4px;font-weight:700;padding:3px 4px 3px;display:flex;align-items:center;gap:2px}
+  .dc-phone2 .wa-top::before{content:"";width:5px;height:5px;border-radius:50%;background:#cbb}
+  .dc-phone2 .wa-body{flex:1;padding:4px 3px;display:flex;flex-direction:column;gap:3px;
+     background-image:radial-gradient(rgba(0,0,0,.03) 1px,transparent 1px);background-size:6px 6px}
+  .dc-phone2 .wb{max-width:78%;font-size:3.4px;line-height:1.35;padding:2px 3px;border-radius:4px;color:#111;
+     box-shadow:0 1px 1px rgba(0,0,0,.12)}
+  .dc-phone2 .wb.i{align-self:flex-start;background:#fff;border-top-left-radius:1px}
+  .dc-phone2 .wb.o{align-self:flex-end;background:#dcf8c6;border-top-right-radius:1px}
+  /* fan of bonus DOCUMENT sheets (left) */
+  .dc-docs{position:absolute;width:30%;left:3%;top:28%;z-index:6;aspect-ratio:3/4}
+  .docsheet{position:absolute;inset:0;background:#fff;border-radius:4px;overflow:hidden;
+     box-shadow:0 7px 15px rgba(10,37,64,.30);border:1px solid #efe4d0;
+     transform-origin:bottom center}
+  .docsheet .ds-band{background:var(--purple);color:#fff;font-family:'Assistant',sans-serif;font-weight:900;
+     font-size:5.4px;line-height:1.2;text-align:center;padding:4px 3px 3px}
+  .docsheet .ds-lines{padding:5px 6px}
+  .docsheet .ds-lines i{display:block;height:1.4px;border-radius:2px;background:#e8dcc4;margin-bottom:4px}
+  .docsheet .ds-lines i:nth-child(3n){width:64%}
+  .docsheet .ds-ico{position:absolute;bottom:4px;left:50%;transform:translateX(-50%);font-size:9px;line-height:1}
+  /* staggered fan — three title bands visible at different heights */
+  .docsheet.s1{transform:rotate(-12deg) translate(-9%,-4%)}
+  .docsheet.s3{transform:rotate(11deg) translate(12%,-9%)}
+  .docsheet.s2{transform:rotate(-2deg) translateY(9%)}
+  /* metal SAFE / vault (near documents) — CSS-drawn */
+  .dc-safe{position:absolute;width:22%;left:2%;top:60%;z-index:6;aspect-ratio:1/1.02;
+     border-radius:6px;background:linear-gradient(145deg,#4a4d55,#23252b 60%,#15161a);
+     box-shadow:0 10px 20px rgba(0,0,0,.42),inset 0 1px 2px rgba(255,255,255,.18);
+     border:1px solid #0c0d10;transform:rotate(-3deg)}
+  .dc-safe::before{content:"";position:absolute;inset:11%;border-radius:4px;
+     background:linear-gradient(160deg,#3a3d44,#202227);
+     box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),inset 0 2px 6px rgba(0,0,0,.5)}
+  .dc-safe .dial{position:absolute;top:34%;left:38%;width:30%;aspect-ratio:1;border-radius:50%;
+     background:radial-gradient(circle at 38% 34%,#eef0f3,#9aa0a8 55%,#5c6068);
+     box-shadow:0 1px 2px rgba(0,0,0,.5),inset 0 0 0 1.5px rgba(255,255,255,.4);z-index:2}
+  .dc-safe .dial::after{content:"";position:absolute;top:8%;left:47%;width:6%;height:44%;background:#3a3d44;border-radius:2px}
+  .dc-safe .handle{position:absolute;top:36%;left:70%;width:20%;height:8%;border-radius:3px;
+     background:linear-gradient(#dfe2e6,#8b9099);box-shadow:0 1px 2px rgba(0,0,0,.5);z-index:2}
+  .dc-safe .bolt{position:absolute;width:5%;aspect-ratio:1;border-radius:50%;background:radial-gradient(#c9ccd1,#6b6f77);box-shadow:0 1px 1px rgba(0,0,0,.5)}
+  .dc-safe .bolt.b1{top:16%;left:16%}.dc-safe .bolt.b2{top:16%;left:79%}
+  .dc-safe .bolt.b3{top:79%;left:16%}.dc-safe .bolt.b4{top:79%;left:79%}
+  /* decorations — confetti + ribbon live in a clipped backdrop so their tails don't bleed */
+  .dc-back{position:absolute;inset:0;z-index:0;overflow:hidden;border-radius:12px}
+  .dc-confetti{position:absolute;width:88%;left:6%;top:1%;opacity:.8}
+  .dc-ribbon{position:absolute;width:20%;left:52%;top:26%;opacity:.95;transform:rotate(8deg);z-index:2}
+  .dc-gifts{position:absolute;width:23%;left:0%;top:0%;z-index:8;filter:drop-shadow(0 5px 9px rgba(0,0,0,.32))}
+  .dc-seal{position:absolute;width:27%;left:71%;top:0%;z-index:9;filter:drop-shadow(0 4px 8px rgba(0,0,0,.35))}
+
+  /* ============ MODULE cards (purple) + laptop mockup on top (RULE 21) ============ */
+  .mod{margin:20px auto;max-width:560px}
+  .mod>.mod-lap:first-child{margin-top:4px}
+  /* laptop-framed mockup: studio photo + purple brand band with the item title */
+  .mod-lap{width:72%;max-width:280px;margin:46px auto -20px;position:relative;z-index:3;
+     background:#1c1c1e;border-radius:14px 14px 0 0;padding:9px 9px 0;box-shadow:0 16px 30px rgba(0,0,0,.3)}
+  .mod-lap .scr{border:5px solid #1b1b20;border-bottom:none;border-radius:10px 10px 0 0;overflow:hidden;background:#000}
+  .mod-lap .scr img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 26%;display:block}
+  .mod-lap .scr .ph2{margin:0;border-radius:0;border:none;min-height:0;aspect-ratio:16/10;max-width:none;width:100%}
+  .mod-lap .lapband{position:relative;z-index:2;margin-top:-30px;background:var(--purple);color:#fff;text-align:center;padding:7px 8px;font-size:13px;font-weight:900;
+     font-family:'Assistant',sans-serif;line-height:1.25;letter-spacing:.2px}
+  .mod-lap .lbase{height:13px;width:130%;margin:0 -15%;background:linear-gradient(#cfcfd6,#9a9aa4);border-radius:2px 2px 9px 9px;position:relative;clip-path:polygon(4% 0,96% 0,100% 100%,0 100%);box-shadow:0 8px 14px rgba(0,0,0,.22)}
+  .mod-lap .lbase::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:84px;height:5px;background:#7d7d86;border-radius:0 0 7px 7px}
+  .mod-card{background:#fff;border:2px solid var(--gold);border-radius:20px;padding:40px 24px 28px;text-align:center;position:relative;z-index:1}
+  .mod-card .num{display:inline-block;font-size:15px;font-weight:900;color:#fff;background:var(--gold);border-radius:20px;padding:4px 16px;margin-bottom:14px;font-family:'Assistant',sans-serif}
+  .mod-card .modh{font-size:23px;font-weight:900;color:var(--purple-deep);margin:0 auto 14px;line-height:1.35}
+  .mod-card p{font-size:16px;color:var(--ink);line-height:1.7;margin:0 auto 14px;max-width:440px}
+  .mod-card p:last-child{margin-bottom:0}
+
+  /* social-proof collage (Niv style: tilted screenshot pairs) */
+  .qcollage{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:520px;margin:22px auto;align-items:start}
+  .qcollage img{width:100%;display:block;border-radius:13px;background:#fff;
+     box-shadow:0 6px 18px rgba(0,0,0,.16);border:1px solid rgba(176,66,78,.16)}
+  .qcollage img:nth-child(1){transform:rotate(-1.4deg)}
+  .qcollage img:nth-child(2){transform:rotate(1.3deg)}
+  .qcollage img:nth-child(3){transform:rotate(1.1deg)}
+  .qcollage img:nth-child(4){transform:rotate(-1.2deg)}
+  .qcollage .qc-ph{aspect-ratio:3/4;border:2px dashed var(--gold);border-radius:13px;background:var(--panel);
+     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--gold);
+     font-family:'Assistant',sans-serif;font-weight:800;font-size:13px;text-align:center;padding:10px;line-height:1.35}
+  .qcollage .qc-ph:nth-child(1){transform:rotate(-1.4deg)}
+  .qcollage .qc-ph:nth-child(2){transform:rotate(1.3deg)}
+  .qcollage .qc-ph .em{font-size:26px}
+
+  /* ============ BONUS cards (white, purple border) + laptop mockup on top (RULE 21) ============ */
+  .bon{margin:40px auto;max-width:540px}
+  .bon-lap{width:70%;max-width:270px;margin:0 auto -18px;position:relative;z-index:3;
+     background:#1c1c1e;border-radius:14px 14px 0 0;padding:9px 9px 0;box-shadow:0 14px 26px rgba(0,0,0,.26)}
+  .bon-lap .scr{border:5px solid #1b1b20;border-bottom:none;border-radius:10px 10px 0 0;overflow:hidden;background:#000}
+  .bon-lap .scr img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 26%;display:block}
+  .bon-lap .scr .ph2{margin:0;border-radius:0;border:none;min-height:0;aspect-ratio:16/10;max-width:none;width:100%}
+  .bon-lap .lapband{position:relative;z-index:2;margin-top:-30px;background:var(--purple);color:#fff;text-align:center;padding:7px 8px;font-size:12px;font-weight:900;font-family:'Assistant',sans-serif;line-height:1.2}
+  .bon-lap .lbase{height:12px;width:130%;margin:0 -15%;background:linear-gradient(#cfcfd6,#9a9aa4);border-radius:2px 2px 9px 9px;position:relative;clip-path:polygon(4% 0,96% 0,100% 100%,0 100%);box-shadow:0 7px 12px rgba(0,0,0,.2)}
+  .bon-lap .lbase::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:76px;height:5px;background:#7d7d86;border-radius:0 0 7px 7px}
+  .bon-card{background:#fff;border:2px solid var(--purple);border-radius:16px;padding:36px 22px 24px;text-align:center;position:relative;z-index:1;
+     box-shadow:0 4px 16px rgba(22,131,214,.14)}
+  .bon-card .bonh{font-size:22px;font-weight:900;color:var(--purple-deep);margin:0 auto 8px}
+  .bon-card .bsub{font-size:19px;font-weight:800;color:#000;margin:2px auto 12px}
+  .bon-card p{font-size:16px;color:#000;line-height:1.7;margin:0 auto 10px}
+  .bon-card .val{display:block;font-size:16px;font-weight:800;color:var(--purple);margin-top:12px}
+
+  .bintro{font-size:25px;font-weight:900;color:var(--purple-deep);text-align:center;margin:0 auto 8px;line-height:1.4}
+
+  /* ============ GUARANTEE (purple dashed box + seal) ============ */
+  .guar{border:2px dashed var(--purple);border-radius:12px;padding:28px 24px 30px;margin:18px auto;max-width:520px;text-align:center;background:var(--purple-soft)}
+  .guar-h{font-size:23px;font-weight:900;color:var(--purple-deep);text-align:center;margin:6px auto 12px;line-height:1.4}
+  .guar p{font-size:17px;color:#000;line-height:1.75;margin:14px auto}
+  .guar-seal{display:block;width:190px;max-width:58%;margin:2px auto 10px}
+
+  /* ============ PRICE block ============ */
+  .price-h{font-size:30px;font-weight:900;color:var(--purple-deep);margin:22px auto 14px}
+  .bigprice{font-size:40px;font-weight:800;color:#000;text-align:center;margin:12px auto;line-height:1.15}
+  .strike-anim{position:relative;display:inline-block;padding:0 4px}
+  .strike-anim::after{content:"";position:absolute;top:50%;right:0;height:4px;width:100%;transform:translateY(-50%);border-radius:2px;
+     background:linear-gradient(90deg,#e23b3b 0%,#ff9a9a 50%,#e23b3b 100%);background-size:220% 100%;animation:barSweep 2.2s linear infinite}
+  .good-anim{position:relative;display:inline-block;padding-bottom:8px}
+  .good-anim::after{content:"";position:absolute;bottom:0;right:0;height:5px;width:100%;border-radius:3px;
+     background:linear-gradient(90deg,var(--green) 0%,#a4f0b8 50%,var(--green) 100%);background-size:220% 100%;
+     box-shadow:0 1px 7px rgba(97,206,112,.6);animation:barSweep 2.2s linear infinite}
+  @keyframes barSweep{0%{background-position:120% 0}100%{background-position:-120% 0}}
+  .final-h{font-size:24px;font-weight:900;color:var(--purple-deep);text-align:center;margin:22px auto 8px}
+  .now-price{font-size:40px;font-weight:900;color:#111;text-align:center;margin:6px auto;line-height:1.3}
+  .now-price .old{font-size:22px;font-weight:600;color:#444;display:block;margin-bottom:6px}
+  .now-price .good-anim{color:#111}
+  .now-price .pay3{font-size:20px;font-weight:800;color:#111;display:inline-block;margin-top:14px;position:relative;padding-bottom:8px}
+  .now-price .pay3::after{content:"";position:absolute;bottom:0;right:0;height:4px;width:100%;border-radius:3px;background:linear-gradient(90deg,var(--green) 0%,#a4f0b8 50%,var(--green) 100%);box-shadow:0 1px 6px rgba(97,206,112,.55)}
+
+  /* ============ TIMER ============ */
+  .notice{background:#fff;border:2px dashed #111;border-radius:16px;padding:26px 22px 28px;margin:18px auto;max-width:520px;text-align:center}
+  .warn-ic{width:56px;height:56px;border-radius:50%;background:#e23b3b;color:#fff;font-size:34px;font-weight:900;line-height:56px;text-align:center;margin:2px auto 14px;box-shadow:0 6px 16px rgba(226,59,59,.4)}
+  .notice p{margin:8px auto;font-size:17px;line-height:1.6}
+  .timer{display:flex;gap:12px;align-items:stretch;justify-content:center;margin:18px auto 2px;direction:rtl;flex-wrap:wrap}
+  .tbox{background:#fff;border:2px solid var(--purple);border-radius:14px;padding:10px 16px 8px;min-width:66px;display:flex;flex-direction:column;align-items:center;gap:3px;font-family:'Assistant',sans-serif;box-shadow:0 3px 10px rgba(22,131,214,.12)}
+  .tnum{font-size:31px;font-weight:900;color:#111;line-height:1;direction:ltr}
+  .tlbl{font-size:13px;font-weight:600;color:#8a8a8a}
+
+  /* ============ ORDER FORM ============ */
+  .formbox{background:#000;border:3px dashed #fff;border-radius:14px;padding:26px 22px 24px;margin:18px auto;max-width:520px;text-align:center}
+  .formbox p{color:#fff;font-size:16px;margin:6px auto;line-height:1.7}
+  .order{max-width:420px;margin:18px auto 0}
+  .order input[type=email]{width:100%;padding:15px 16px;border:none;border-radius:8px;font-size:16px;font-family:inherit;margin:8px 0;background:#fff;text-align:right}
+  .order .chk{display:flex;align-items:center;gap:8px;justify-content:flex-start;color:#fff;font-size:13px;margin:10px 2px;text-align:right}
+  .consent{display:flex;align-items:flex-start;gap:8px;justify-content:flex-start;color:#fff;font-size:13px;line-height:1.55;margin:14px auto 4px;max-width:430px;text-align:right}
+  .consent input{margin-top:3px;flex:0 0 auto;width:16px;height:16px}
+  .consent a{color:#8fd0ff;text-decoration:underline;text-underline-offset:2px}
+  .secure{font-size:13px;color:#d7e8f6;margin-top:12px}
+  .paylogos{width:98%;max-width:440px;margin:16px auto 2px;display:block}
+  .smalllink{display:block;text-align:center;font-size:14px;color:#333;margin:14px auto 0}
+  .smalllink a{color:#e23b3b;font-weight:700;text-decoration:none}
+
+  /* ============ compact image placeholder (.ph2) ============ */
+  .ph2{width:100%;max-width:300px;min-height:170px;margin:16px auto;background:#f0f6fc;border:2px dashed var(--purple);
+     border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--purple);font-size:14px;font-weight:700;text-align:center;padding:16px}
+  .ph2::before{content:"📷";font-size:34px;opacity:.7}
+
+  /* ============ GLOWING PURPLE FRAME — testimonials / proof / offer (RULE 15) ============ */
+  .glow{border:3px solid var(--purple-deep);border-radius:14px;background:#fff;
+     box-shadow:0 0 0 4px rgba(22,131,214,.15), 0 0 22px 4px rgba(22,131,214,.45)}
+  .offerbox{border:3px solid var(--purple-deep);border-radius:18px;padding:18px 16px 24px;margin:18px auto;max-width:520px;background:#fff;
+     box-shadow:0 0 0 4px rgba(22,131,214,.15), 0 0 26px 5px rgba(22,131,214,.45)}
+  .offerbox > :first-child{margin-top:0}
+
+  /* ===== GLOW CALLOUT — frames a KEY TEXT block (pivot/mechanism/guarantee), NOT plain images (RULE 15) ===== */
+  .glowbox{border:3px solid var(--gold);border-radius:16px;background:#fff;box-shadow:0 0 22px 3px rgba(22,131,214,.24);padding:20px 18px;margin:24px auto 12px;max-width:520px;
+     box-shadow:0 0 0 4px rgba(22,131,214,.15),0 0 24px 4px rgba(22,131,214,.45)}
+  .glowbox > :first-child{margin-top:0}
+  .glowbox > :last-child{margin-bottom:0}
+  .purple .glowbox,.emerge .glowbox{background:rgba(255,255,255,.08);border-color:#fff;box-shadow:0 0 22px 3px rgba(255,255,255,.35)}
+  /* guarantee inside a glowbox: drop its own dashed frame so the glow is the only border */
+  .glowbox .guar{border:none;background:transparent;box-shadow:none;margin:0;padding:0;max-width:none}
+
+  /* ===== NIV HIERARCHY SYSTEM — 3 tiers + focused emphasis (RULE 26, from the Hadar-style pages Niv loves) ===== */
+  .reveal{font-size:27px;font-weight:900;color:var(--purple-deep);line-height:1.4;margin:44px auto 20px;max-width:540px}
+  .reveal.xl{font-size:31px;line-height:1.35}
+  /* .bridge neutralized — Niv: no small-grey connective text; render as normal body (RULE 26 updated) */
+  .bridge{font-size:19px;font-weight:400;color:#000;line-height:1.7;margin:18px auto;max-width:540px}
+  .u{font-weight:800;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+  .hl{color:var(--purple);font-weight:800}
+  .transform{font-size:20px;font-weight:800;color:var(--purple);line-height:1.65;margin:26px auto;max-width:540px}
+  .vlist{max-width:520px;margin:22px auto;display:flex;flex-direction:column;gap:15px;text-align:right}
+  .vitem{display:flex;align-items:flex-start;gap:12px;font-size:18px;font-weight:800;color:#000;line-height:1.45}
+  .vitem .vic{flex:0 0 auto;width:32px;height:32px;border-radius:50%;background:var(--purple-soft);display:flex;align-items:center;justify-content:center;font-size:17px;margin-top:2px}
+  .blkgap{height:26px}
+  .purple .reveal,.emerge .reveal{color:#2a210c}
+  .purple .transform,.emerge .transform,.purple .hl,.emerge .hl{color:var(--gold)}
+  .purple .bridge,.emerge .bridge{color:#fff}
+  .purple .vitem,.emerge .vitem{color:#fff}
+  .purple .vitem .vic,.emerge .vitem .vic{background:rgba(255,255,255,.18)}
+
+  /* ===== NO BLACK-ON-PURPLE — whiten ALL text on full-purple / emerge sections (Niv) ===== */
+  .purple :where(p,span,strong,b,em,li,a,h1,h2,h3,h4,.reveal,.punch,.lead,.lead18,.big,.big15,.big19,.big20,.huge,.head26,.head29,.qhead,.qbig,.quoted,.ask23,.ask25,.modh,.bonh,.bintro,.prog-name,.prog-desc,.prog-paren),
+  .emerge :where(p,span,strong,b,em,li,a,h1,h2,h3,h4,.reveal,.punch,.lead,.lead18,.big,.big15,.big19,.big20,.huge,.head26,.head29,.qhead,.qbig,.quoted,.ask23,.ask25,.modh,.bonh){color:#fff !important}
+  .purple .hl,.purple .transform,.emerge .hl,.emerge .transform{color:var(--gold)}
+  .purple .bridge,.emerge .bridge{color:#fff}
+  /* first-child section headings need top air (Niv: section-top too tight to first text) */
+  section > .lead:first-child,section > .reveal:first-child,section > .head26:first-child,section > .head29:first-child,section > .punch:first-child,section > .huge:first-child{margin-top:24px}
+  /* hanging thong decoration on the "אישה מינית ויצרית" (fire) switch card, top-left diagonal */
+  .switch-wrap{position:relative}
+  .switch-wrap .thong{position:absolute;top:-8px;left:-14px;width:92px;transform:rotate(-18deg);z-index:6;pointer-events:none;filter:drop-shadow(0 6px 9px rgba(0,0,0,.45))}
+
+  /* ============ 2×2 SCREENSHOT COLLAGE — real pain-questions / social-proof (framed, slight scatter) ============ */
+  .qcollage{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:520px;margin:22px auto;align-items:start}
+  .qcollage img{width:100%;display:block;border-radius:13px;background:#fff;
+     box-shadow:0 6px 18px rgba(0,0,0,.16);border:1px solid rgba(22,131,214,.08)}
+  .qcollage img:nth-child(1){transform:rotate(-1.4deg)}
+  .qcollage img:nth-child(2){transform:rotate(1.3deg)}
+  .qcollage img:nth-child(3){transform:rotate(1.1deg)}
+  .qcollage img:nth-child(4){transform:rotate(-1.2deg)}
+
+  /* ============ RED PAIN UNDERLINE — accent on the strongest pain sentences (RESTRAINT) ============ */
+  .painline{background:linear-gradient(#e11,#e11) no-repeat;background-position:0 100%;background-size:100% 4px;
+     padding-bottom:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+  /* ============ HORMONE INFO-PANELS — clean designed cards replacing the AI diagrams (RULE 17) ============ */
+  .hpanel{max-width:470px;margin:22px auto;background:#fff;border:2px solid var(--purple);border-radius:20px;
+     padding:24px 22px 26px;text-align:center;color:#111;box-shadow:0 8px 24px rgba(22,131,214,.22)}
+  .hpanel .hp-ic{width:66px;height:66px;border-radius:50%;background:var(--purple-soft);
+     display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 14px;
+     box-shadow:0 4px 12px rgba(22,131,214,.18)}
+  .hpanel .hp-t{font-family:'Assistant',sans-serif;font-size:25px;font-weight:900;color:var(--purple-deep);
+     margin:0 auto 4px;line-height:1.25}
+  .hpanel .hp-sub{font-family:'Assistant',sans-serif;font-size:16px;font-weight:700;color:var(--purple);margin:0 auto 16px}
+  .hpanel .hp-lines{display:flex;flex-direction:column;gap:10px;max-width:400px;margin:0 auto}
+  .hpanel .hp-line{display:flex;align-items:center;gap:11px;text-align:right;font-size:17px;font-weight:600;
+     color:#1a1a1a;line-height:1.4;background:var(--purple-soft);border-radius:13px;padding:11px 15px}
+  .hpanel .hp-line::before{content:"✓";flex:0 0 auto;width:25px;height:25px;border-radius:50%;
+     background:var(--purple);color:#fff;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center}
+  /* cortisol = the "brake"/problem hormone → red-accent panel variant (matches oxytocin/dopamine) */
+  .hpanel.hp-brake{border-color:#e11}
+  .hpanel.hp-brake .hp-ic{background:#ffe1e1}
+  .hpanel.hp-brake .hp-t{color:#c40000}
+  .hpanel.hp-brake .hp-sub{color:#e11}
+  .hpanel.hp-brake .hp-line::before{content:"✕";background:#e11;color:#fff}
+
+  /* ===================== UPSELL-SPECIFIC COMPONENTS (Lena "את הפרס") ===================== */
+  /* progress bar — שלב 2 מתוך 3 */
+  .progressbar{max-width:520px;margin:16px auto 4px;text-align:center;font-family:'Assistant',sans-serif}
+  .progressbar .plabel{font-size:15px;font-weight:800;color:var(--purple-deep);margin-bottom:8px;letter-spacing:.2px}
+  .progressbar .ptrack{height:15px;border-radius:10px;background:#d7e8f6;overflow:hidden;box-shadow:inset 0 1px 3px rgba(0,0,0,.14)}
+  .progressbar .pfill{height:100%;width:66%;background:linear-gradient(90deg,var(--purple),var(--purple-deep));border-radius:10px;box-shadow:0 0 10px rgba(22,131,214,.5)}
+  /* one-time-offer warning box */
+  .oto{background:#fff;border:2px dashed var(--purple-deep);border-radius:14px;padding:16px 20px;margin:16px auto;max-width:520px;text-align:center;box-shadow:0 4px 16px rgba(22,131,214,.14)}
+  .oto p{margin:5px auto;font-size:16px;color:#000;line-height:1.6}
+  .oto .big{font-size:19px;font-weight:900;color:var(--purple-deep)}
+  /* accept / decline buttons */
+  .cta-accept{display:block;width:96%;max-width:500px;margin:14px auto 0;background:linear-gradient(#6fe089,var(--green));color:#fff;font-size:19px;font-weight:900;text-align:center;
+     padding:18px 16px;border:none;border-radius:14px;cursor:pointer;line-height:1.35;text-decoration:none;font-family:'Assistant',sans-serif;
+     box-shadow:0 8px 18px rgba(97,206,112,.5);border-bottom:4px solid #3faa5a}
+  .cta-accept:active{transform:translateY(2px)}
+  .cta-decline{display:block;width:92%;max-width:460px;margin:14px auto 4px;background:none;border:none;color:#9a9a9a;
+     font-size:14px;line-height:1.55;text-decoration:underline;cursor:pointer;text-align:center;font-family:'Assistant',sans-serif}
+  .cta-decline:hover{color:#c0392b}
+  /* offer intro line + crown */
+  .otointro{font-size:23px;font-weight:900;color:var(--purple-deep);text-align:center;max-width:540px;margin:10px auto 14px;line-height:1.45}
+  /* lesson card (pink) */
+  .lesson{background:#fff;border:2px solid var(--purple);border-radius:16px;padding:20px 20px 18px;margin:14px auto;max-width:520px;text-align:center;box-shadow:0 4px 16px rgba(22,131,214,.14)}
+  .lesson .lnum{display:inline-block;font-size:14px;font-weight:900;color:#fff;background:var(--purple);border-radius:20px;padding:4px 16px;margin-bottom:10px;font-family:'Assistant',sans-serif}
+  .lesson .lh{font-size:19px;font-weight:900;color:var(--purple-deep);margin:0 auto 8px;line-height:1.4}
+  .lesson p{font-size:16px;color:#000;line-height:1.65;margin:0 auto}
+  .totalnote{font-size:16px;font-weight:800;color:var(--purple-deep);text-align:center;margin:14px auto;max-width:520px}
+  /* presenter profile chip (Lena) */
+  .presenter-chip{text-align:center;margin:12px auto 2px;max-width:520px;width:100%}
+  .presenter-chip img{width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid var(--purple);box-shadow:0 5px 16px rgba(22,131,214,.4);display:block;margin:0 auto}
+  .presenter-chip .pc-name{font-family:'Assistant',sans-serif;font-weight:900;color:var(--purple-deep);font-size:18px;margin-top:9px}
+  .presenter-chip .pc-sub{font-size:14px;color:#4a9fe0;margin-top:2px;font-weight:700}
+  /* dark testimonial banner */
+  .proofbanner{width:94%;max-width:360px;display:block;margin:14px auto;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+  /* emotional payoff photo */
+  .payoffimg{width:94%;max-width:380px;display:block;margin:18px auto;border-radius:16px;box-shadow:0 10px 26px rgba(0,0,0,.24)}
+  /* pregnant Lena photo — 40% smaller, rounded */
+  .pregimg{width:56%;max-width:228px;display:block;margin:16px auto;border-radius:20px;box-shadow:0 10px 24px rgba(0,0,0,.24)}
+  /* whatsapp bonus graphic */
+  .bonusimg{width:96%;max-width:380px;display:block;margin:16px auto;border-radius:16px;box-shadow:0 8px 22px rgba(22,131,214,.28)}
+  /* secondary mockup — phone showing the course platform */
+  .upphone{width:60%;max-width:238px;margin:18px auto 6px;background:#111;border-radius:26px;padding:9px;box-shadow:0 18px 36px rgba(0,0,0,.36);position:relative}
+  .upphone::before{content:"";position:absolute;top:16px;left:50%;transform:translateX(-50%);width:32%;height:5px;background:#333;border-radius:4px;z-index:2}
+  .upphone .scr{border-radius:18px;overflow:hidden;background:#fff;aspect-ratio:9/18}
+  .upphone .scr img{width:100%;display:block;object-position:top}
+  .mockcap{font-size:15px;font-weight:800;color:var(--purple-deep);text-align:center;margin:2px auto 10px;font-family:'Assistant',sans-serif}
+  /* timer reads MM:SS (minutes left, seconds right) */
+  .timer{direction:ltr}
+
+  /* ===== fix-round components ===== */
+  .bigemoji{font-size:52px;line-height:1;text-align:center;margin:10px auto 2px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.18))}
+  .purple .bigemoji,.emerge .bigemoji{filter:drop-shadow(0 4px 8px rgba(0,0,0,.32))}
+  /* certificate-wall placeholder (on caramel) */
+  .certph{max-width:440px;margin:20px auto;border:2px dashed rgba(255,255,255,.75);border-radius:16px;padding:28px 20px;text-align:center;background:rgba(255,255,255,.10)}
+  .certph .cic{font-size:44px;line-height:1}
+  .certph .ct{font-family:'Assistant',sans-serif;font-weight:800;font-size:17px;color:#fff;margin-top:10px;line-height:1.5}
+  .certph .cs{font-size:13px;color:rgba(255,255,255,.85);margin-top:6px}
+  /* two reasons — bigger designed cards */
+  .reasons{display:flex;gap:14px;max-width:520px;margin:20px auto;flex-wrap:wrap}
+  .reason{flex:1;min-width:150px;background:#fff;border:2px solid var(--purple);border-radius:18px;padding:22px 16px 20px;text-align:center;box-shadow:0 6px 18px rgba(22,131,214,.16)}
+  .reason .rn{width:44px;height:44px;border-radius:50%;background:var(--purple);color:#fff;font-family:'Assistant',sans-serif;font-weight:900;font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+  .reason .rt{font-family:'Assistant',sans-serif;font-weight:900;font-size:18px;color:var(--purple-deep);line-height:1.35}
+  /* mechanism triangle framework */
+  .mechtri{position:relative;width:300px;max-width:92%;height:262px;margin:22px auto 10px}
+  .mechtri .mt-lines{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+  .mechtri .mt-node{position:absolute;z-index:2;display:flex;flex-direction:column;align-items:center;gap:5px;width:100px}
+  .mechtri .mt-ic{width:58px;height:58px;border-radius:50%;background:var(--purple);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 6px 16px rgba(22,131,214,.38)}
+  .mechtri .mt-lb{font-family:'Assistant',sans-serif;font-weight:900;font-size:14px;color:var(--purple-deep);line-height:1.2;text-align:center}
+  .mechtri .mt-top{top:14px;left:50%;transform:translateX(-50%)}
+  .mechtri .mt-left{bottom:0;left:-8px}
+  .mechtri .mt-right{bottom:0;right:-8px}
+  /* topbar press logos — individual white chips (like Avigail/Liri) */
+  .presslogos{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;max-width:470px;margin:2px auto 0}
+  .plchip{background:#fff;border-radius:10px;padding:7px 9px;display:flex;align-items:center;justify-content:center;height:42px;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+  .plchip img{max-height:26px;max-width:72px;width:auto;display:block}
+  .presslogos{gap:8px}
+  .topbar .presslogos{display:flex;flex-wrap:nowrap;gap:8px;align-items:center;justify-content:center;max-width:470px;margin:2px auto 0}
+  .topbar .plchip{background:#fff;border-radius:10px;padding:7px 8px;display:flex;align-items:center;justify-content:center;height:42px;box-shadow:0 4px 12px rgba(0,0,0,.18);flex:1 1 0;min-width:0}
+  .topbar .plchip img{max-height:24px;max-width:100%;width:auto;display:block;object-fit:contain}
+  /* single transparent logo strip with soft shadow (Avigail style) */
+  .topbar .logostrip{display:block;width:100%;max-width:462px;margin:4px auto 0;filter:drop-shadow(0 1px 2px rgba(0,0,0,.22))}
+  /* before/after message placeholders (below the main headline) */
+  .baph{display:flex;gap:12px;max-width:520px;margin:20px auto 6px}
+  .baph-card{flex:1;border-radius:16px;padding:20px 12px;text-align:center;border:2px dashed;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+  .baph-card.before{background:#f3f0ec;border-color:#b9a58f;color:#6b5a45}
+  .baph-card.after{background:var(--purple-soft);border-color:var(--purple);color:var(--purple-deep)}
+  .baph-ic{font-size:30px;line-height:1}
+  .baph-lbl{font-family:'Assistant',sans-serif;font-weight:900;font-size:17px}
+  .baph-hint{font-size:12.5px;line-height:1.4;opacity:.85}
+  /* single testimonial placeholder */
+  .testph{max-width:340px;margin:16px auto;border:2px dashed var(--purple);border-radius:16px;background:var(--purple-soft);padding:24px 18px;text-align:center;color:var(--purple-deep)}
+  .testph .tp-ic{font-size:32px;line-height:1}
+  .testph .tp-t{font-family:'Assistant',sans-serif;font-weight:900;font-size:17px;margin-top:8px}
+  .testph .tp-s{font-size:12.5px;opacity:.85;margin-top:5px;line-height:1.45}
+  /* generic photo placeholder (white sections) */
+  .photoph{max-width:300px;margin:18px auto;border:2px dashed var(--purple);border-radius:16px;background:var(--purple-soft);padding:30px 18px;text-align:center;color:var(--purple-deep)}
+  .photoph .pic{font-size:40px;line-height:1}
+  .photoph .pt{font-family:'Assistant',sans-serif;font-weight:900;font-size:16px;margin-top:8px;line-height:1.4}
+  /* crying-baby image placeholders (row, on caramel) */
+  .cryrow{display:flex;gap:11px;max-width:440px;margin:16px auto;justify-content:center}
+  .cryph{flex:1;max-width:124px;aspect-ratio:1;border:2px dashed rgba(255,255,255,.72);border-radius:14px;background:rgba(255,255,255,.10);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:30px;color:#fff}
+  .cryph span{font-size:11px;font-weight:700;font-family:'Assistant',sans-serif;opacity:.9}
+
+  /* ===================== SHLOMIT-SPECIFIC (baby-sleep, caramel theme) ===================== */
+  /* mid-caramel emerge is fairly light — add a soft shadow so white text stays legible */
+  .emerge{background:linear-gradient(180deg,#1683d6 0%,#0a2540 100%)}
+  .emerge :where(p,.reveal,.big19,.punch,.lead,.huge,.head26){text-shadow:0 1px 4px rgba(3,20,36,.45)}
+  /* Niv's famous hand-drawn arrow — asset is RED, tint to caramel to match the brand */
+  .arrowc{width:60px;margin:2px auto 4px;display:block;
+     filter:brightness(0) saturate(100%) invert(45%) sepia(56%) saturate(560%) hue-rotate(140deg) brightness(92%) contrast(90%)}
+  /* wide social-proof screenshot (IG / TikTok are landscape) with a hand-drawn RED ring over the count */
+  .socialshot{position:relative;width:96%;max-width:430px;margin:16px auto;border-radius:16px;overflow:hidden;
+     box-shadow:0 10px 26px rgba(0,0,0,.30);border:1px solid #eee}
+  .socialshot img{width:100%;display:block}
+  .socialshot .rc{position:absolute;pointer-events:none;z-index:5;overflow:visible}
+  .socialshot .rc .ring{fill:none;stroke:#e11;stroke-width:4.5;stroke-linecap:round}
+  .socialcap{font-size:15px;font-weight:800;color:var(--purple-deep);text-align:center;margin:4px auto 2px;font-family:'Assistant',sans-serif}
+  /* single warm portrait (reuse of the hero photo where a photo fits) */
+  .portrait{width:64%;max-width:300px;margin:18px auto;border-radius:20px;overflow:hidden;box-shadow:0 12px 28px rgba(10,37,64,.28)}
+  /* MoH authority strip — the ministry logo on a clean cream chip */
+  .authlogo{width:78%;max-width:300px;margin:12px auto;background:#fff;border-radius:14px;padding:16px 20px;box-shadow:0 5px 16px rgba(10,37,64,.14)}
+  .radiologo{width:150px;max-width:44%;margin:14px auto;border-radius:14px;overflow:hidden;box-shadow:0 5px 14px rgba(0,0,0,.14)}
+  /* single testimonial screenshot framed portrait */
+  .testishot{width:78%;max-width:330px;margin:16px auto;border-radius:14px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.20);border:1px solid #eee}
+
+  /* ===================== TOLIK+SHAHAR SPECIFIC (deep teal + orange, 2 presenters) ===================== */
+  /* two presenter cutouts standing side by side, emerging from the teal section */
+  .presenters{display:flex;align-items:flex-end;justify-content:center;gap:0;max-width:440px;margin:20px auto -46px;position:relative;z-index:1}
+  .presenters img{width:52%;max-width:210px;display:block;filter:drop-shadow(0 10px 18px rgba(3,20,36,.35))}
+  .presenters img.p-r{margin-left:-26px;z-index:2}
+  .presenters img.p-l{margin-right:-26px;z-index:1}
+  .pnames{display:flex;justify-content:center;gap:40px;max-width:440px;margin:8px auto 0}
+  .pnames span{font-family:'Assistant',sans-serif;font-weight:900;font-size:16px;color:#fff}
+  /* accent (orange) helpers */
+  .hlo{color:var(--accent);font-weight:800}
+  .accentdiv{width:120px;height:3px;margin:20px auto;border-radius:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+  /* venn mechanism image */
+  .venn{width:88%;max-width:360px;display:block;margin:18px auto;filter:drop-shadow(0 8px 20px rgba(22,131,214,.25))}
+  /* FB community social-proof card */
+  .fbproof{width:98%;max-width:440px;display:block;margin:16px auto;border-radius:14px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.16);border:1px solid #e3eff9}
+  /* course-name reveal (orange on teal) */
+  .coursename{font-family:'Assistant',sans-serif;font-weight:900;font-size:32px;line-height:1.2;text-align:center;color:var(--accent);margin:8px auto 6px;text-shadow:0 2px 10px rgba(240,145,58,.3)}
+  .coursesub{font-family:'Assistant',sans-serif;font-weight:800;font-size:19px;color:var(--purple-deep);text-align:center;margin:4px auto 8px;max-width:520px;line-height:1.4}
+  /* business/lifestyle photo-strip placeholders (on teal) */
+  .photostrip{display:flex;gap:10px;max-width:460px;margin:14px auto;justify-content:center;flex-wrap:wrap}
+  .photostrip .ps{flex:1;min-width:120px;aspect-ratio:4/3;border:2px dashed rgba(255,255,255,.6);border-radius:12px;background:rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#fff;font-size:24px;padding:8px;text-align:center}
+  .photostrip .ps span{font-size:11px;font-weight:700;font-family:'Assistant',sans-serif;opacity:.92;line-height:1.3}
+  .photostrip img.ps-img{flex:1 1 0;min-width:0;height:148px;object-fit:cover;border-radius:12px;box-shadow:0 7px 18px rgba(3,20,36,.22)}
+  .photostrip.tall img.ps-img{height:200px}
+  /* ===== Lena-specific additions ===== */
+  .steps{max-width:520px;margin:22px auto;display:flex;flex-direction:column;gap:14px}
+  .steps .step{display:flex;gap:14px;align-items:flex-start;text-align:right;background:#fff;border:2px solid var(--purple);border-radius:16px;padding:16px 18px;box-shadow:0 6px 16px rgba(22,131,214,.12)}
+  .steps .step .snum{flex:0 0 auto;width:46px;height:46px;border-radius:50%;background:linear-gradient(150deg,var(--purple),var(--purple-deep));color:#fff;font-family:'Assistant',sans-serif;font-weight:900;font-size:18px;display:flex;align-items:center;justify-content:center}
+  .steps .step .stx{font-size:16.5px;font-weight:600;color:#1a1a1a;line-height:1.55}
+  .steps .step .stx b{color:var(--purple-deep);font-weight:900}
+  /* bonuses wrapper (pink) */
+  .bonwrap{background:linear-gradient(180deg,#dbebf7,#f0f6fc);padding:30px 22px 34px}
+  .bon-scr{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,var(--purple),var(--purple-deep));color:#fff;font-family:'Assistant',sans-serif;font-weight:900;font-size:18px;letter-spacing:.5px}
+  .bval{display:inline-block;margin-top:12px;background:var(--gold);color:#fff;font-family:'Assistant',sans-serif;font-weight:900;font-size:14px;padding:7px 16px;border-radius:20px}
+  /* guarantee box */
+  .guarbox{border:2px dashed var(--gold);border-radius:16px;padding:26px 22px 28px;margin:18px auto;max-width:520px;text-align:center;background:var(--purple-soft)}
+  /* FAQ */
+  .faq{max-width:560px;margin:14px auto;display:flex;flex-direction:column;gap:12px;text-align:right}
+  .faq .qa{background:#fff;border:2px solid var(--purple-soft);border-right:5px solid var(--purple);border-radius:14px;padding:16px 18px;box-shadow:0 5px 14px rgba(22,131,214,.08)}
+  .faq .q{font-family:'Assistant',sans-serif;font-weight:900;font-size:17px;color:var(--purple-deep);margin-bottom:8px}
+  .faq .a{font-size:15.5px;color:#222;line-height:1.7}
+
+  /* ===== Niv fixes: bare logos, lighter topbar heading, smaller anatomy art ===== */
+  .topbar .presslogos{gap:14px;max-width:430px;align-items:center}
+  .topbar .plchip{background:none;box-shadow:none;border-radius:0;padding:0;height:auto;flex:1 1 0;min-width:0}
+  /* logos keep their own brand colours; a soft white halo lifts the dark ones off
+     the teal band, and a dark drop shadow underneath gives them depth */
+  .topbar .plchip img{max-height:40px;max-width:100%;width:auto;
+    filter:drop-shadow(0 0 3px rgba(255,255,255,.95)) drop-shadow(0 0 7px rgba(255,255,255,.75)) drop-shadow(0 4px 7px rgba(0,0,0,.45))}
+  .emerge .plchip img{max-height:40px;
+    filter:drop-shadow(0 0 3px rgba(255,255,255,.95)) drop-shadow(0 0 7px rgba(255,255,255,.75)) drop-shadow(0 4px 7px rgba(0,0,0,.45))}
+  .emerge .plchip{background:none;box-shadow:none;padding:0;height:auto}
+  .emerge .presslogos{gap:14px;max-width:430px}
+
+  .topbar .hook{font-family:'Assistant',sans-serif;font-weight:700;font-size:19px;line-height:1.5;
+    color:#fff;margin:0 auto 12px;max-width:520px;text-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .topbar .bt{font-weight:600;font-size:15.5px;line-height:1.55;margin-bottom:16px}
+
+  .hero .hook{font-family:'Assistant',sans-serif;font-weight:600;font-size:19px;line-height:1.5;
+    color:var(--purple-deep);margin:14px auto 8px;max-width:520px}
+  .hero .subhook{font-size:18px;margin:8px auto 4px}
+  .hero h1{margin-top:14px}
+  .hero .undersub{font-size:15.5px;line-height:1.65;margin:12px auto 4px;max-width:400px}
+
+  /* anatomy art: cut out of its white box, 35% smaller, with a shadow */
+  /* placeholders inside the teal band keep their own dark text (the band forces white) */
+  .emerge .ph2,.emerge .ph2 span{color:var(--purple-deep) !important;text-shadow:none !important}
+
+  /* ===== certificates collage (inside the dark authority band) ===== */
+
+  /* ===== WhatsApp testimonials ===== */
+
+  /* ===== video testimonials (vertical, side by side) ===== */
+  .vidtesti{display:flex;gap:12px;justify-content:center;max-width:420px;margin:18px auto 6px}
+  .vidtesti video{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;display:block;
+    border-radius:16px;background:#000;box-shadow:0 10px 24px rgba(26,17,18,.28)}
+  .vidtesti > div{flex:1 1 0;min-width:0}
+  .vidcap{text-align:center;font-size:14px;color:var(--muted);margin:2px auto 0}
+  .testiwrap{display:flex;flex-direction:column;align-items:center;gap:12px;max-width:352px;margin:18px auto 8px}
+  .testiwrap img{display:block;width:100%;height:auto;border-radius:14px;
+                 box-shadow:0 10px 24px rgba(26,17,18,.22)}
+  .testiwrap img.big{max-width:100%}
+  .testicap{font-size:14px;color:var(--muted);text-align:center;margin:2px auto 0}
+  /* ===== medical disclaimer (page footer) ===== */
+  .medisc{max-width:540px;margin:28px auto 10px;padding:16px 18px;border:1px solid var(--line);
+    border-radius:14px;background:var(--panel2);text-align:right}
+  .medisc .mdh{font-family:'Assistant',sans-serif;font-weight:900;font-size:16px;color:var(--purple-deep);margin:0 0 8px}
+  .medisc p{font-size:14.5px;line-height:1.7;color:var(--muted);margin:0 0 8px;text-wrap:pretty}
+  .medisc p:last-child{margin-bottom:0}
+  .certwrap{columns:2;column-gap:11px;max-width:430px;margin:20px auto 10px}
+  .certc{break-inside:avoid;margin:0 0 13px;background:#fff;padding:5px;border-radius:9px;
+         box-shadow:0 10px 22px rgba(0,0,0,.42);display:block}
+  .certc img{display:block;width:100%;height:auto;border-radius:5px}
+  .certc:nth-child(4n+1){transform:rotate(-1.5deg)}
+  .certc:nth-child(4n+2){transform:rotate(1.3deg)}
+  .certc:nth-child(4n+3){transform:rotate(.8deg)}
+  .certc:nth-child(4n+4){transform:rotate(-1deg)}
+  @media(max-width:360px){ .certwrap{columns:1;max-width:270px} }
+  .transimg{display:block;width:100%;max-width:520px;margin:16px auto 4px;filter:drop-shadow(0 9px 18px rgba(0,0,0,.28))}
+  .anat{display:block;width:65%;max-width:254px;margin:20px auto;height:auto;
+    filter:drop-shadow(0 10px 22px rgba(0,0,0,.30))}
+  .anat.boxed{border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.30);filter:none}
+
+  /* ===== sticky mobile CTA (CONVERSION_SPEC §1) ===== */
+  body{padding-bottom:72px}
+  .sticky-cta{position:fixed;inset-inline:0;bottom:0;z-index:60;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    background:var(--purple);transform:translateY(110%);
+    transition:transform .28s ease;box-shadow:0 -6px 20px rgba(0,0,0,.18)}
+  .sticky-cta.on{transform:none}
+  .sticky-cta a{display:block;max-width:520px;margin:0 auto;background:var(--green);color:#fff;
+    font-family:'Assistant',sans-serif;font-weight:900;font-size:17px;text-align:center;
+    padding:14px 16px;border-radius:12px;text-decoration:none;box-shadow:0 4px 0 var(--green-deep)}
+  @media(min-width:781px){.sticky-cta{display:none}body{padding-bottom:0}}
+
+  /* ===== mid-page offer block (CONVERSION_SPEC §3) ===== */
+  .offerbox{max-width:560px;margin:26px auto;background:#fff;border:2.5px solid var(--purple);
+    border-radius:20px;padding:20px 18px;text-align:center;box-shadow:0 8px 26px rgba(22,131,214,.18)}
+  .offerbox .ob-name{font-family:'Assistant',sans-serif;font-weight:900;font-size:26px;color:var(--purple-deep);margin:0 0 8px;line-height:1.3}
+  .offerbox .ob-what{font-size:17px;line-height:1.6;color:#222;margin:0 0 14px}
+  .offerbox .ob-price{font-family:'Assistant',sans-serif;font-weight:900;font-size:30px;color:#111;margin:0;line-height:1.3}
+  .offerbox .ob-old{display:block;font-size:17px;font-weight:600;color:#555;margin-bottom:2px}
+  .offerbox .ob-pay3{font-family:'Assistant',sans-serif;font-weight:800;font-size:16px;color:#111;margin:6px 0 0}
+  .offerbox .ob-guar{font-size:15px;color:var(--muted);margin:10px 0 0}
+  .offerbox .cta-green{margin:14px auto 0}
+
+  /* ===== promise bar — the guarantee, right under the headline ===== */
+  .promise{border:3px dashed #d13b3b;border-radius:10px;background:#fff;max-width:540px;
+     margin:14px auto 4px;padding:14px 18px 15px;text-align:center;
+     box-shadow:0 6px 18px rgba(209,59,59,.10)}
+  .promise p{font-family:'Assistant',sans-serif;font-weight:800;font-size:18px;line-height:1.55;
+     color:var(--ink);margin:0;max-width:none;text-align:center}
+  .promise .hl{background:#ffe08a;padding:0 .2em;border-radius:4px;
+     -webkit-box-decoration-break:clone;box-decoration-break:clone}
+  @media(max-width:520px){ .promise{padding:12px 14px 13px;margin:12px auto 4px} .promise p{font-size:16.5px} }
+
+  /* ===== new top block: one uniform face for the two opening lines ===== */
+  .hero .kicker,.hero .leadin{font-family:'Assistant',sans-serif;font-weight:800;font-size:17px;
+     line-height:1.55;color:var(--ink);margin:3px auto;max-width:430px;text-align:center}
+  .hero .kicker{margin-top:2px}
+  .hero .leadin{margin-bottom:10px}
+  /* headline + climax: an inverted pyramid, every line shorter than the one above */
+  .hero h1{text-wrap:initial}
+  /* the climax keeps the same size and rhythm as the rest of the headline,
+     it is set apart by colour alone */
+  .hero h1 .climax{display:block;font-size:inherit;line-height:inherit;margin:0;color:var(--purple-deep)}
+  /* the promise reads as one tidy block, not a ragged paragraph */
+  .promise p{text-wrap:initial}
+  @media(max-width:520px){
+    .hero .kicker,.hero .leadin{font-size:16px}
   }
-  main { max-width: 720px; margin: 0 auto; padding: 48px 20px 40px; }
-  p { margin: 0 0 22px; color: #d6d9dc; }
-  h1 { font-size: 2rem; font-weight: 800; line-height: 1.25; margin: 0 0 22px; }
-  h2 { font-size: 1.6rem; font-weight: 800; line-height: 1.3; margin: 56px 0 20px; }
-  h3 { font-size: 1.3rem; font-weight: 800; margin: 40px 0 18px; }
-  .eyebrow { color: var(--muted); font-size: 1rem; }
-  .punch { color: #fff; font-weight: 800; font-size: 1.25rem; line-height: 1.45; }
-  .shot {
-    margin: 32px 0; padding: 46px 20px; text-align: center;
-    border: 2px dashed var(--line); border-radius: 14px; background: var(--panel);
-    color: var(--dim); font-size: .9rem; line-height: 1.6;
+
+  /* ============ Shiraz Mizrahi · "סודות הנשים" ============ */
+  /* the page opens on a dark block: the question in white, the way a letter that tells "the dark truth" should open */
+  .darktop{background:radial-gradient(120% 95% at 50% 0%,#0d3355 0%,#06182a 58%,#030b14 100%);color:#fff;text-align:center;padding:28px 18px 26px}
+  .darktop h1{font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(25px,7vw,38px);line-height:1.32;color:#fff;margin:0 auto;max-width:600px;text-wrap:balance}
+  /* The top (Niv, 8.10.26; his own words replaced the headline of the document): a small line that says who
+     speaks, in three lines, and the headline, heavy, in four lines. On every screen: the type follows the width
+     of the screen, so the longest line always fits. */
+  .darktop .preh{font-family:'Rubik',sans-serif;font-weight:500;font-size:min(4.05vw,19px);line-height:1.5;color:#f6d3d6;margin:0 -6px 12px;max-width:none;white-space:nowrap}
+  .darktop h1.h1long{font-size:min(4.9vw,40px);line-height:1.3;white-space:nowrap;max-width:none;margin:0 -6px;text-wrap:initial}
+  .darktop h1.h1long em{font-style:normal;color:#8fd0ff}
+  /* the dark block holds the headline and the men's screenshots */
+  .darktop{padding-bottom:30px;position:relative;z-index:2}
+  .darktop .needph{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.85);margin:22px auto 0}
+  .darktop .needph .n-t{color:#fff}
+  .hero.aftertop{padding-top:28px}
+  /* her round picture beside the words "an open letter from the heart" (the partner, 6.10.26) */
+  .byline{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto 24px}
+  .byline .byface{width:88px;height:88px;border-radius:50%;flex:none;box-shadow:0 6px 16px rgba(6,30,52,.28)}
+  .byline .letterline{margin:0;text-align:right;font-size:21px;line-height:1.4}
+  .letterline{font-family:'Assistant',sans-serif;font-weight:800;font-size:19px;color:var(--purple-deep);line-height:1.45;margin:0 auto 4px;text-align:center}
+  /* screenshots of messages (from the folder Niv gave): cards, one under the other */
+  .tgroup{display:flex;flex-direction:column;align-items:center;gap:13px;margin:24px auto}
+  .tshot{display:block;width:96%;height:auto;border-radius:14px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 22px rgba(3,20,36,.16)}
+  .purple .tshot,.emerge .tshot,.darktop .tshot{border-color:transparent;box-shadow:0 12px 28px rgba(0,0,0,.45)}
+  .mod + .tgroup,.mod .tgroup{margin:6px auto 30px}
+  /* the top shows four small examples, in two columns, each tilted its own way a little */
+  .darktop .topfour{display:flex;gap:10px;justify-content:center;align-items:flex-start;max-width:500px;margin:22px auto 0}
+  .darktop .topfour .col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:10px}
+  .darktop .topfour .tshot{width:100%;max-width:none;border-radius:10px}
+  .darktop .topfour .col:nth-child(1) .tshot:nth-child(1){transform:rotate(-1.3deg)}
+  .darktop .topfour .col:nth-child(1) .tshot:nth-child(2){transform:rotate(.9deg)}
+  .darktop .topfour .col:nth-child(2) .tshot:nth-child(1){transform:rotate(1.2deg)}
+  .darktop .topfour .col:nth-child(2) .tshot:nth-child(2){transform:rotate(-.8deg)}
+  /* her own photos, and her profile with the follower count circled */
+  .docshot.then{max-width:290px}
+  .docshot.now{max-width:330px}
+  .docshot.ig{max-width:440px;background:#fff;border:1px solid var(--line)}
+  /* a place for a picture that the document does not ask for: a suggestion, drawn lighter than the document's own places */
+  .needph.sug{border-style:dotted;background:#fff}
+  .needph .sugtag{display:block;font-size:12.5px;font-weight:800;letter-spacing:.3px;color:#fff;background:var(--purple);border-radius:20px;width:fit-content;margin:0 auto 7px;padding:2px 12px}
+  /* "an open letter from...": her profile picture and the line, as the document places them */
+  .letterby{text-align:center;margin:20px auto 6px}
+  .letterby img{display:block;width:118px;height:118px;margin:0 auto 10px;border-radius:50%;box-shadow:0 8px 20px rgba(10,37,64,.28)}
+  .letterby p{font-family:'Assistant',sans-serif;font-weight:800;font-size:19px;color:var(--purple-deep);line-height:1.45;margin:0}
+  /* a line the document sets a little larger than the text around it */
+  .emph{font-size:21px;font-weight:700;color:#000;line-height:1.65;margin:26px auto;max-width:540px}
+  .purple .emph,.emerge .emph{color:#fff}
+  /* her picture where she introduces herself: it rises out of the crimson block under it */
+  /* the system's presenter is a cut-out figure whose feet hide behind the block under it. A round picture hidden
+     that way looks cut (the partner, 6.10.26), so it lies whole on top: half on the white, half on the crimson */
+  .presenter.round{width:170px;max-width:none;height:170px;margin:22px auto -45px;z-index:3;border-radius:50%;box-shadow:0 10px 26px rgba(0,0,0,.3)}
+  .presenter.round + .emerge{padding-top:90px}
+  /* real pictures from the document */
+  .docshot{display:block;width:94%;max-width:460px;height:auto;margin:20px auto;border-radius:14px;box-shadow:0 10px 26px rgba(3,20,36,.22)}
+  .docshot.wide{max-width:520px;border:1px solid var(--line)}
+  .docshot.phone{max-width:330px;border:1px solid var(--line)}
+  .purple .docshot{box-shadow:0 12px 30px rgba(0,0,0,.4)}
+  /* a place that waits for a real screenshot from Niv: shown while building, switched off on the live page */
+  .needph{max-width:360px;margin:20px auto;border:2px dashed var(--purple);border-radius:16px;background:var(--purple-soft);color:var(--purple-deep);padding:18px 16px;text-align:center}
+  .needph .n-ic{font-size:30px;line-height:1}
+  .needph .n-t{font-family:'Assistant',sans-serif;font-weight:900;font-size:16px;margin-top:8px;line-height:1.4}
+  .purple .needph,.emerge .needph{background:rgba(255,255,255,.12);border-color:#fff}
+  .purple .needph .n-t,.emerge .needph .n-t{color:#fff}
+  /* the book: its name under the reveal, and the line that says what it is */
+  .booktag{font-size:21px;font-weight:500;color:#000;line-height:1.6;margin:14px auto 6px;max-width:520px}
+  /* a chapter of the book: the laptop shows the chapter's own opening page */
+  .mod-card .modh{font-size:21px;line-height:1.4}
+  .mod-card p{font-size:16.5px;line-height:1.75}
+  /* the price, alone, the way the document gives it */
+  .oneprice{font-family:'Rubik',sans-serif;font-weight:900;font-size:54px;line-height:1.1;color:#000;margin:6px auto 18px}
+  .oneprice span{background:linear-gradient(transparent 68%,rgba(97,206,112,.55) 68%);padding:0 .12em}
+  /* "so now....": the heading over the order box */
+  .sonow{font-family:'Rubik',sans-serif;font-weight:900;font-size:30px;color:var(--purple-deep);text-align:center;margin:10px auto 6px}
+  .formbox .discreet{display:inline-block;font-size:19px;font-weight:500;color:#fff;padding-bottom:9px;border-bottom:5px solid #fff;margin-bottom:8px}
+  .formbox .pledge{font-size:14.5px;line-height:1.7;margin-top:14px}
+  .techlink{text-align:center;font-size:15px;margin:12px auto 4px;color:#222}
+  .techlink a{color:#e11;font-weight:800;text-decoration:underline}
+  /* her own line of words that men say, set apart */
+  .saying{font-family:'Assistant',sans-serif;font-weight:800;font-size:21px;line-height:1.5;color:var(--purple-deep);margin:20px auto;max-width:520px}
+  /* the short lines of the closing choice, one under the other */
+  .choice{max-width:440px;margin:18px auto;display:flex;flex-direction:column;gap:10px}
+  .choice p{margin:0;font-size:19px;font-weight:700;color:#000;line-height:1.5;background:#fff;border-radius:12px;padding:11px 14px;box-shadow:0 4px 12px rgba(3,20,36,.1);border-right:5px solid var(--purple)}
+  .softp .choice p{background:#fff}
+  /* a form button does not take the page font by itself: the order button is set like every other green button */
+  button.cta-green{font-family:'Rubik',sans-serif;font-weight:900;font-size:17px;border:0;cursor:pointer;-webkit-appearance:none;appearance:none}
+  /* questions and answers: the cards keep their own tight spacing */
+  .faq .qa p{margin:0;max-width:none}
+  .faq .qa .q{margin-bottom:8px;line-height:1.45}
+  /* Niv (6.10.26): no button that follows the reader down the page. The system head keeps room for one under the page: that room goes too */
+  body{padding-bottom:0}
+  .sticky-cta{display:none}
+
+  /* =====================================================================
+     MISTER CONFESSIONS · "הניודס הראשון שלי"
+     Everything below is this page's own layer on top of the house stylesheet.
+     ===================================================================== */
+  /* THE TOP OF THE PAGE, as on Itai Tal's and Guy Lavi's pages (Niv, 11.11.26: "שיראה כמו של איתי טל וגיא לוי"):
+     the document's opening sentence, white on a flat band of the brand colour; then white: who explains (plain black,
+     not in the brand colour, as Guy's line above his headline), THE HEADLINE (Rubik 900, by far the largest) and the
+     small line under it. Every line is set by hand and never wraps, so each block's type follows the screen width:
+     the divisor is that block's longest line in em, the 20px is the side padding.
+     Lines on a wide screen / on a phone: the band 1 / 2, who explains 2 / 2, the headline 4 / 6, the line under 2 / 4. */
+  .topbar{background:#1683d6;padding:16px 10px 17px}
+  .topbar .bt{display:block;white-space:nowrap;font-family:'Assistant',sans-serif;font-weight:600;color:#fff;font-size:min(calc((100vw - 20px) / 23.9),16.5px);line-height:1.45;margin:0}
+  .tophero{background:#fff;text-align:center;padding:12px 10px 4px}
+  .tophero p,.tophero h1{white-space:nowrap;max-width:none;text-wrap:initial}
+  .tophero .by{font-family:'Assistant',sans-serif;font-weight:400;color:#000;font-size:min(calc((100vw - 20px) / 23.6),18px);line-height:1.5;margin:0 auto 6px}
+  .tophero h1.hmain{font-family:'Rubik',sans-serif;font-weight:900;color:var(--purple-deep);font-size:min(calc((100vw - 20px) / 16.65),30px);line-height:1.3;margin:0 auto}
+  .tophero .under{font-family:'Assistant',sans-serif;font-weight:400;color:#000;font-size:min(calc((100vw - 20px) / 23.9),16px);line-height:1.55;margin:6px auto 0}
+  @media(min-width:600px){
+    .topbar .bt{font-size:min(calc((min(100vw, 780px) - 20px) / 23.5),20px)}
+    .tophero .by{font-size:min(calc((min(100vw, 780px) - 20px) / 23.6),21px)}
+    .tophero h1.hmain{font-size:min(calc((min(100vw, 780px) - 20px) / 24.8),40px)}
+    .tophero .under{font-size:min(calc((min(100vw, 780px) - 20px) / 26.8),20px)}
+    br.m{display:none}
   }
-  .shot.tall { padding: 78px 20px; }
-  .shots { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
-  .shots .shot { margin: 0; }
-  ul.discoveries { margin: 0 0 30px; padding: 0 20px 0 0; border-right: 2px solid rgba(34,195,251,.5); list-style: none; }
-  ul.discoveries li { color: #d6d9dc; margin-bottom: 12px; }
-  .rule {
-    display: flex; gap: 12px; align-items: flex-start;
-    border: 1px solid var(--line); border-radius: 12px; background: var(--panel);
-    padding: 16px; margin-bottom: 12px; color: #e6e8ea;
-  }
-  .rule b { color: var(--blue); }
-  .card { border: 1px solid var(--line); border-radius: 14px; background: var(--panel); padding: 20px; margin-bottom: 16px; }
-  .card h4 { margin: 0 0 8px; color: var(--blue); font-size: 1.1rem; }
-  .card p { margin: 0; font-size: .98rem; }
-  .bonus { border-color: rgba(34,195,251,.3); background: rgba(34,195,251,.05); }
-  .tag {
-    display: inline-block; margin-right: 8px; padding: 2px 10px; border-radius: 999px;
-    background: rgba(34,195,251,.18); color: var(--blue); font-size: .75rem; font-weight: 800;
-  }
-  .guarantee { border: 1px solid var(--line); border-radius: 18px; background: var(--panel); padding: 26px; text-align: center; margin: 48px 0; }
-  .guarantee h3 { margin-top: 0; }
-  .price {
-    border: 1px solid rgba(34,195,251,.4); border-radius: 18px; background: rgba(34,195,251,.05);
-    padding: 32px; text-align: center; margin: 32px 0;
-  }
-  .price .was { color: var(--dim); text-decoration: line-through; font-size: 1.4rem; margin: 0 0 4px; }
-  .price .now { color: var(--blue); font-size: 3.4rem; font-weight: 800; line-height: 1; margin: 0; }
-  .price .alt { color: #d6d9dc; margin: 10px 0 0; }
-  form { display: grid; gap: 12px; }
-  input {
-    width: 100%; padding: 16px; font-family: inherit; font-size: 1.05rem;
-    color: #fff; background: rgba(255,255,255,.05);
-    border: 1px solid var(--line); border-radius: 12px; outline: none;
-  }
-  input::placeholder { color: #6b7177; }
-  input:focus { border-color: var(--blue); }
-  button.cta {
-    width: 100%; padding: 20px 16px; border: 0; border-radius: 12px; cursor: pointer;
-    background: var(--blue); color: #001018; font-family: inherit; font-size: 1.15rem;
-    font-weight: 800; line-height: 1.3;
-  }
-  button.cta:disabled { opacity: .6; cursor: default; }
-  .reassure { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: center; margin-top: 18px; color: var(--dim); font-size: .9rem; }
-  .discreet { text-align: center; color: var(--muted); font-size: .92rem; margin-bottom: 20px; }
-  .error { color: #ff6b6b; text-align: center; font-size: .95rem; margin: 0; }
-  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); text-align: center; color: #555b60; font-size: .8rem; }
-  footer a { color: #555b60; }
-  .sticky {
-    position: sticky; bottom: 0; z-index: 10; padding: 10px 14px;
-    background: rgba(0,0,0,.95); border-top: 1px solid var(--line);
-    backdrop-filter: blur(8px);
-  }
-  .sticky button { width: 100%; padding: 16px; border: 0; border-radius: 12px; background: var(--blue); color: #001018; font-family: inherit; font-size: 1rem; font-weight: 800; cursor: pointer; }
-  @media (min-width: 640px) {
-    body { font-size: 19px; }
-    h1 { font-size: 2.5rem; }
-    .sticky { display: none; }
-  }
-  @media (max-width: 480px) { .shots { grid-template-columns: 1fr; } }
+  @media(max-width:599px){ br.d{display:none} }
+  .arrow{display:block;width:92px;height:auto;margin:6px auto 2px}
+  /* the blurred AI pictures (Niv, 11.11.26): two by two, as phone screenshots, with a small "המחשה" under them */
+  .aigrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:92%;max-width:360px;margin:18px auto 0}
+  .aigrid img{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;border-radius:14px;box-shadow:0 8px 20px rgba(10,37,64,.22)}
+  .illus{font-size:13px;line-height:1.4;color:#6b7785;text-align:center;margin:6px auto 14px;max-width:none}
+  /* a laptop above every topic and bonus card (the house's small mockups), and the card under it in the full brand
+     colour with white type, as on Guy Lavi's and Itai Tal's pages (Niv, 11.11.26: "כל הריבועים של המוקאפים יהיו
+     בצבע מותג"); the value and "במתנה" in gold, as on Itai Tal's bonus cards */
+  .mod>.swcard{margin-top:0;padding:34px 0 22px;background:#1683d6;border:0;border-radius:20px;box-shadow:0 14px 30px rgba(3,20,36,.24)}
+  .mod>.swcard .sw-head{background:none;padding:8px 14px 0;margin:0 0 4px}
+  .mod>.swcard p,.mod>.swcard p strong,.mod>.swcard p b{color:#fff}
+  .mod>.swcard .worth{color:#ffd464}
+  .mod>.swcard .gift{color:#ffd464;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+  /* THE BRAND-COLOUR BLOCKS are one flat colour, not a gradient (Niv, 11.10.26) */
+  .purple,.emerge{background:#1683d6}
+  .emerge :where(p,.reveal,.big19,.punch,.lead,.huge,.head26){text-shadow:0 1px 3px rgba(3,20,36,.35)}
+  /* Mister is anonymous: where another presenter stands, his round logo comes out of the blue block */
+  .presenter.logo{width:150px;max-width:none;height:150px;margin:18px auto -46px;position:relative;z-index:3;border-radius:50%;box-shadow:0 12px 28px rgba(3,20,36,.35)}
+  .presenter.logo + .emerge{margin-top:0;padding-top:70px}
+  .emerge .docshot{box-shadow:0 12px 30px rgba(3,20,36,.45);border:0}
+  .emerge .cta-green{margin-top:26px}
+  /* pictures from the document */
+  .docshot.chat{max-width:330px;border:0}
+  .docshot.ig{max-width:520px}
+  .docshot.posts{max-width:520px}
+  .docshot.podcast{max-width:520px}
+  .tgroup .tshot{max-width:340px;border-color:transparent}
+  /* the heading under the mockup: 4 lines on a wide screen, 7 on a phone; set by hand like the top */
+  .mockh{font-family:'Assistant',sans-serif;font-weight:800;color:var(--purple-deep);font-size:min(calc((100vw - 24px) / 17.0),28px);line-height:1.4;white-space:nowrap;max-width:none;margin:22px -10px 0;text-align:center}
+  @media(min-width:600px){ .mockh{font-size:min(calc((min(100vw, 780px) - 24px) / 22.9),32px)} }
+  /* cards: the modules, the bonuses and the two rules. A deep shadow lifts the card, a drawn sign at its head
+     shows what it is about (Niv, 11.10.26) */
+  .swcard{max-width:520px;margin:30px auto;background:#fff;border-radius:18px;padding:0 0 16px;text-align:center;box-shadow:0 18px 44px rgba(3,20,36,.28),0 4px 12px rgba(3,20,36,.14);border:1px solid var(--line);overflow:hidden}
+  /* the card's head is one flat brand colour, no gradient, as on everyone's pages (Niv, 11.11.26) */
+  .swcard .sw-head{background:#1683d6;padding:16px 14px 13px;margin:0 0 14px}
+  .swcard .sw-h{background:none;color:#fff;font-family:'Rubik',sans-serif;font-weight:900;font-size:21px;line-height:1.4;padding:0;margin:10px auto 0;max-width:none}
+  .swcard .sw-ic{width:62px;height:62px;border-radius:50%;background:#fff;margin:0 auto;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(3,20,36,.35)}
+  .swcard .sw-ic svg{width:34px;height:34px;display:block;fill:none;stroke:var(--purple);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .swcard .sw-ic b{font-family:'Rubik',sans-serif;font-weight:900;font-size:22px;color:var(--purple);letter-spacing:-.5px}
+  .swcard p{margin:14px auto;padding:0 16px}
+  .swcard .worth{font-size:16px;font-weight:700;color:#c40000;margin:10px auto 2px}
+  .swcard .gift{font-family:'Rubik',sans-serif;font-size:21px;font-weight:900;color:#1c9a45;margin:2px auto 0}
+  /* the three things he found out: one under the other, each in its own box */
+  .found{max-width:470px;margin:14px auto 22px;display:flex;flex-direction:column;gap:12px}
+  .found p{margin:0;font-size:19px;line-height:1.55;color:#000;background:#fff;border-radius:14px;padding:14px 16px;box-shadow:0 6px 18px rgba(3,20,36,.12);border-right:5px solid var(--purple);max-width:none}
+  .found .lead-in{background:none;box-shadow:none;border:0;padding:0;font-family:'Rubik',sans-serif;font-weight:900;color:var(--purple-deep);font-size:22px;text-align:center}
+  /* price */
+  .anchor{font-family:'Rubik',sans-serif;font-size:30px;font-weight:900;color:var(--purple-deep);line-height:1.3;margin:6px auto 18px;direction:ltr;unicode-bidi:isolate}
+  .anchor.mid{font-size:26px;color:#555;text-decoration:line-through;text-decoration-color:#e11;text-decoration-thickness:3px}
+  .formbox .notyet{display:none;font-size:14.5px;color:#9fd6ff;margin:10px auto 0;line-height:1.5}
+  .formbox .notyet.on{display:block}
+  .formbox .discreet{font-size:14.5px;color:#cfe6f7;margin:12px auto 0;line-height:1.5}
+  .paylogos{height:auto}
+  .mailto{font-family:'Rubik',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;word-break:break-all;color:var(--purple-deep)}
+  /* line breaks are set by hand for a 375px phone. A narrower phone gets the same layout scaled down,
+     so a line never wraps into an orphan word */
+  @media(max-width:374px){ .wrap{zoom:.96} }
+  @media(max-width:359px){ .wrap{zoom:.853} }
+
+  /* ===== the live version in Mister's repo (make_repo.py) ===== */
+  .order input[type=text],.order input:not([type]),.order input[type=tel]{width:100%;padding:15px 16px;border:none;border-radius:8px;font-size:16px;font-family:inherit;margin:8px 0;background:#fff;text-align:right}
+  .order input[type=tel],.order input[type=email]{direction:rtl}
+  .order .error{color:#ffb3a9;font-size:15px;line-height:1.5;margin:8px auto 0;max-width:none}
+  .order button[disabled]{opacity:.7}
+  /* the document's boxes that still wait for material are not shown to real traffic */
+  .needph{display:none !important}
+  .legal-foot{background:#0a2540;color:#cfe0f0;text-align:center;padding:16px 16px 22px;font-size:14px;line-height:1.6}
+  .legal-foot p{margin:0 0 6px;color:#cfe0f0;font-size:14px;max-width:none}
+  .legal-foot a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:2px}
 </style>
 </head>
 <body>
-<main>
-  <p class="eyebrow">
-    בעידן שבו כל בחורה 6/10 תופסת תחת כאילו היא עדי הימלבלוי, מיסטר קונפשנס, שעומד מאחורי קהילת
-    הווידויים הכי גדולה בארץ, חושף את האמת האפלה על המוח הנשי:
-  </p>
+<div class="wrap">
 
-  <h1>
-    "מה גרם למעל 400 בחורות במדינת ישראל לכתוב לי שהן חרמניות עלי בלי שהן יודעות איך אני נראה,
-    ואיך כל גבר שנראה ממוצע לגמרי יכול להתכתב ולחרמן בחורות בהודעות טקסט בלבד?"
-  </h1>
+<!-- ============ TOP, as on Itai Tal's and Guy Lavi's pages (Niv, 11.11.26): the document's opening sentence on the brand colour,
+     then white: who explains (plain black) · THE HEADLINE (4 lines wide, 6 on a phone) · the line under.
+     br.m breaks only on a phone, br.d only on a wide screen ============ -->
+<div class="topbar">
+  <span class="bt">בעידן שבו כל בחורה 6/10 <br class="m">תופסת תחת כאילו היא עדי הימלבלוי</span>
+</div>
 
-  <p>
-    כבר מסדרת התכתבות של 5-10 הודעות שאתה יכול לשלוח לה כבר מהיום, גם אם אין לך פרופיל אינסטגרם
-    או טינדר של דוגמן.
-  </p>
+<section class="tophero">
+  <p class="by">מיסטר קונפשנס שעומד מאחורי קהילה הווידויים הכי גדולה בארץ,<br>חושף את האמת האפלה על המוח הנשי:</p>
 
-  <div class="shot">החץ המפורסם של ניב</div>
+  <h1 class="hmain">״מה גרם למעל- 400 בחורות <br class="m">במדינת ישראל <br class="d">לכתוב לי שהן חרמניות <br class="m">עלי בלי שהן יודעות איך אני נראה,<br>ואיך כל גבר שנראה ממוצע לגמרי <br class="m">יכול להתכתב <br class="d">ולחרמן בחורות <br class="m">בהודעות טקסט בלבד?״</h1>
 
-  <p>
-    לא, זה לא עוד קורס של אמן פיקאפ עם טכניקות משנות ה-90 על משפטי פתיחה קיטשיים ומטרידים.
-    זה על מה שקורה במוח של הבחורה בשניות הראשונות שהיא קוראת את ההודעה הראשונה שלך, ומה שגורם לה
-    לשלוח הודעות כאלו לגברים שהיא לא מכירה.
-  </p>
+  <p class="under">כבר מסדרת התכתבות של 5-10 הודעות <br class="m">שאתה יכול לשלוח לה כבר מהיום,<br>גם אם אין לך פרופיל אינסטגרם <br class="m">או טינדר של דוגמן.</p>
+</section>
 
-  <div class="shot tall">צילומי מסך של ניודס איכותי שאותן בנות אהובות וחסודות שלחו</div>
+<!-- ============ NOT ANOTHER PICKUP COURSE ============ -->
+<section class="hero" style="padding-top:12px">
+  <img class="arrow" src="assets/arrow.png" alt="" width="300" height="300">
 
-  <p class="punch">אם בכל פעם שאתה מתכתב עם בחורות הן עונות לך במילה אחת…</p>
+  <p class="big19">לא, זה לא עוד קורס<br>של אמן פיקאפ עם טכניקות<br>משנות ה- 90 על משפטי פתיחה<br>קיטשיים ומטרידים,</p>
 
-  <p>
-    "חחח" ו-"כן" זה לא בגלל שאתה לא 'הטייפ' שלהן, ולא בגלל שאתה לא 1.90 עם קוביות בבטן ואין לך
-    קו לסת מרשים.
-  </p>
-  <p>
-    אם היה לכם מאץ' והיא הביאה לך את המספר וענתה להודעה שלך — זה אומר שהיא אהבה את מה שהיא ראתה.
-  </p>
+  <p class="big19">זה על מה שקורה<br>במוח של הבחורה<br>בשניות הראשונות שהיא קוראת<br>את ההודעה הראשונה שלך,</p>
 
-  <p class="punch">הבעיה שלך היא מה שקורה אחר כך…</p>
+  <p class="big19"><strong>ומה שגורם לה לשלוח<br>הודעות כאלו לגברים<br>שהיא לא מכירה.</strong></p>
 
-  <p>היא ראתה את ההודעה, קראה אותה בשנייה וחצי, ובאותה שנייה וחצי היא דמיינה קול של גבר מקריא אותה.</p>
-  <p>
-    לא הקול שלך — היא עדיין לא מכירה את הקול שלך. היא שמעה אותה באותו קול של "עוד הזוי" שהיא שמעה
-    מ-15 גברים אחרים ששלחו לה הודעה באותו יום.
-  </p>
-  <p>
-    בגלל זה היא עונה לך במילה אחת, אומרת לך 'אני אעדכן אותך', או שהיא נעלמת ואתה לא מבין מה עשית
-    לא נכון.
-  </p>
-  <p>
-    אבל החדשות הטובות הן שאתה יכול לשנות את הקול שהיא שומעת — כמו כל הבחורות האלו ששומעות את הקול
-    שלי בצורה שונה.
-  </p>
+  <img class="docshot chat" src="assets/chat_0.jpg" alt="הודעות שבחורה שלחה למיסטר קונפשנס" width="760" height="1516" loading="lazy">
 
-  <div class="shots">
-    <div class="shot">צילום מסך 1</div>
-    <div class="shot">צילום מסך 2</div>
-    <div class="shot">צילום מסך 3</div>
-    <div class="shot">צילום מסך 4</div>
+  <!-- the document's box "צילומי מסך של ניודס": AI compositions from Niv's Drive (11.11.26), not real women, blurred
+       so that only the shape reads (Niv: "שלא רואים את הפנים רק מבינים את הצורה"), with a small "המחשה" -->
+  <div class="aigrid"><img src="assets/ai_blur/blur_2.jpg" alt="המחשה מטושטשת" width="540" height="960" loading="lazy"><img src="assets/ai_blur/blur_3.jpg" alt="המחשה מטושטשת" width="540" height="960" loading="lazy"><img src="assets/ai_blur/blur_5.jpg" alt="המחשה מטושטשת" width="540" height="960" loading="lazy"><img src="assets/ai_blur/blur_6.jpg" alt="המחשה מטושטשת" width="540" height="960" loading="lazy"></div>
+  <p class="illus">*המחשה</p>
+</section>
+
+<!-- ============ ONE-WORD ANSWERS ============ -->
+<section class="softp">
+  <p class="reveal" style="margin-top:8px">אם בכל פעם שאתה מתכתב<br>עם בחורות הן עונות לך<br>במילה אחת….</p>
+
+  <p class="big19">״חחח״ ו-״כן״ זה לא בגלל<br>שאתה לא ׳הטייפ׳ שלהן,</p>
+
+  <p class="big19">ולא בגלל שאתה לא 1.90<br>עם קוביות בבטן<br>ואין לך קו לסת מרשים.</p>
+
+  <p class="big19">אם היה לכם מאץ'<br>והיא הביאה לך את המספר<br>וענתה להודעה שלך<br>זה אומר שהיא אהבה<br>את מה שהיא ראתה.</p>
+
+  <p class="punch">הבעיה שלך היא<br>מה שקורה אחר כך…..</p>
+
+  <p class="big19">היא ראתה את ההודעה,<br>קראה אותה בשניה וחצי</p>
+
+  <p class="big19">ובאותה שניה וחצי<br>היא דמיינה קול של גבר<br>מקריא אותה.</p>
+
+  <p class="big19">לא הקול שלך,<br>היא עדיין לא מכירה<br>את הקול שלך,</p>
+
+  <p class="big19">היא שמעה אותה באותה קול<br>של <strong>״עוד הזוי״</strong> שהיא שמעה<br>מ 15 גברים אחרים<br>ששלחו לה הודעה באותו יום.</p>
+
+  <p class="big19">בגלל זה היא עונה לך<br>במילה אחת, אומרת לך<br>׳אני אעדכן אותך׳</p>
+
+  <p class="big19">או שהיא נעלמת<br>ואתה לא מבין<br>מה עשית לא נכון..</p>
+
+  <div class="glowbox">
+    <p class="big19"><strong>אבל החדשות הטובות<br>שאתה יכול לשנות<br>את הקול שהיא שומעת,</strong></p>
+
+    <p class="big19">כמו כל הבחורות האלו<br>ששומעות את הקול שלי<br>בצורה שונה<br>והכוס שלהן ליטרלי<br>נרטב מזה:</p>
   </div>
 
-  <p style="margin-top:32px">
-    הן מתחננות שאזיין אותן למרות שהן לא מכירות אותי, מדברות אליי מלוכלך ומספרות לי שהן ליטרלי
-    רטובות מרוב שאני סקסי.
-  </p>
-
-  <p class="punch">
-    ורגע לפני שאתה חושב שאני צ'אד מטר 1.88 עם קוביות בבטן, ושובר לבבות סדרתי שמאז התיכון בחורות
-    נופלות לרגליו —
-  </p>
-
-  <p>
-    זה הכי רחוק מהאמת. אני מטר 1.70, יש לי פרצוף ממוצע לגמרי, וכנראה שאם הייתי עובר ברחוב בחורות
-    לא היו מסובבות את הראש כדי להסתכל עליי.
-  </p>
-
-  <div class="shot">תמונה מטושטשת של הפרצוף של מיסטר</div>
-
-  <p>
-    אבל בגלל שאני יודע איך לגרום לה לשמוע את הקול שלי בראש שלה כמו שאני רוצה, היא לא שומעת קול
-    נואש וחלש כמו שהיא רגילה לשמוע משאר הגברים. היא שומעת קול שגורם לה להיות חרמנית, להרגיש שובבה,
-    עד שהיא שולחת לי ניודס בעצמה.
-  </p>
-
-  <p class="punch">זה רק בגלל שאני מכיר את המוח הנשי יותר טוב מהן.</p>
-
-  <p>
-    ויש דרך להבין איך להדליק את מתג המשיכה של בחורות ולגרום להן לראות בך משהו מיני תוך כמה דקות
-    מרגע שאתם מתכתבים, לחרמן אותה ולגרום לה לפתח אלייך אובססיה ולרצות להיכנס איתך למיטה. וזה שיפט
-    שאתה יכול לעשות כבר מההודעה הבאה שאתה שולח לה.
-  </p>
-  <p>אני יודע שזה נשמע כמו הבטחה גדולה מאוד, אז תקרא את הדף הקצר הזה מילה במילה עד הסוף.</p>
-
-  <h2>קוראים לי מיסטר קונפשנס, ויש לי את קהילת הווידויים הכי גדולה במדינת ישראל</h2>
-
-  <p>
-    לפני יותר מחמש שנים פתחתי עמוד באינסטגרם שבו אנשים מתוודים באנונימי על מה שהם לא מספרים לאף
-    אחד. היום זו קהילת המיניות הכי גדולה בישראל: מעל 60 אלף עוקבים, וכ-10 מיליון צפיות בחודש.
-  </p>
-  <p>
-    יש לי פודקאסט שבו ישבתי מול גניקולוג, מול יוצרת אונליפאנס ומול מלכת BDSM, ודיברנו על כל מה
-    שלא לימדו אותך בבית הספר.
-  </p>
-
-  <p class="punch">
-    ולמרות שבחורות תופסות ממני אליל מין ומתחרמנות מהקול שלי — שנים הייתי הגבר הזה שבחורות לא
-    רואות בו משהו מיני, למרות שעשיתי כל מה שבחורות אמרו שהן רוצות.
-  </p>
-
-  <p>
-    מקשיב להן שעות עד שהיינו מגיעים לשיחות על האקסים שלהן. מכבד, תקשורתי, פתוח ותמיד זמין להן.
-    אבל בסוף היום מוצא את עצמי עם היד עמוק במכנסיים.
-  </p>
-  <p>
-    לא הבנתי איך זה הגיוני שהן אומרות שהן רוצות גבר מכיל ורגיש, אבל הולכות עם הערסים והדושים שלא
-    סופרים אותן.
-  </p>
-
-  <p class="punch">הפכתי לאובססיבי…</p>
-
-  <p>
-    רציתי לגרום לבחורות להימשך אליי בחזרה, להסתכל עליי באותה תשוקה שאני מסתכל עליהן, לפנטז עליי,
-    ולרצות לשכב איתי בזמן שאני מסתכל להן בעיניים.
-  </p>
-  <p>
-    ומה שגיליתי בחודשים הבאים היה מטורף. כל החיים האמנתי במיתוס שנשים לא אוהבות סקס, ושבחורה עושה
-    לך טובה כשהיא שוכבת איתך. אבל אז גיליתי:
-  </p>
-
-  <ul class="discoveries">
-    <li>שהספר "חמישים גוונים של אפור" הרטיב מיליוני נשים בכל העולם.</li>
-    <li>שתעשיית הוויברטורים היא תעשייה של 15 מיליארד דולר בשנה.</li>
-    <li>שרוב הספרים האירוטיים רבי המכר באמזון הם סיפורים על בחורה תמימה שנלקחת על ידי גבר חזק וחסון.</li>
-  </ul>
-
-  <p class="punch">ומה שגיליתי זה שנשים לא רק אוהבות סקס — הן מתות עליו.</p>
-
-  <p>
-    בחורות היום מסתובבות כל יום חרמניות בטירוף, מפנטזות על סקס הרבה יותר מאיתנו הגברים, ומחכות
-    לרגע שיגיע הגבר הנכון ויגשים להן את הפנטזיות המלוכלכות שלהן.
-  </p>
-
-  <div class="shot tall">צילומי מסך של הודעות שבחורות שולחות למיסטר</div>
-
-  <p class="punch">"אם בחורות כאלו חרמניות, למה אני לא מזיין כל לילה בחורה אחרת?"</p>
-
-  <p>
-    זה בגלל שלא משנה כמה בחורה משתוקקת למגע של גבר וכמה היא רוצה שהוא יגשים לה את הפנטזיות הכי
-    אפלות שלה — היא לא תעיז להודות בזה בפני אף גבר.
-  </p>
-  <p>
-    בגלל שהיא מפחדת מדחייה ומתביישת. לימדו בחורות שרק 'שרמוטות' רוצות סקס לוהט וחייתי עם גבר,
-    שהיא צריכה להסתיר את זה שבא לה ולהיות ילדה טובה. אז היא מסתירה את הרצון הזה עמוק בפנים.
-  </p>
-  <p>
-    אבל גם ל'ילדות הכי טובות' שמתביישות יש שפה נסתרת של תשוקה שרוב הגברים לא מבינים אותה. מילות
-    קסם ותיאורים שמשחררים את הדמיון שלה וגורמים לה להיות שובבה ומשוחררת — עד שהיא תחשוב שזה היה
-    רעיון שלה להיות חרמנית עליך.
-  </p>
-
-  <p class="punch">לא גיליתי את זה במקרה.</p>
-
-  <p>
-    במשך 5 שנים העליתי מאות ווידויים אנונימיים, והתכתבתי עם מאות בנות שהחליקו ל-DM שלי וסיפרו לי
-    את הפנטזיות הכי כמוסות שלהן: מה מעורר ומדליק אותן, אילו מילים פוגעות במרכזי העונג שלהן
-    וגורמות להן לקרוא את ההודעות שלי בטון שאני רוצה.
-  </p>
-
-  <div class="shot">עוד צילומי מסך של הודעות</div>
-
-  <h2>זה לא רק כוח. זו אחריות.</h2>
-
-  <p>
-    ברגע שתדע לגרום לבחורה לקרוא את ההודעות שלך בקול שאתה רוצה, היא תפתח לך דלת שהיא לא פותחת
-    לאף אחד. ולכן יש שני כללים שאתה חייב להקפיד עליהם:
-  </p>
-
-  <div class="rule"><b>1</b><span>מה שהיא שלחה נשאר אצלך. לא מעבירים, לא מצלמים מסך, לא מראים לחבר'ה.</span></div>
-  <div class="rule"><b>2</b><span>רק בגירים. אתה והיא, 18 ומעלה — גם אחרי שנגמר הקשר.</span></div>
-
-  <p style="margin-top:22px">גבר ששומר על הכללים האלה הוא בדיוק הגבר שהיא סומכת עליו מספיק כדי לשלוח לו.</p>
-
-  <h2>אז הנה העסקה.</h2>
-
-  <p>
-    הידע כאן הוא תוצאה של יותר מחמש שנים שבהן נשים כתבו לי באנונימי את מה שהן לא מספרות לאף גבר.
-    מה מדליק אותן, למי הן שלחו, ולמה דווקא לו.
-  </p>
-  <p>
-    זה לא קורס שבו אני אומר לך לשנות את מי שאתה, וזה גם לא אוסף משפטים להעתיק — כי אלה נשמעים
-    בדיוק כמו "עוד הזוי". זה מדריך הפעלה לאיבר המין הכי חשוב של הבחורה: הדמיון שלה.
-  </p>
-
-  <p style="text-align:center;color:#9aa0a6;margin-top:48px">אז אני סופר מתרגש להציג בפנייך את:</p>
-  <h2 style="text-align:center;color:var(--blue);font-size:2.6rem;margin-top:0">"הניודס הראשון שלי"</h2>
-
-  <div class="shot tall">מוקאפ של הקורס</div>
-
-  <p class="punch" style="text-align:center">
-    15 שיעורים קצרים שיראו לך איך כל גבר שנראה ממוצע לגמרי יכול להתכתב ולחרמן בחורות בהודעות
-    טקסט בלבד
-  </p>
-
-  <h3>והנה רק טעימה ממה שאתה הולך לגלות:</h3>
-
-  <div class="card">
-    <h4>קוד הפריים</h4>
-    <p>למה היא מייבשת אותך עוד לפני שאמרת משהו מיני, ו-4 הטעויות ה"מנומסות" שמחסלות משיכה (אתה עושה לפחות שתיים מהן. כולם עושים). תזהה את עצמך בשיעור הראשון — ותפסיק באותו ערב.</p>
+  <div class="tgroup">
+    <img class="tshot" src="assets/chat_1.jpg" alt="הודעה שבחורה שלחה למיסטר קונפשנס" width="760" height="604" loading="lazy">
+    <img class="tshot" src="assets/chat_2.jpg" alt="הודעה שבחורה שלחה למיסטר קונפשנס" width="760" height="959" loading="lazy">
+    <img class="tshot" src="assets/chat_3.jpg" alt="הודעה שבחורה שלחה למיסטר קונפשנס" width="760" height="763" loading="lazy">
+    <img class="tshot" src="assets/chat_4.jpg" alt="הודעות שבחורה שלחה למיסטר קונפשנס" width="748" height="1518" loading="lazy">
   </div>
-  <div class="card">
-    <h4>הפתיחה שהיא לא מסוגלת להתעלם ממנה</h4>
-    <p>15 פתיחות לפי סיטואציה: סטורי, טינדר, מישהי שאתה כבר מכיר. בלי "היי מה קורה" ובלי להישמע כמו עוד אחד מה-15 שכתבו לה היום.</p>
-  </div>
-  <div class="card">
-    <h4>מד החום של מיסטר</h4>
-    <p>המערכת שמגלה לך בדיוק באיזו טמפרטורה היא עכשיו: קרה, מתחממת או רותחת. 12 תרחישים אמיתיים וטבלת החלטות. תפסיק לנחש "אם זה הרגע" — תדע. זה השיעור שיחסוך לך את כל ההודעות שאתה מוחק ומקליד מחדש ב-23:00.</p>
-  </div>
-  <div class="card">
-    <h4>להדליק את הדמיון שלה</h4>
-    <p>הטיזינג, המשיכה-דחיפה, וההודעות שנגמרות שנייה לפני הפואנטה — כך שהיא משלימה את התמונה לבד בראש. אתה לא כותב כלום בוטה; היא זאת שהופכת את השיחה למינית.</p>
-  </div>
-  <div class="card">
-    <h4>קוד הביטחון</h4>
-    <p>הסיבה האמיתית שהיא לא שולחת גם כשבא לה, ואיך משדרים לה "אתה כספת" בלי להגיד אף מילה על דיסקרטיות. זאת החוגה שכל המרימים שוברים — ולמה להם היא שולחת פעם אחת ונעלמת, ולך שוב ושוב.</p>
-  </div>
-  <div class="card">
-    <h4>היא שלחה. מה עכשיו?</h4>
-    <p>מה עונים בעשר הדקות הקריטיות אחרי (ומה אסור בשום פנים ואופן), כך שניודס אחד הופך לדינמיקה קבועה — ולא לרגע מביך שהיא מתחרטת עליו.</p>
-  </div>
-  <div class="card">
-    <h4>מהמסך למיטה</h4>
-    <p>איך מזמינים אותה בלי למרוח שבועות, מה עונים ל"נראה", ואיך מביאים את אותה אנרגיה מההתכתבות לדייט עצמו. כי ניודס זה לא קו הסיום — זה שער הכניסה.</p>
+</section>
+
+<!-- ============ NOT A CHAD ============ -->
+<section>
+  <p class="big19" style="margin-top:10px">הן מתחננות שאזיין אותן<br>למרות שהן לא מכירות אותי,</p>
+
+  <p class="big19">מדברות אלי מלוכלך<br>ומספרות לי שהן ליטרלי רטובות<br>מרוב שאני סקסי.</p>
+
+  <p class="big19">ורגע לפני שאתה חושב<br>שאני צ'אד מטר 1.88<br>עם קוביות בבטן,</p>
+
+  <p class="big19">ושובר לבבות סדרתי<br>שמאז התיכון בחורות<br>נופלות לרגלי ומפנטזות<br>להיכנס איתי למיטה</p>
+
+  <p class="punch">זה הכי רחוק מהאמת,</p>
+
+  <p class="big19">אני מטר 1.70<br>יש לי פרצוף ממוצע לגמרי,</p>
+
+  <p class="big19">כנראה שאם הייתי עובר ברחוב<br>בחורות לא היו מסובבות<br>את הראש כדי להסתכל עלי:</p>
+
+  <!-- the document's box -->
+  <div class="needph"><div class="n-ic">🫥</div><div class="n-t">תמונה מטושטשת של הפרצוף של מיסטר.</div></div>
+
+  <p class="big19">אבל בגלל שאני יודע<br>איך לגרום לה לשמוע<br>את הקול שלי בראש שלה<br>כמו שאני רוצה,</p>
+
+  <p class="big19">היא לא שומעת<br>קול נואש וחלש<br>כמו שהיא רגילה לשמוע<br>משאר הגברים,</p>
+
+  <p class="big19">היא שומעת קול<br>שגורם לה להיות חרמנית,<br>להרגיש שובבה</p>
+
+  <p class="big19"><span class="u">עד שהיא שולחת לי<br>ניודס בעצמה.</span></p>
+
+  <p class="punch">זה רק בגלל שאני מכיר<br>את המוח הנשי<br>יותר טוב מהן.</p>
+</section>
+
+<!-- ============ THERE IS A WAY (still on white: the brand colour only starts where Mister introduces himself) ============ -->
+<section class="softp">
+  <div class="glowbox" style="margin-top:12px">
+    <p class="big19">ויש דרך להבין<br>איך להדליק את מתג המשיכה<br>של בחורות</p>
+
+    <p class="big19">ולגרום להן לראות בך<br>משהו מיני תוך כמה דקות<br>מרגע שאתם מכתבים,</p>
+
+    <p class="big19">לחרמן אותה<br>ולגרום לה לפתח אלייך אובססיה<br>ולרצות להכניס אותה למיטה,</p>
+
+    <p class="big19"><strong>וזה שיפט שאתה יכול לעשות<br>כבר מההודעה הבאה<br>שאתה שולח לה.</strong></p>
   </div>
 
-  <h3>וזה לא הכל. מי שנכנס היום מקבל גם:</h3>
+  <p class="big19">אני יודע שזה נשמע<br>כמו הבטחה גדולה מאוד,</p>
 
-  <div class="card bonus">
-    <h4>כספת ההתכתבויות של מיסטר <span class="tag">בשווי 197₪ · במתנה</span></h4>
-    <p>20 התכתבויות אמיתיות מפורקות לעומק — מה הוא כתב, מה היא ענתה, איפה הוא כמעט הרס, ומה הפך את זה. ועוד 30 דוגמאות קצרות לתרגול מהיר. לקרוא מעבר לכתף של גברים שהיא כבר שלחה להם.</p>
+  <p class="reveal">אז תקרא את הדף<br>הקצר הזה מילה במילה<br>עד הסוף</p>
+
+  <p class="big19">ותבין איך להפוך לגבר<br>שמקבל מבחרות<br>שלא מכירות אותו<br>צילומי מסך והודעות<br>שלא דמיינת ׳שילדות טובות׳<br>מסוגלות לשלוח<br>לגברים שהן לא מכירות.</p>
+</section>
+
+<!-- ============ WHO AM I
+     The house pattern: the introduction ends on white, the presenter comes out of ONE block in the brand colour that
+     holds his authority (the community, the numbers, the podcast). Mister is anonymous, so his round logo stands
+     where a photo would. White returns where the page moves on to his story. ============ -->
+<section class="hero" style="padding-bottom:0">
+  <p class="huge" style="margin-top:10px">קוראים לי<br>מיסטר קונפשנס,</p>
+
+  <p class="big19" style="margin-top:6px">ויש לי את קהילת הוידוים<br>הכי גדולה במדינת ישראל:</p>
+</section>
+
+<img class="presenter logo" src="assets/logo.png" alt="מיסטר קונפשנס" width="306" height="306">
+
+<section class="emerge">
+  <img class="docshot ig" src="assets/ig.jpg" alt="העמוד של מיסטר קונפשנס באינסטגרם: 61.2K עוקבים" width="1100" height="526" loading="lazy">
+
+  <p class="big19">לפני יותר מחמש שנים<br>פתחתי עמוד באינסטגרם<br>שבו אנשים מתוודים באנונימי<br>על מה שהם לא מספרים<br>לאף אחד.</p>
+
+  <p class="big19">היום זו קהילת המיניות<br>הכי גדולה בישראל:</p>
+
+  <p class="punch">מעל 60 אלף עוקבים,<br>וכ-10 מיליון צפיות בחודש.</p>
+
+  <img class="docshot posts" src="assets/posts.jpg" alt="וידויים מהעמוד של מיסטר קונפשנס" width="1100" height="748" loading="lazy">
+
+  <p class="big19">יש לי פודקאסט<br>שבו ישבתי מול גניקולוג,<br>מול יוצרת אונליפאנס<br>ומול מלכת BDSM,</p>
+
+  <p class="big19">ודיברנו על כל מה<br>שלא לימדו אותך<br>בבית הספר.</p>
+
+  <img class="docshot podcast" src="assets/podcast.jpg" alt="פרקים מהפודקאסט של מיסטר קונפשנס" width="1100" height="548" loading="lazy">
+</section>
+
+<!-- ============ HIS STORY (back on white) ============ -->
+<section>
+  <p class="big19" style="margin-top:10px">ולמרות שבחורות<br>תופסות ממני אליל מין,<br>מתחרמנות מהקול שלי,</p>
+
+  <p class="big19">ורוצות לקבל את הזין שלי<br>למרות שאין להן מושג<br>איך הוא נראה..</p>
+
+  <p class="reveal">שנים הייתי הגבר הזה<br>שבחורות לא רואות בו<br>משהו מיני,</p>
+
+  <p class="big19">למרות שעשיתי כל מה<br>שבחורות אמרו שהן רוצות.</p>
+
+  <p class="big19">מקשיב להן שעות<br>עד שהיינו מגיעים<br>לשיחות על האקסים שלהן,</p>
+
+  <p class="big19">מכבד, תקשורתי ופתוח<br>ותמיד זמין להם,</p>
+
+  <p class="big19"><span class="u">אבל בסוף היום<br>מוצא את עצמי<br>עם היד עמוק במכנסים.</span></p>
+
+  <p class="big19">לא הבנתי איך זה הגיוני<br>שהן אומרות שהן רוצות<br>גבר מכיל ורגיש</p>
+
+  <p class="big19">אבל הולכות עם הערסים<br>והדושים שלא סופרים אותם.</p>
+
+  <p class="punch">הפכתי לאובססיבי…..</p>
+
+  <p class="big19">רציתי לגרום לבחורות<br>להימשך אלי בחזרה,<br>להסתכל עלי באותה תשוקה<br>שאני מסתכל עליהן,<br>לפנטז עלי,</p>
+
+  <p class="big19">להתחבר אלי ולרצות לשכב איתי<br>בזמן שאני מסתכל להן בעיניים<br>וידע שכיף להן איתי.</p>
+</section>
+
+<!-- ============ WHAT HE FOUND OUT ============ -->
+<section class="softp">
+  <p class="big19" style="margin-top:10px">ומה שגיליתי בחודשים הבאים<br>היה מטורף,</p>
+
+  <p class="big19">כל החיים האמנתי במיתוס<br>שנשים לא אוהבות סקס,<br>ובחורה עושה לך טובה<br>כשהיא שוכבת אותך.</p>
+
+  <div class="found">
+    <p class="lead-in">אבל אז גיליתי….</p>
+    <p>שהספר ״חמישים גוונים של אפור״<br>הרטיב מילוני נשים<br>בכל העולם.</p>
+    <p class="lead-in">וגיליתי….</p>
+    <p>שתעשית הוויברטורים<br>היא תעשיה של- 15 מילארד<br>דולר בשנה</p>
+    <p class="lead-in">וגיליתי….</p>
+    <p>שרוב הספרים האירוטים<br>רבי המכר באמזון<br>זה סיפורים על בחורה תמימה<br>שנלקחת על ידי גבר חזק וחסון.</p>
   </div>
-  <div class="card bonus">
-    <h4>מילון 25 ההודעות המקררות <span class="tag">בשווי 97₪ · במתנה</span></h4>
-    <p>ההודעות שמורידות את הטמפרטורה לאפס בשנייה — ומה כותבים במקום. תזהה את עצמך לפחות בחמש מהן.</p>
+
+  <p class="reveal">ומה שגיליתי זה שנשים<br>לא רק אוהבות סקס -<br>הן מתות עליו.</p>
+
+  <p class="punch">אף אחד לא יגיד לך<br>את זה אבל…</p>
+
+  <p class="big19">בחורות היום מסתובבות<br>כל יום חרמניות בטירוף,</p>
+
+  <p class="big19">מפנטזות על סקס<br>הרבה יותר מאיתנו הגברים,<br>מחכות לרגע שיגיע הגבר הנכון</p>
+
+  <p class="big19">ויגשים להן את הפנטזיות<br>המלוכלכות והמענגות שלהן,<br>שיפתח אותן לעונג מיני<br>שיגרום לגוף שלהן<br>לרטוט מעונג.</p>
+
+  <p class="big19"><strong>כמו כל הבחורות האלו<br>ששולחות לי את ההודעות האלו:</strong></p>
+
+  <!-- the document's box -->
+  <div class="needph"><div class="n-ic">📱</div><div class="n-t">צילומי מסך של:<br>מיסטר תפתח לי את השושנה אני רוצה לקבל את מיצי הגוף שלך על הבטן התחתונה שלי.</div></div>
+
+  <a class="cta-green" href="#mockup">👈 מיסטר תראה לי איך לחרמן אותה בהודעות</a>
+</section>
+
+<!-- ============ WHY AM I NOT ... EVERY NIGHT? ============ -->
+<section class="purple">
+  <p class="big19" style="margin-top:10px">ועכשיו בטח<br>אתה שואל את עצמך…</p>
+
+  <p class="reveal">״אם בחורות כאלו חרמניות<br>למה אני לא מז*ין<br>כל לילה בחורה אחרת?</p>
+
+  <p class="big19">זה בגלל שלא משנה<br>כמה בחורה משתוקקת<br>למגע של גבר</p>
+
+  <p class="big19">וכמה היא רוצה שהוא יגשים לה<br>את הפנטזיות הכי אפלות שלה,</p>
+
+  <p class="punch">היא לא תעיז להודות בזה<br>בפני אף גבר.</p>
+
+  <p class="big19">בגלל שהיא מפחדת מדחיה<br>ומתביישת,</p>
+
+  <p class="big19">לימדו בחורות<br>שרק ׳שרמוטות׳ רוצות<br>סקס לוהט וחייתי עם גבר,</p>
+
+  <p class="big19">שהיא צריכה להסתיר<br>את זה שבא לה,<br>ולהיות ילדה טובה</p>
+
+  <p class="big19">אז היא מסתירה את הרצון הזה<br>עמוק בפנים.</p>
+
+  <div class="glowbox">
+    <p class="big19">אבל גם ׳לילדות הכי טובות׳<br>שמתביישות<br><strong>יש שפה נסתרת של תשוקה<br>שרוב הגברים לא מבינים אותה,</strong></p>
+
+    <p class="big19">מילות קסם ותיאורים<br>שמשחררות את הדמיון שלה<br>וגורמים לה להיות<br>שובבה ומשוחררת</p>
+
+    <p class="big19">עד שהיא תחשוב<br>שזה היה רעיון שלה<br>להיות חרמנית עליך.</p>
+  </div>
+</section>
+
+<!-- ============ NOT BY CHANCE ============ -->
+<section>
+  <p class="reveal" style="margin-top:10px">לא גיליתי את זה במקרה,</p>
+
+  <p class="big19">במשך- 5 שנים<br>העליתי מאות ווידויים אנונימיים,</p>
+
+  <p class="big19">התכתבתי עם מאות בנות<br>שהחליקו ל- dm שלי<br>וסיפרו לי את הפנטזיות<br>הכי כמוסות שלהן,</p>
+
+  <p class="big19">מה מעורר ומדליק אותן,<br>איזה מילים פוגעות<br>במרכזי העונג שלה</p>
+
+  <p class="big19">וגורמים לה לקרוא<br>את ההודעות שלי<br>בטון שאני רוצה,</p>
+
+  <p class="big19">לדמיין אותי בצורה מינית<br>להרגיש שובבות<br>ולהתחרמן מההודעות איתי</p>
+
+  <!-- the document's box -->
+  <div class="needph"><div class="n-ic">📱</div><div class="n-t">עוד צילומי מסך שבחורות מספרות למיסטר שנגמרו להן התחתונים</div></div>
+
+  <p class="big19"><span class="u">ואפילו לשלוח לך ניודס בעצמן<br>מרוב שהיא משתוקקות<br>לתשומת הלב שלי.</span></p>
+
+  <!-- the document's box "שים כאן ניודסים": the other four AI compositions, blurred the same way -->
+  <div class="aigrid"><img src="assets/ai_blur/blur_1.jpg" alt="המחשה מטושטשת" width="540" height="960" loading="lazy"><img src="assets/ai_blur/blur_4.jpg" alt="המחשה מטושטשת" width="540" height="960" loading="lazy"><img src="assets/ai_blur/blur_7.jpg" alt="המחשה מטושטשת" width="540" height="960" loading="lazy"><img src="assets/ai_blur/blur_8.jpg" alt="המחשה מטושטשת" width="540" height="960" loading="lazy"></div>
+  <p class="illus">*המחשה</p>
+</section>
+
+<!-- ============ THE TWO RULES ============ -->
+<section class="softp">
+  <p class="reveal" style="margin-top:10px">זה לא רק כוח.<br>זו אחריות.</p>
+
+  <p class="big19">ברגע שתדע לגרום לבחורה<br>לקרוא את ההודעות שלך<br>בקול שאתה רוצה,</p>
+
+  <p class="big19">היא תפתח לך דלת<br>שהיא לא פותחת לאף אחד.</p>
+
+  <p class="punch">ולכן יש לי שני כללים<br>שאתה חייב להקפיד עליהן:</p>
+
+  <div class="swcard">
+    <div class="sw-head">
+      <!-- a shield with a lock: what she sent stays with you -->
+      <div class="sw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><rect x="9" y="11" width="6" height="5" rx="1"/><path d="M10 11V9.5a2 2 0 0 1 4 0V11"/></svg></div>
+      <p class="sw-h">מה שהיא שלחה<br>נשאר אצלך.</p>
+    </div>
+    <p class="big19">לא מעבירים,<br>לא מצלמים מסך,<br>לא מראים לחבר'ה.</p>
   </div>
 
-  <div class="guarantee">
-    <h3>100% נסיעת מבחן — 14 יום</h3>
-    <p>
-      אם צפית בכל הקורס, עברת את אתגר 14 הימים ויישמת על שיחות אמיתיות, ולא ראית שינוי באיך
-      שבחורות עונות לך — שלח הודעה קצרה ל־<a href="mailto:support@misterstore.co.il" style="color:var(--blue)">support@misterstore.co.il</a>
-      ותקבל החזר כספי מלא.
-    </p>
-    <p style="margin:0;font-weight:800;color:#e6e8ea">
-      בלי שאלות, בלי פרצופים, בלי אותיות קטנות. אם זה לא עבד לך, לא מגיע לי הכסף שלך.
-    </p>
+  <div class="swcard">
+    <div class="sw-head">
+      <div class="sw-ic"><b dir="ltr">18+</b></div>
+      <p class="sw-h">רק בגירים.</p>
+    </div>
+    <p class="big19">אתה והיא, 18 ומעלה<br>גם אחרי שנגמר הקשר<br>והיא שכבה עם השכן<br>מהדלת ממול.</p>
   </div>
 
-  <h3>כמה תכל'ס זה עולה?</h3>
+  <p class="big19"><strong>גבר ששומר על הכללים האלה<br>הוא בדיוק הגבר<br>שהיא סומכת עליו מספיק<br>כדי לשלוח לו.</strong></p>
+</section>
 
-  <p>
-    ליווי אישי איתי, בתוכנית ART OF MISTER, עולה לא פחות מ-5,900 ₪. ותכל'ס? יכולתי לגבות על הקורס
-    הזה 497 ₪ וזה עדיין היה שווה לך את הכסף.
-  </p>
-  <p>
-    אבל יש לי רק 24 שעות ביממה, ואני לא יכול לשבת עם כל גבר בישראל על הוואטסאפ שלו. לקחתי את מה
-    שאני מלמד בליווי האישי וארזתי אותו לקורס דיגיטלי שאתה עובר לבד, בזמן שלך. וזה מה שמאפשר לי
-    לחסוך 90% מהעלויות ולהוריד לך את המחיר.
-  </p>
+<!-- ============ THE DEAL ============ -->
+<section>
+  <p class="reveal xl" style="margin-top:12px">אז הנה העסקה.</p>
 
-  <div class="price">
-    <p class="was">497 ₪</p>
-    <p class="now"><span id="price">197</span> ₪</p>
-    <p class="alt" id="installments" hidden></p>
-  </div>
+  <p class="big19">קוד הווידויים הוא תוצאה<br>של יותר מחמש שנים<br>שבהן נשים כתבו לי באנונימי<br>את מה שהן לא מספרות<br>לאף גבר.</p>
 
-  <div id="form-area">
-    <p>
-      כדי לקבל גישה ל"הניודס הראשון שלי", תשאיר פרטים בטופס, תאשר תשלום — והקורס, הכספת והמילון
-      יחכו לך בחשבון שלך.
-    </p>
+  <p class="big19">מה מדליק אותן,<br>למי הן שלחו,<br>ולמה דווקא לו.</p>
 
-    <p class="discreet">🔒 חיוב דיסקרטי. בפירוט האשראי לא מופיע שם המוצר.</p>
+  <p class="big19">תבין, זה לא קורס<br>שבו אני אומר לך<br>לשנות את מי שאתה.</p>
 
-    <form id="lead-form" novalidate>
-      <input id="name" name="name" required autocomplete="name" placeholder="השם שלך">
-      <input id="email" name="email" required type="email" autocomplete="email" placeholder="המייל שלך" dir="ltr" style="text-align:right">
-      <input id="phone" name="phone" required type="tel" autocomplete="tel" placeholder="טלפון">
-      <p class="error" id="error" hidden></p>
-      <button class="cta" type="submit" id="submit">מיסטר, תראה לי איך לחרמן אותה בהודעות</button>
-    </form>
+  <p class="big19">זה גם לא אוסף משפטים להעתיק,<br>כי אלה נשמעים בדיוק<br>כמו "עוד הזוי".</p>
 
-    <div class="reassure">
-      <span>✓ גישה מיידית</span>
-      <span>✓ 14 יום החזר כספי</span>
-      <span>✓ חיוב דיסקרטי</span>
+  <p class="punch">זה מדריך הפעלה<br>לאיבר המין הכי חשוב<br>של הבחורה: הדמיון שלה.</p>
+</section>
+
+<!-- ============ THE PRODUCT (on white) ============ -->
+<section id="mockup" style="scroll-margin-top:10px">
+  <p class="big19" style="margin-top:12px">אז אני סופר מתרגש<br>להציג בפנייך את:</p>
+
+  <p class="huge">״הניודס הראשון שלי״</p>
+
+  <!-- the document's box "מוקאפ": the house's big mockup (as on Guy Lavi's page), the screens are make_screens.js (Niv, 11.11.26) -->
+  <div class="devcollage">
+    <div class="dc-back"><img class="dc-confetti" src="assets/deco_confetti.png" alt=""></div>
+    <div class="dc-docs">
+      <div class="docsheet s1"><div class="ds-band">קוד<br>הפריים</div><div class="ds-lines"><i></i><i></i><i></i><i></i><i></i></div><div class="ds-ico">&#128196;</div></div>
+      <div class="docsheet s3"><div class="ds-band">מד החום<br>של מיסטר</div><div class="ds-lines"><i></i><i></i><i></i><i></i><i></i></div><div class="ds-ico">&#128203;</div></div>
+      <div class="docsheet s2"><div class="ds-band">קוד<br>הביטחון</div><div class="ds-lines"><i></i><i></i><i></i><i></i><i></i></div><div class="ds-ico">&#128196;</div></div>
+    </div>
+    <div class="dc-tablet"><img src="assets/course/m3.jpg" alt="מתוך הקורס"></div>
+    <div class="dc-lap dc-lap-main">
+      <div class="dc-body"><div class="dc-scr"><img src="assets/course/cover.jpg" alt="הניודס הראשון שלי"></div></div>
+      <div class="dc-base"></div>
+    </div>
+    <img class="dc-ribbon" src="assets/deco_ribbon.png" alt="">
+    <div class="dc-lap dc-lap-2">
+      <div class="dc-body"><div class="dc-scr"><img src="assets/course/m6.jpg" alt="שיעור מתוך הקורס"></div><div class="dc-band">הניודס הראשון שלי</div></div>
+      <div class="dc-base"></div>
     </div>
   </div>
 
-  <footer>
-    <p style="margin:0 0 8px">התוכן מיועד לבני 18 ומעלה.</p>
-    <a href="https://mister.cyou/terms">תקנון ותנאי שימוש</a>
-  </footer>
-</main>
+  <!-- the heading under the mockup: 4 lines on a wide screen (br.d), 7 on a phone (br.m) -->
+  <p class="mockh">״15 שיעורים קצרים שיראו לך <br class="m">מה גרם למעל- 200 בחורות <br class="d">במדינת ישראל <br class="m">לכתוב לי שהן חרמניות עלי <br class="m">בלי שהן יודעות <br class="d">איך אני נראה, <br class="m">ואיך כל גבר שנראה ממוצע לגמרי <br class="m">יכול <br class="d">להתכתב ולחרמן בחורות <br class="m">בהודעות טקסט בלבד?״</p>
+</section>
 
-<div class="sticky">
-  <button type="button" id="sticky-cta">אני רוצה את הקורס — <span id="sticky-price">197</span> ₪</button>
+<!-- ============ THE LESSONS ============ -->
+<section class="softp">
+  <p class="reveal" style="margin-top:10px">והנה רק טעימה<br>ממה שאתה הולך לגלות:</p>
+
+  <div class="mod">
+    <div class="mod-lap"><div class="scr"><img src="assets/course/m1.jpg" alt="נושא 1" loading="lazy"></div><div class="lapband">נושא 1</div><div class="lbase"></div></div>
+  <div class="swcard">
+    <div class="sw-head">
+      <!-- a target: the frame -->
+      <div class="sw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <p class="sw-h">קוד הפריים</p>
+    </div>
+    <p class="big19">למה היא מייבשת אותך<br>עוד לפני שאמרת משהו מיני,</p>
+    <p class="big19">ו-4 הטעויות ה"מנומסות"<br>שמחסלות משיכה<br>(אתה עושה לפחות שתיים מהן.<br>כולם עושים).</p>
+    <p class="big19">תזהה את עצמך בשיעור הראשון -<br>ותפסיק באותו ערב.</p>
+  </div>
+  </div>
+
+  <div class="mod">
+    <div class="mod-lap"><div class="scr"><img src="assets/course/m2.jpg" alt="נושא 2" loading="lazy"></div><div class="lapband">נושא 2</div><div class="lbase"></div></div>
+  <div class="swcard">
+    <div class="sw-head">
+      <!-- a speech bubble: the opening -->
+      <div class="sw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
+      <p class="sw-h">הפתיחה שהיא לא מסוגלת<br>להתעלם ממנה</p>
+    </div>
+    <p class="big19">15 פתיחות לפי סיטואציה:<br>סטורי, טינדר,<br>מישהי שאתה כבר מכיר.</p>
+    <p class="big19">בלי "היי מה קורה"<br>ובלי להישמע כמו עוד אחד<br>מה-15 שכתבו לה היום.</p>
+  </div>
+  </div>
+
+  <div class="mod">
+    <div class="mod-lap"><div class="scr"><img src="assets/course/m3.jpg" alt="נושא 3" loading="lazy"></div><div class="lapband">נושא 3</div><div class="lbase"></div></div>
+  <div class="swcard">
+    <div class="sw-head">
+      <!-- a thermometer -->
+      <div class="sw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg></div>
+      <p class="sw-h">מד החום של מיסטר</p>
+    </div>
+    <p class="big19">המערכת שמגלה לך בדיוק<br>באיזו טמפרטורה היא עכשיו:<br>קרה, מתחממת או רותחת.</p>
+    <p class="big19">12 תרחישים אמיתיים +<br>טבלת החלטות.</p>
+    <p class="big19">תפסיק לנחש "אם זה הרגע" -<br>תדע.</p>
+    <p class="big19">(זה השיעור שיחסוך לך<br>את כל ההודעות שאתה מוחק<br>ומקליד מחדש ב-23:00.)</p>
+  </div>
+  </div>
+
+  <div class="mod">
+    <div class="mod-lap"><div class="scr"><img src="assets/course/m4.jpg" alt="נושא 4" loading="lazy"></div><div class="lapband">נושא 4</div><div class="lbase"></div></div>
+  <div class="swcard">
+    <div class="sw-head">
+      <!-- a flame: her imagination -->
+      <div class="sw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+      <p class="sw-h">להדליק את הדמיון שלה</p>
+    </div>
+    <p class="big19">הטיזינג, המשיכה-דחיפה,<br>וההודעות שנגמרות<br>שנייה לפני הפואנטה -</p>
+    <p class="big19">כך שהיא משלימה את התמונה<br>לבד בראש.</p>
+    <p class="big19">אתה לא כותב כלום בוטה;<br>היא זאת שהופכת<br>את השיחה למינית.</p>
+    <p class="big19">(ואז מאשימה אותך<br>שאתה "עושה לה משהו" 😈)</p>
+  </div>
+  </div>
+
+  <div class="mod">
+    <div class="mod-lap"><div class="scr"><img src="assets/course/m5.jpg" alt="נושא 5" loading="lazy"></div><div class="lapband">נושא 5</div><div class="lbase"></div></div>
+  <div class="swcard">
+    <div class="sw-head">
+      <!-- a padlock: the safety code -->
+      <div class="sw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <p class="sw-h">קוד הביטחון</p>
+    </div>
+    <p class="big19">הסיבה האמיתית שהיא לא שולחת<br>גם כשבא לה,</p>
+    <p class="big19">ואיך משדרים לה "אתה כספת"<br>בלי להגיד אף מילה<br>על דיסקרטיות.</p>
+    <p class="big19">זאת החוגה<br>שכל המרימים שוברים -</p>
+    <p class="big19">ולמה להם היא שולחת<br>פעם אחת ונעלמת,<br>ולך שוב ושוב.</p>
+  </div>
+  </div>
+
+  <div class="mod">
+    <div class="mod-lap"><div class="scr"><img src="assets/course/m6.jpg" alt="נושא 6" loading="lazy"></div><div class="lapband">נושא 6</div><div class="lbase"></div></div>
+  <div class="swcard">
+    <div class="sw-head">
+      <!-- a paper plane: she sent -->
+      <div class="sw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></div>
+      <p class="sw-h">היא שלחה. מה עכשיו?</p>
+    </div>
+    <p class="big19">מה עונים בעשר הדקות<br>הקריטיות אחרי<br>(ומה אסור בשום פנים ואופן 🤡),</p>
+    <p class="big19">כך שניודס אחד הופך<br>לדינמיקה קבועה -</p>
+    <p class="big19">ולא לרגע מביך<br>שהיא מתחרטת עליו.</p>
+  </div>
+  </div>
+
+  <div class="mod">
+    <div class="mod-lap"><div class="scr"><img src="assets/course/m7.jpg" alt="נושא 7" loading="lazy"></div><div class="lapband">נושא 7</div><div class="lbase"></div></div>
+  <div class="swcard">
+    <div class="sw-head">
+      <!-- a bed: from the screen to the bed -->
+      <div class="sw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg></div>
+      <p class="sw-h">מהמסך למיטה</p>
+    </div>
+    <p class="big19">איך מזמינים אותה<br>בלי למרוח שבועות,<br>מה עונים ל"נראה",</p>
+    <p class="big19">ואיך מביאים את אותה אנרגיה<br>מההתכתבות לדייט עצמו.</p>
+    <p class="big19"><strong>כי ניודס זה לא קו הסיום -<br>זה שער הכניסה.</strong></p>
+  </div>
+  </div>
+
+  <a class="cta-green" href="#order">👈 מיסטר תראה לי איך לחרמן אותה בהודעות</a>
+</section>
+
+<!-- ============ THE BONUSES ============ -->
+<section>
+  <p class="reveal" style="margin-top:12px">וזה לא הכל.</p>
+  <p class="big19" style="margin-top:0">מי שנכנס היום<br>מקבל גם:</p>
+
+  <div class="mod">
+    <div class="mod-lap"><div class="scr"><img src="assets/course/b1.jpg" alt="בונוס 1" loading="lazy"></div><div class="lapband">בונוס 1</div><div class="lbase"></div></div>
+  <div class="swcard">
+    <div class="sw-head">
+      <!-- a box of saved conversations -->
+      <div class="sw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg></div>
+      <p class="sw-h">כספת ההתכתבויות של מיסטר</p>
+    </div>
+    <p class="worth">(בשווי 197₪)</p>
+    <p class="big19">20 התכתבויות אמיתיות<br>מפורקות לעומק -</p>
+    <p class="big19">מה הוא כתב, מה היא ענתה,<br>איפה הוא כמעט הרס,<br>ומה הפך את זה -</p>
+    <p class="big19">ועוד 30 דוגמאות קצרות<br>לתרגול מהיר.</p>
+    <p class="big19">לקרוא מעבר לכתף של גברים<br>שהיא כבר שלחה להם.</p>
+    <p class="gift">במתנה</p>
+  </div>
+  </div>
+
+  <div class="mod">
+    <div class="mod-lap"><div class="scr"><img src="assets/course/b2.jpg" alt="בונוס 2" loading="lazy"></div><div class="lapband">בונוס 2</div><div class="lbase"></div></div>
+  <div class="swcard">
+    <div class="sw-head">
+      <!-- an open book: the dictionary -->
+      <div class="sw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+      <p class="sw-h">מילון 25 ההודעות המקררות</p>
+    </div>
+    <p class="worth">(בשווי 97₪)</p>
+    <p class="big19">ההודעות שמורידות<br>את הטמפרטורה לאפס בשנייה -<br>ומה כותבים במקום.</p>
+    <p class="big19">תזהה את עצמך<br>לפחות בחמש מהן.</p>
+    <p class="gift">במתנה.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ THE GUARANTEE ============ -->
+<section class="softp">
+  <div class="guar" style="margin-top:14px">
+    <img class="guar-seal" src="assets/seal_100.png" alt="100% אחריות">
+    <p class="guar-h">ואני עד כדי כך<br>מאמין בזה,<br>שהחלטתי לתת לך גם:</p>
+    <p class="punch" style="margin-top:6px">100% נסיעת מבחן,</p>
+    <p class="big19">קח 14 יום<br>לנסות את זה.</p>
+    <p class="big19">אם צפית בכל הקורס,<br>עברת את אתגר 14 הימים<br>ויישמת על שיחות אמיתיות,</p>
+    <p class="big19">ולא ראית שינוי<br>באיך שבחורות עונות לך,</p>
+    <p class="big19">שלח לי הודעה קצרה<br>ל-מייל הזה:<br><span class="mailto">support@misterstore.co.il</span></p>
+    <p class="big19"><strong>ותקבל החזר כספי מלא.</strong></p>
+    <p class="big19">בלי שאלות,<br>בלי פרצופים,<br>בלי אותיות קטנות.</p>
+    <p class="big19">אם זה לא עבד לך,<br>לא מגיע לי הכסף שלך.</p>
+  </div>
+</section>
+
+<!-- ============ THE PRICE ============ -->
+<section>
+  <p class="price-h" style="margin-top:14px">כמה תכלס זה עולה?</p>
+
+  <p class="big19">ליווי אישי איתי,<br>בתוכנית ART OF MISTER,<br>עולה לא פחות מ…</p>
+  <p class="anchor">₪5,900+</p>
+
+  <p class="big19" style="margin-top:0">ותכלס? יכולתי לגבות<br>על הקורס הזה:</p>
+  <p class="anchor">₪497</p>
+
+  <p class="big19" style="margin-top:0">וזה עדיין היה שווה לך<br>את הכסף.</p>
+
+  <p class="big19">אבל יש לי רק<br>24 שעות ביממה,<br>ואני לא יכול לשבת<br>עם כל גבר בישראל<br>על הוואטסאפ שלו.</p>
+
+  <p class="big19">לקחתי את מה שאני מלמד<br>בליווי האישי<br>וארזתי אותו לקורס דיגיטלי<br>שאתה עובר לבד, בזמן שלך,<br>בלי הזמן שלי.</p>
+
+  <p class="big19">וזה מה שמאפשר לי לחסוך<br>90% מהעלויות<br>ולהוריד לך את המחיר.</p>
+
+  <p class="final-h">אז המחיר שלך להיום הוא רק:</p>
+  <p class="now-price">
+    <span class="old"><span class="strike-anim">₪497</span></span>
+    <span class="good-anim">רק ₪<span id="price">197</span></span><br>
+    <span class="pay3" id="installments">או 2 תשלומים של ₪99</span>
+  </p>
+</section>
+
+<!-- ============ THE ORDER FORM ============ -->
+<section id="order" style="scroll-margin-top:10px">
+  <div class="formbox" id="form-area">
+    <p>כדי לקבל גישה ל"הניודס הראשון שלי",<br>תכניס את המייל שלך בטופס למטה,<br>תלחץ על הכפתור, תמלא פרטים,<br>תאשר תשלום,</p>
+    <p><strong style="color:#fff">ותוך 17 שניות הקורס,<br>הכספת והמילון<br>יחכו לך במייל.</strong></p>
+    <form class="order" id="lead-form" novalidate>
+      <input id="name" name="name" required autocomplete="name" placeholder="השם שלך">
+      <input id="email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="המייל שלך">
+      <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="הטלפון שלך">
+      <p class="error" id="error" hidden></p>
+      <button class="cta-green" type="submit" id="submit" style="margin-top:8px">מיסטר תראה לי איך לחרמן אותה בהודעות</button>
+    </form>
+    <img class="paylogos" src="assets/paylogos.png" alt="אמצעי תשלום" width="700" height="90">
+    <p class="discreet">חיוב דיסקרטי.<br>בפירוט האשראי לא מופיע שם המוצר.</p>
+  </div>
+</section>
+
+
+<!-- ============ CREDIT · built by Niv ============ -->
+<section dir="rtl" style="background:#1683d6;padding:20px 20px 22px;text-align:center">
+  <p style="font-family:'Assistant',sans-serif;font-weight:900;color:#fff;font-size:16px;margin:0 0 11px;line-height:1.4;text-align:center">מי כתב ובנה את הדף הזה?</p>
+  <a href="https://nivnatan.fly.dev/" target="_blank" rel="noopener" style="display:block;width:fit-content;max-width:90%;margin:0 auto;background:#fff;color:#0a2540;font-family:'Assistant',sans-serif;font-weight:900;font-size:15px;padding:10px 26px;border-radius:26px;text-decoration:none;box-shadow:0 5px 14px rgba(0,0,0,.18)">👈 תלחץ כאן ותגיע אליו</a>
+</section>
+
 </div>
 
+<!-- the footer lines of Mister's side: 18+ and their terms -->
+<footer class="legal-foot">
+  <p>התוכן מיועד לבני 18 ומעלה.</p>
+  <a href="https://mister.cyou/terms">תקנון ותנאי שימוש</a>
+</footer>
+
+<!-- their script looks for a sticky button; it is kept here, hidden, so their script stays whole and our design as is -->
+<div hidden><button type="button" id="sticky-cta">אני רוצה את הקורס - <span id="sticky-price">197</span> ₪</button></div>
+
+<!-- Mister's live connections, WORD FOR WORD from their index.html: the price from their database, the form to
+     academy-funnel, and the checkout_url it answers with -->
 <script>
 (function () {
   // הדף סטטי, אבל המחיר והפריסה מגיעים מהמערכת — כדי שלא תהיה סתירה בין מה

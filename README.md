@@ -39,6 +39,7 @@ Vercel בונה אוטומטית **Preview** לכל ענף ולכל Pull Request
 - סודות (מפתחות API, טוקנים) — **לא** בתוך הקוד. תגידו לי ואני אגדיר אותם כמשתני סביבה ב‑Vercel.
 - פיקסלים ותגי מעקב (Meta / Google) — אפשר להדביק ישר ב‑`<head>`.
 - לא לדחוף `node_modules` או קבצי בילד — הם כבר ב‑`.gitignore`.
+- הפאביקון (`favicon.ico` בשורש + `assets/favicon-*.png`, `assets/apple-touch-icon.png`) ותגיות ה‑`<link rel="icon">` שב‑`<head>` — להשאיר. זה הסמל של מיסטר בלשונית הדפדפן.
 
 ## שאלות
 

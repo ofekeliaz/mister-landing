@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>קיבלנו את התשלום — הניודס הראשון שלי</title>
+<meta name="description" content="התשלום עבר. הנה איך נכנסים לקורס ומה עושים בשעה הקרובה.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000;
+    --fg: #fff;
+    --muted: #9aa0a6;
+    --dim: #6b7177;
+    --line: rgba(255,255,255,.12);
+    --panel: rgba(255,255,255,.035);
+    --blue: #22c3fb;
+    --green: #35d07f;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: Assistant, system-ui, "Segoe UI", Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 20px 64px; }
+  p { margin: 0 0 22px; color: #d6d9dc; }
+  a { color: var(--blue); }
+  h1 { font-size: 2.1rem; font-weight: 800; line-height: 1.25; margin: 0 0 16px; }
+  h2 { font-size: 1.6rem; font-weight: 800; line-height: 1.3; margin: 56px 0 20px; }
+  h3 { font-size: 1.2rem; font-weight: 800; margin: 0 0 8px; }
+
+  .top { text-align: center; padding: 8px 0 4px; }
+  .check {
+    width: 68px; height: 68px; margin: 0 auto 22px;
+    border-radius: 50%; border: 2px solid rgba(53,208,127,.45);
+    background: rgba(53,208,127,.1);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .check svg { width: 32px; height: 32px; }
+  .eyebrow {
+    color: var(--green); font-size: .95rem; font-weight: 800;
+    letter-spacing: .04em; margin: 0 0 10px;
+  }
+  .order {
+    display: inline-block; margin: 0 0 8px; padding: 6px 14px;
+    border: 1px solid var(--line); border-radius: 999px;
+    background: var(--panel); color: var(--muted);
+    font-size: .85rem; line-height: 1.4;
+  }
+  .order b { color: #e6e8ea; font-weight: 800; }
+
+  .steps { counter-reset: step; margin: 0; padding: 0; list-style: none; }
+  .steps li {
+    position: relative; counter-increment: step;
+    border: 1px solid var(--line); border-radius: 14px; background: var(--panel);
+    padding: 20px 68px 20px 20px; margin-bottom: 14px;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; top: 20px; right: 20px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(34,195,251,.15); color: var(--blue);
+    font-weight: 800; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .steps li p { margin: 0; font-size: 1rem; }
+  .steps li p + p { margin-top: 10px; }
+  .steps h3 { color: var(--blue); }
+
+  .cta {
+    display: block; width: 100%; margin: 10px 0 0; padding: 16px;
+    border: 0; border-radius: 12px; text-align: center;
+    background: var(--blue); color: #001018;
+    font-family: inherit; font-size: 1.05rem; font-weight: 800;
+    text-decoration: none; cursor: pointer;
+  }
+  .cta.ghost {
+    background: transparent; color: var(--blue);
+    border: 1px solid rgba(34,195,251,.4);
+  }
+
+  .got { border: 1px solid var(--line); border-radius: 14px; background: var(--panel); padding: 20px; }
+  .got ul { margin: 0; padding: 0 20px 0 0; }
+  .got li { color: #d6d9dc; margin-bottom: 8px; }
+  .got li:last-child { margin-bottom: 0; }
+  .tag {
+    display: inline-block; margin-right: 8px; padding: 2px 10px; border-radius: 999px;
+    background: rgba(34,195,251,.18); color: var(--blue); font-size: .75rem; font-weight: 800;
+  }
+
+  .note {
+    border: 1px solid var(--line); border-radius: 14px; background: var(--panel);
+    padding: 20px; margin: 16px 0 0; color: #c9ccd0; font-size: .98rem;
+  }
+  .note b { color: #fff; }
+
+  .guarantee {
+    border: 1px solid var(--line); border-radius: 18px; background: var(--panel);
+    padding: 26px; text-align: center; margin: 48px 0 0;
+  }
+  .guarantee h3 { margin-top: 0; font-size: 1.3rem; }
+  .guarantee p:last-child { margin-bottom: 0; }
+
+  footer {
+    margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line);
+    text-align: center; color: var(--dim); font-size: .9rem;
+  }
+  footer p { color: var(--dim); margin: 0 0 8px; }
+
+  @media (max-width: 520px) {
+    body { font-size: 17px; }
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.4rem; }
+    main { padding: 36px 18px 48px; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top">
+    <div class="check" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#35d07f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6 9 17l-5-5"/>
+      </svg>
+    </div>
+    <p class="eyebrow">התשלום עבר בהצלחה</p>
+    <h1>אתה בפנים.</h1>
+    <p id="order-line" class="order" hidden>מספר העסקה: <b id="order-number"></b></p>
+    <p>שלחנו לך מייל עם פרטי הכניסה. להלן שלושת הצעדים שלוקחים חמש דקות — ואז אתה כבר בשיעור הראשון.</p>
+  </div>
+
+  <h2>מה לעשות עכשיו</h2>
+
+  <ol class="steps">
+    <li>
+      <h3>תפתח את המייל ששלחנו לך</h3>
+      <p>הוא מכיל קישור כניסה ישיר וסיסמה ראשונית. אם הוא לא בתיבה הראשית — תבדוק בקידומי מכירות ובספאם, ותסמן אותו כ"לא ספאם" כדי שהמיילים הבאים יגיעו אליך.</p>
+      <p>לא מוצא אותו בכלל? כתוב לנו ל־<a href="mailto:support@misterstore.co.il">support@misterstore.co.il</a> ונפתח לך גישה ידנית.</p>
+    </li>
+    <li>
+      <h3>תיכנס לקורס</h3>
+      <p>כל התכנים יושבים בעמוד אחד, והגישה שלך אליהם קבועה.</p>
+      <a class="cta" href="https://mister.cyou/academy/first-nudes">לכניסה לקורס</a>
+    </li>
+    <li>
+      <h3>תתחיל את אתגר 14 הימים היום</h3>
+      <p>לא מחר ולא בסוף השבוע. מי שפותח את השיעור הראשון באותו יום הוא זה שמסיים את הקורס ורואה תוצאות — וזה גם מה שמפעיל את האחריות שלך.</p>
+      <a class="cta ghost" href="https://mister.cyou/academy/first-nudes/challenge">להתחלת האתגר</a>
+    </li>
+  </ol>
+
+  <div class="note">
+    <b>לא רואה את הקורס אחרי הכניסה?</b> תוודא שהתחברת עם אותה כתובת מייל שאיתה שילמת. זאת הסיבה למעל 90% מהמקרים. אם זה עדיין לא זה — כתוב לנו ונסדר את זה באותו יום.
+  </div>
+
+  <h2>מה יש לך עכשיו בפנים</h2>
+
+  <div class="got">
+    <ul>
+      <li><b>15 שיעורים קצרים</b> — מהפתיחה שהיא לא מתעלמת ממנה ועד מהמסך למיטה.</li>
+      <li><b>מד החום של מיסטר</b> — 12 תרחישים וטבלת החלטות, שתדע באיזו טמפרטורה היא נמצאת.</li>
+      <li><b>כספת ההתכתבויות של מיסטר</b> <span class="tag">במתנה</span> — 20 התכתבויות אמיתיות מפורקות לעומק, ועוד 30 דוגמאות לתרגול.</li>
+      <li><b>מילון 25 ההודעות המקררות</b> <span class="tag">במתנה</span> — מה הורג שיחה בשנייה, ומה כותבים במקום.</li>
+    </ul>
+  </div>
+
+  <div class="guarantee">
+    <h3>האחריות שלך כבר פעילה</h3>
+    <p>
+      14 יום נסיעת מבחן. אם תצפה בכל הקורס, תעבור את האתגר, תיישם על שיחות אמיתיות ולא תראה שינוי
+      באיך שבחורות עונות לך — שלח הודעה ל־<a href="mailto:support@misterstore.co.il">support@misterstore.co.il</a>
+      ותקבל החזר מלא.
+    </p>
+    <p style="font-weight:800;color:#e6e8ea">בלי שאלות ובלי אותיות קטנות. הסיכון היחיד פה הוא שלי.</p>
+  </div>
+
+  <footer>
+    <p>יש שאלה? <a href="mailto:support@misterstore.co.il">support@misterstore.co.il</a></p>
+    <p>מיסטר קונפשנס</p>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  // Stripe and PayPal each name the identifier differently; show whichever came back.
+  var params = new URLSearchParams(location.search);
+  var order = params.get('order_number') || params.get('order') || params.get('session_id');
+
+  if (order) {
+    document.getElementById('order-number').textContent = order;
+    document.getElementById('order-line').hidden = false;
+  }
+})();
+</script>
+
+<!-- פיקסל מטא — אירוע Purchase נכנס כאן -->
+
+</body>
+</html>

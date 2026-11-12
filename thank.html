@@ -10,6 +10,43 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<!-- Meta pixel 1416221574024512 (Niv, 12.11.26): a page view, and a Purchase when an order came back -->
+<script>
+(function () {
+  var PIXEL = '1416221574024512', VALUE = 197, CURRENCY = 'ILS';
+  var q = new URLSearchParams(location.search);
+  var order = (q.get('order_number') || q.get('order') || q.get('session_id') || '').trim();
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  /* the address is cleaned below through the browser's history; without this the library counts a second page view */
+  window.fbq.disablePushState = true;
+  fbq('init', PIXEL, order ? { external_id: order } : {});
+  fbq('track', 'PageView');
+  if (!order) return;
+  var KEY = 'mister_purchase_' + order, counted = false;
+  try { counted = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+  if (!counted) fbq('trackSingle', PIXEL, 'Purchase', { value: VALUE, currency: CURRENCY, content_name: 'הניודס הראשון שלי',
+    content_ids: ['first-nudes'], content_type: 'product', num_items: 1 }, { eventID: 'evt_' + order });
+  var tries = 0, iv = setInterval(function () {
+    var ready = window.fbq && window.fbq.callMethod;
+    if (!ready && ++tries !== 200) return;
+    clearInterval(iv);
+    if (!ready) return;
+    setTimeout(function () {
+      try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+      if (window.history && window.history.replaceState) {
+        var clean = location.origin + location.pathname;
+        try { History.prototype.replaceState.call(window.history, {}, document.title, clean); }
+        catch (e) { window.history.replaceState({}, document.title, clean); }
+      }
+    }, 1500);
+  }, 150);
+})();
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1416221574024512&ev=PageView&noscript=1"></noscript>
 <style>
 @font-face{font-family:'Assistant';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/assistant-400-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
 @font-face{font-family:'Assistant';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/assistant-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}

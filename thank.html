@@ -3,198 +3,104 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>קיבלנו את התשלום — הניודס הראשון שלי</title>
+<title>קיבלנו את התשלום · הניודס הראשון שלי</title>
 <meta name="description" content="התשלום עבר. הנה איך נכנסים לקורס ומה עושים בשעה הקרובה.">
 <meta name="robots" content="noindex, nofollow">
-<!-- פאביקון מיסטר — אותו סמל שבאתר הראשי. אם מחליפים לוגו, מחליפים גם את הקבצים האלה. -->
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #000;
-    --fg: #fff;
-    --muted: #9aa0a6;
-    --dim: #6b7177;
-    --line: rgba(255,255,255,.12);
-    --panel: rgba(255,255,255,.035);
-    --blue: #22c3fb;
-    --green: #35d07f;
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: Assistant, system-ui, "Segoe UI", Arial, sans-serif;
-    font-size: 18px;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
-  main { max-width: 720px; margin: 0 auto; padding: 48px 20px 64px; }
-  p { margin: 0 0 22px; color: #d6d9dc; }
-  a { color: var(--blue); }
-  h1 { font-size: 2.1rem; font-weight: 800; line-height: 1.25; margin: 0 0 16px; }
-  h2 { font-size: 1.6rem; font-weight: 800; line-height: 1.3; margin: 56px 0 20px; }
-  h3 { font-size: 1.2rem; font-weight: 800; margin: 0 0 8px; }
-
-  .top { text-align: center; padding: 8px 0 4px; }
-  .check {
-    width: 68px; height: 68px; margin: 0 auto 22px;
-    border-radius: 50%; border: 2px solid rgba(53,208,127,.45);
-    background: rgba(53,208,127,.1);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .check svg { width: 32px; height: 32px; }
-  .eyebrow {
-    color: var(--green); font-size: .95rem; font-weight: 800;
-    letter-spacing: .04em; margin: 0 0 10px;
-  }
-  .order {
-    display: inline-block; margin: 0 0 8px; padding: 6px 14px;
-    border: 1px solid var(--line); border-radius: 999px;
-    background: var(--panel); color: var(--muted);
-    font-size: .85rem; line-height: 1.4;
-  }
-  .order b { color: #e6e8ea; font-weight: 800; }
-
-  .steps { counter-reset: step; margin: 0; padding: 0; list-style: none; }
-  .steps li {
-    position: relative; counter-increment: step;
-    border: 1px solid var(--line); border-radius: 14px; background: var(--panel);
-    padding: 20px 68px 20px 20px; margin-bottom: 14px;
-  }
-  .steps li::before {
-    content: counter(step);
-    position: absolute; top: 20px; right: 20px;
-    width: 32px; height: 32px; border-radius: 50%;
-    background: rgba(34,195,251,.15); color: var(--blue);
-    font-weight: 800; font-size: 1rem;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .steps li p { margin: 0; font-size: 1rem; }
-  .steps li p + p { margin-top: 10px; }
-  .steps h3 { color: var(--blue); }
-
-  .cta {
-    display: block; width: 100%; margin: 10px 0 0; padding: 16px;
-    border: 0; border-radius: 12px; text-align: center;
-    background: var(--blue); color: #001018;
-    font-family: inherit; font-size: 1.05rem; font-weight: 800;
-    text-decoration: none; cursor: pointer;
-  }
-  .cta.ghost {
-    background: transparent; color: var(--blue);
-    border: 1px solid rgba(34,195,251,.4);
-  }
-
-  .got { border: 1px solid var(--line); border-radius: 14px; background: var(--panel); padding: 20px; }
-  .got ul { margin: 0; padding: 0 20px 0 0; }
-  .got li { color: #d6d9dc; margin-bottom: 8px; }
-  .got li:last-child { margin-bottom: 0; }
-  .tag {
-    display: inline-block; margin-right: 8px; padding: 2px 10px; border-radius: 999px;
-    background: rgba(34,195,251,.18); color: var(--blue); font-size: .75rem; font-weight: 800;
-  }
-
-  .note {
-    border: 1px solid var(--line); border-radius: 14px; background: var(--panel);
-    padding: 20px; margin: 16px 0 0; color: #c9ccd0; font-size: .98rem;
-  }
-  .note b { color: #fff; }
-
-  .guarantee {
-    border: 1px solid var(--line); border-radius: 18px; background: var(--panel);
-    padding: 26px; text-align: center; margin: 48px 0 0;
-  }
-  .guarantee h3 { margin-top: 0; font-size: 1.3rem; }
-  .guarantee p:last-child { margin-bottom: 0; }
-
-  footer {
-    margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line);
-    text-align: center; color: var(--dim); font-size: .9rem;
-  }
-  footer p { color: var(--dim); margin: 0 0 8px; }
-
-  @media (max-width: 520px) {
-    body { font-size: 17px; }
-    h1 { font-size: 1.75rem; }
-    h2 { font-size: 1.4rem; }
-    main { padding: 36px 18px 48px; }
-  }
+@font-face{font-family:'Assistant';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/assistant-400-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/assistant-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/assistant-600-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/assistant-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/assistant-700-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/assistant-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/assistant-800-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/assistant-800-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/rubik-700-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/rubik-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/rubik-800-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/rubik-800-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:900;font-display:swap;src:url(assets/fonts/rubik-900-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:900;font-display:swap;src:url(assets/fonts/rubik-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  :root{--blue:#1683d6;--deep:#0a2540;--soft:#eaf3fc;--ink:#0e141a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{min-height:100%;background:radial-gradient(120% 90% at 50% 0%,#f1f8fe 0%,#c6def4 45%,#2c7fc6 100%)}
+  body{min-height:100%;background:none;font-family:'Assistant',Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;padding:30px 14px 50px}
+  img{max-width:100%;height:auto;display:block}
+  .wrap{max-width:600px;margin:0 auto;direction:rtl}
+  .card{background:#fff;border-radius:26px;padding:24px 22px 30px;text-align:center;box-shadow:0 24px 60px rgba(10,37,64,.30)}
+  .logo{width:116px;height:116px;border-radius:50%;margin:2px auto 14px;box-shadow:0 10px 26px rgba(10,37,64,.32)}
+  .badge{display:inline-block;background:var(--blue);color:#fff;font-weight:800;font-size:15px;padding:6px 18px;border-radius:22px}
+  h1{font-family:'Rubik',sans-serif;font-weight:900;font-size:36px;color:var(--deep);margin:12px 0 6px;line-height:1.2}
+  .order{font-size:15px;color:#46525e;margin:2px 0 10px}
+  .order b{font-family:'Rubik',sans-serif;color:var(--deep);direction:ltr;unicode-bidi:embed}
+  .lead{font-size:19px;line-height:1.55;max-width:470px;margin:8px auto 4px}
+  .box{text-align:right;border:2px solid var(--blue);border-radius:16px;overflow:hidden;margin:22px auto 0;max-width:500px}
+  .box .sh{background:var(--blue);color:#fff;font-family:'Rubik',sans-serif;font-weight:800;font-size:19px;padding:11px 16px;text-align:center}
+  .step{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:16px 16px 4px}
+  .step .n{width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .step h3{font-family:'Rubik',sans-serif;font-weight:800;font-size:18px;color:var(--deep);margin:2px 0 4px}
+  .step p{font-size:16px;line-height:1.6;margin:0 0 8px}
+  .step a.mail,.box a.mail,.guar a.mail,.help a{color:var(--blue);font-weight:700}
+  .btn{display:inline-block;background:#1c9a45;color:#fff;font-weight:800;font-size:17px;padding:12px 22px;border-radius:12px;text-decoration:none;margin:4px 0 10px;box-shadow:0 6px 14px rgba(28,154,69,.32)}
+  .note{background:var(--soft);border-radius:14px;padding:14px 16px;margin:18px auto 0;max-width:500px;text-align:right;font-size:16px;line-height:1.6}
+  .note b{color:var(--deep)}
+  .have{list-style:none;text-align:right;padding:6px 16px 14px}
+  .have li{padding:9px 0;border-bottom:1px solid #e3edf7;font-size:16px;line-height:1.55}
+  .have li:last-child{border:0}
+  .have b{color:var(--deep)}
+  .have .gift{display:inline-block;background:#1c9a45;color:#fff;font-size:12.5px;font-weight:800;padding:1px 8px;border-radius:10px;margin-right:6px}
+  .guar{margin:20px auto 0;max-width:500px;font-size:16px;line-height:1.65}
+  .guar h2{font-family:'Rubik',sans-serif;font-weight:800;font-size:20px;color:var(--deep);margin-bottom:6px}
+  .help{margin-top:20px;font-size:16px}
+  .sign{font-family:'Rubik',sans-serif;font-weight:800;font-size:19px;color:var(--deep);margin-top:16px}
+  @media(max-width:420px){ h1{font-size:30px} .lead{font-size:17px} .card{padding:22px 16px 26px} }
 </style>
 </head>
 <body>
-<main>
-
-  <div class="top">
-    <div class="check" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#35d07f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M20 6 9 17l-5-5"/>
-      </svg>
-    </div>
-    <p class="eyebrow">התשלום עבר בהצלחה</p>
+<main class="wrap">
+  <div class="card">
+    <img class="logo" src="assets/logo.png" alt="מיסטר קונפשנס" width="306" height="306">
+    <span class="badge">&#10004; התשלום עבר בהצלחה</span>
     <h1>אתה בפנים.</h1>
-    <p id="order-line" class="order" hidden>מספר העסקה: <b id="order-number"></b></p>
-    <p>שלחנו לך מייל עם פרטי הכניסה. להלן שלושת הצעדים שלוקחים חמש דקות — ואז אתה כבר בשיעור הראשון.</p>
+    <p class="order" id="order-line" hidden>מספר העסקה: <b id="order-number"></b></p>
+    <p class="lead">שלחנו לך מייל עם פרטי הכניסה. להלן שלושת הצעדים שלוקחים חמש דקות - ואז אתה כבר בשיעור הראשון.</p>
+
+    <div class="box">
+      <div class="sh">מה לעשות עכשיו</div>
+      <div class="step"><span class="n">1</span><div><h3>תפתח את המייל ששלחנו לך</h3>
+        <p>הוא מכיל קישור כניסה ישיר וסיסמה ראשונית. אם הוא לא בתיבה הראשית - תבדוק בקידומי מכירות ובספאם, ותסמן אותו כ"לא ספאם" כדי שהמיילים הבאים יגיעו אליך.</p>
+        <p>לא מוצא אותו בכלל? כתוב לנו ל־<a class="mail" href="mailto:support@misterstore.co.il">support@misterstore.co.il</a> ונפתח לך גישה ידנית.</p></div></div>
+      <div class="step"><span class="n">2</span><div><h3>תיכנס לקורס</h3>
+        <p>כל התכנים יושבים בעמוד אחד, והגישה שלך אליהם קבועה.</p>
+        <a class="btn" href="https://mister.cyou/academy/first-nudes">לכניסה לקורס</a></div></div>
+      <div class="step"><span class="n">3</span><div><h3>תתחיל את אתגר 14 הימים היום</h3>
+        <p>לא מחר ולא בסוף השבוע. מי שפותח את השיעור הראשון באותו יום הוא זה שמסיים את הקורס ורואה תוצאות - וזה גם מה שמפעיל את האחריות שלך.</p>
+        <a class="btn" href="https://mister.cyou/academy/first-nudes/challenge">להתחלת האתגר</a></div></div>
+    </div>
+
+    <div class="note"><b>לא רואה את הקורס אחרי הכניסה?</b><br>תוודא שהתחברת עם אותה כתובת מייל שאיתה שילמת. זאת הסיבה למעל 90% מהמקרים. אם זה עדיין לא זה - כתוב לנו ונסדר את זה באותו יום.</div>
+
+    <div class="box">
+      <div class="sh">מה יש לך עכשיו בפנים</div>
+      <ul class="have">
+        <li><b>15 שיעורים קצרים</b> - מהפתיחה שהיא לא מתעלמת ממנה ועד מהמסך למיטה.</li>
+        <li><b>מד החום של מיסטר</b> - 12 תרחישים וטבלת החלטות, שתדע באיזו טמפרטורה היא נמצאת.</li>
+        <li><b>כספת ההתכתבויות של מיסטר</b><span class="gift">במתנה</span> - 20 התכתבויות אמיתיות מפורקות לעומק, ועוד 30 דוגמאות לתרגול.</li>
+        <li><b>מילון 25 ההודעות המקררות</b><span class="gift">במתנה</span> - מה הורג שיחה בשנייה, ומה כותבים במקום.</li>
+      </ul>
+    </div>
+
+    <div class="guar"><h2>האחריות שלך כבר פעילה</h2>
+      14 יום נסיעת מבחן. אם תצפה בכל הקורס, תעבור את האתגר, תיישם על שיחות אמיתיות ולא תראה שינוי באיך שבחורות עונות לך - שלח הודעה ל־<a class="mail" href="mailto:support@misterstore.co.il">support@misterstore.co.il</a> ותקבל החזר מלא.<br>בלי שאלות ובלי אותיות קטנות. הסיכון היחיד פה הוא שלי.</div>
+
+    <p class="help">יש שאלה? <a href="mailto:support@misterstore.co.il">support@misterstore.co.il</a></p>
+    <p class="sign">מיסטר קונפשנס</p>
   </div>
-
-  <h2>מה לעשות עכשיו</h2>
-
-  <ol class="steps">
-    <li>
-      <h3>תפתח את המייל ששלחנו לך</h3>
-      <p>הוא מכיל קישור כניסה ישיר וסיסמה ראשונית. אם הוא לא בתיבה הראשית — תבדוק בקידומי מכירות ובספאם, ותסמן אותו כ"לא ספאם" כדי שהמיילים הבאים יגיעו אליך.</p>
-      <p>לא מוצא אותו בכלל? כתוב לנו ל־<a href="mailto:support@misterstore.co.il">support@misterstore.co.il</a> ונפתח לך גישה ידנית.</p>
-    </li>
-    <li>
-      <h3>תיכנס לקורס</h3>
-      <p>כל התכנים יושבים בעמוד אחד, והגישה שלך אליהם קבועה.</p>
-      <a class="cta" href="https://mister.cyou/academy/first-nudes">לכניסה לקורס</a>
-    </li>
-    <li>
-      <h3>תתחיל את אתגר 14 הימים היום</h3>
-      <p>לא מחר ולא בסוף השבוע. מי שפותח את השיעור הראשון באותו יום הוא זה שמסיים את הקורס ורואה תוצאות — וזה גם מה שמפעיל את האחריות שלך.</p>
-      <a class="cta ghost" href="https://mister.cyou/academy/first-nudes/challenge">להתחלת האתגר</a>
-    </li>
-  </ol>
-
-  <div class="note">
-    <b>לא רואה את הקורס אחרי הכניסה?</b> תוודא שהתחברת עם אותה כתובת מייל שאיתה שילמת. זאת הסיבה למעל 90% מהמקרים. אם זה עדיין לא זה — כתוב לנו ונסדר את זה באותו יום.
-  </div>
-
-  <h2>מה יש לך עכשיו בפנים</h2>
-
-  <div class="got">
-    <ul>
-      <li><b>15 שיעורים קצרים</b> — מהפתיחה שהיא לא מתעלמת ממנה ועד מהמסך למיטה.</li>
-      <li><b>מד החום של מיסטר</b> — 12 תרחישים וטבלת החלטות, שתדע באיזו טמפרטורה היא נמצאת.</li>
-      <li><b>כספת ההתכתבויות של מיסטר</b> <span class="tag">במתנה</span> — 20 התכתבויות אמיתיות מפורקות לעומק, ועוד 30 דוגמאות לתרגול.</li>
-      <li><b>מילון 25 ההודעות המקררות</b> <span class="tag">במתנה</span> — מה הורג שיחה בשנייה, ומה כותבים במקום.</li>
-    </ul>
-  </div>
-
-  <div class="guarantee">
-    <h3>האחריות שלך כבר פעילה</h3>
-    <p>
-      14 יום נסיעת מבחן. אם תצפה בכל הקורס, תעבור את האתגר, תיישם על שיחות אמיתיות ולא תראה שינוי
-      באיך שבחורות עונות לך — שלח הודעה ל־<a href="mailto:support@misterstore.co.il">support@misterstore.co.il</a>
-      ותקבל החזר מלא.
-    </p>
-    <p style="font-weight:800;color:#e6e8ea">בלי שאלות ובלי אותיות קטנות. הסיכון היחיד פה הוא שלי.</p>
-  </div>
-
-  <footer>
-    <p>יש שאלה? <a href="mailto:support@misterstore.co.il">support@misterstore.co.il</a></p>
-    <p>מיסטר קונפשנס</p>
-  </footer>
-
 </main>
-
 <script>
 (function () {
   // Stripe and PayPal each name the identifier differently; show whichever came back.
@@ -207,8 +113,5 @@
   }
 })();
 </script>
-
-<!-- פיקסל מטא — אירוע Purchase נכנס כאן -->
-
 </body>
 </html>

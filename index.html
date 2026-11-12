@@ -1498,9 +1498,9 @@
     <p>כדי לקבל גישה ל"הניודס הראשון שלי",<br>תכניס את המייל שלך בטופס למטה,<br>תלחץ על הכפתור, תמלא פרטים,<br>תאשר תשלום,</p>
     <p><strong style="color:#fff">ותוך 17 שניות הקורס,<br>הכספת והמילון<br>יחכו לך במייל.</strong></p>
     <form class="order" id="lead-form" novalidate>
-      <input id="name" name="name" required autocomplete="name" placeholder="השם שלך">
       <input id="email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="המייל שלך">
-      <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="הטלפון שלך">
+      <input type="hidden" id="name" name="name" value="">
+      <input type="hidden" id="phone" name="phone" value="">
       <p class="error" id="error" hidden></p>
       <button class="cta-green" type="submit" id="submit" style="margin-top:8px">מיסטר תראה לי איך לחרמן אותה בהודעות</button>
     </form>
@@ -1526,6 +1526,27 @@
 
 <!-- their script looks for a sticky button; it is kept here, hidden, so their script stays whole and our design as is -->
 <div hidden><button type="button" id="sticky-cta">אני רוצה את הקורס - <span id="sticky-price">197</span> ₪</button></div>
+
+<!-- the sign-up to Niv's Make webhook (12.11.26): the email, once per address, before their script takes the form on -->
+<script>
+(function () {
+  var WEBHOOK = 'https://hook.eu2.make.com/2a3dolhx5h7dwl8qq3adcivaakh5uk8m';
+  var form = document.getElementById('lead-form'), sentFor = '';
+  var q = new URLSearchParams(location.search);
+  form.addEventListener('submit', function () {
+    var email = document.getElementById('email').value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(email) || sentFor === email) return;
+    sentFor = email;
+    var b = new URLSearchParams();
+    b.set('email', email); b.set('form_fields[email]', email);
+    b.set('ref', q.get('ref') || ''); b.set('form_fields[ref]', q.get('ref') || '');
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) { b.set(k, q.get(k) || ''); });
+    b.set('source', 'mister-first-nudes'); b.set('page', location.href);
+    var sent = false; try { sent = navigator.sendBeacon(WEBHOOK, b); } catch (_) {}
+    if (!sent) { try { fetch(WEBHOOK, { method: 'POST', body: b, keepalive: true, mode: 'no-cors' }); } catch (_) {} }
+  });
+})();
+</script>
 
 <!-- Mister's live connections, WORD FOR WORD from their index.html: the price from their database, the form to
      academy-funnel, and the checkout_url it answers with -->

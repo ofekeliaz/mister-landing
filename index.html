@@ -917,6 +917,10 @@
   .docshot.ig{max-width:520px}
   /* his Instagram in an iPhone, the followers circled (Niv, 12.11.26): the phone is see-through around its edge, so no card, no border, no box shadow */
   .emerge .docshot.igphone{width:82%;max-width:320px;border-radius:0;box-shadow:none;background:none;border:0}
+  /* the top before / after, see-through, as on Guy's page (Niv, 12.11.26) */
+  .topba{display:block;width:100%;max-width:560px;height:auto;margin:2px auto 6px}
+  /* his face, blurred (Niv, 12.11.26) */
+  .docshot.face{max-width:270px;border-radius:22px}
   .docshot.posts{max-width:520px}
   .docshot.podcast{max-width:520px}
   .tgroup .tshot{max-width:340px;border-color:transparent}
@@ -984,7 +988,11 @@
 
 <!-- ============ NOT ANOTHER PICKUP COURSE ============ -->
 <section class="hero" style="padding-top:12px">
-  <img class="arrow" src="assets/arrow.png" alt="" width="300" height="300">
+  <!-- the top before / after (Niv, 12.11.26), built as Niv builds his (Guy's, Eliran's): his "before" message, his red
+       arrow, and the "after": two of the page's blurred pictures above "...כמה שאני חרמנית עליך" (make_ba_pieces.py + make_ba.js) -->
+  <img class="topba" src="assets/before_after.webp" alt="לפני: אני לא יכולה להיפגש השבוע, סורי. אחרי: אני באמת לא יכולה להסביר לך כמה שאני חרמנית עליך" width="1040" height="513">
+
+  <!-- the black curly arrow that stood here: out (Niv, 12.11.26: "יכול להעיף את החץ") -->
 
   <p class="big19">לא, זה לא עוד קורס<br>של אמן פיקאפ עם טכניקות<br>משנות ה- 90 על משפטי פתיחה<br>קיטשיים ומטרידים,</p>
 
@@ -1054,8 +1062,9 @@
 
   <p class="big19">כנראה שאם הייתי עובר ברחוב<br>בחורות לא היו מסובבות<br>את הראש כדי להסתכל עלי:</p>
 
-  <!-- the document's box -->
-  <div class="needph"><div class="n-ic">🫥</div><div class="n-t">תמונה מטושטשת של הפרצוף של מיסטר.</div></div>
+  <!-- the document's box "תמונה מטושטשת של הפרצוף של מיסטר": his photo from Niv (12.11.26), the whole head blurred so
+       nobody can tell who he is (make_face.py) -->
+  <img class="docshot face" src="assets/mister_face.jpg" alt="מיסטר קונפשנס, הפנים מטושטשות" width="462" height="707" loading="lazy">
 
   <p class="big19">אבל בגלל שאני יודע<br>איך לגרום לה לשמוע<br>את הקול שלי בראש שלה<br>כמו שאני רוצה,</p>
 

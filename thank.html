@@ -10,12 +10,13 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<!-- Meta pixel 1416221574024512 (Niv, 12.11.26): a page view, and a Purchase when an order came back -->
+<!-- Meta pixel 1416221574024512 (Niv, 12.11.26): a page view and a Purchase on arrival -->
 <script>
 (function () {
   var PIXEL = '1416221574024512', VALUE = 197, CURRENCY = 'ILS';
   var q = new URLSearchParams(location.search);
-  var order = (q.get('order_number') || q.get('order') || q.get('session_id') || '').trim();
+  var order = (q.get('order_number') || q.get('order') || q.get('session_id') || q.get('order_id') || q.get('orderId') ||
+               q.get('payment_intent') || q.get('transaction_id') || '').trim();
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
   n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
@@ -25,18 +26,20 @@
   window.fbq.disablePushState = true;
   fbq('init', PIXEL, order ? { external_id: order } : {});
   fbq('track', 'PageView');
-  if (!order) return;
-  var KEY = 'mister_purchase_' + order, counted = false;
+  /* a Purchase on every arrival here (Niv, 12.11.26: "אין בדף תודה איוונט רכישה"; Mister's side sends only buyers from
+     the campaign to this page): once per order, or, when no order number came back, once per visit */
+  var KEY = order ? 'mister_purchase_' + order : 'mister_purchase_counted', counted = false;
   try { counted = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
   if (!counted) fbq('trackSingle', PIXEL, 'Purchase', { value: VALUE, currency: CURRENCY, content_name: 'הניודס הראשון שלי',
-    content_ids: ['first-nudes'], content_type: 'product', num_items: 1 }, { eventID: 'evt_' + order });
+    content_ids: ['first-nudes'], content_type: 'product', num_items: 1 }, { eventID: 'evt_' + (order || ('thank_' + Date.now())) });
   var tries = 0, iv = setInterval(function () {
     var ready = window.fbq && window.fbq.callMethod;
     if (!ready && ++tries !== 200) return;
     clearInterval(iv);
     if (!ready) return;
     setTimeout(function () {
-      try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+      /* the visit too: after the address is cleaned a refresh has no order, and must not count a second one */
+      try { sessionStorage.setItem(KEY, '1'); sessionStorage.setItem('mister_purchase_counted', '1'); } catch (e) {}
       if (window.history && window.history.replaceState) {
         var clean = location.origin + location.pathname;
         try { History.prototype.replaceState.call(window.history, {}, document.title, clean); }

@@ -1560,6 +1560,64 @@ fbq('track', 'PageView');
 <!-- their script looks for a sticky button; it is kept here, hidden, so their script stays whole and our design as is -->
 <div hidden><button type="button" id="sticky-cta">אני רוצה את הקורס - <span id="sticky-price">197</span> ₪</button></div>
 
+<!-- Mister's visit log (15.11.26): what a visitor does before leaving details. One session per tab, events go to the
+     landing-track function. Fully isolated: it only listens, never touches the form, and any failure is swallowed. -->
+<script>
+(function () {
+  try {
+    var URL_ = 'https://ffdzmgpnyfuoloirwfwg.supabase.co/functions/v1/landing-track';
+    var KEY = 'mister_landing_sid', sid;
+    try { sid = sessionStorage.getItem(KEY); } catch (_) {}
+    if (!sid) {
+      sid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() :
+        'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+          var r = Math.random() * 16 | 0; return (c === 'x' ? r : (r & 3 | 8)).toString(16); });
+      try { sessionStorage.setItem(KEY, sid); } catch (_) {}
+    }
+    function send(ev, extra) {
+      try {
+        var p = { sid: sid, ev: ev, page: location.href };
+        for (var k in extra) p[k] = extra[k];
+        var body = JSON.stringify(p);
+        if (!(navigator.sendBeacon && navigator.sendBeacon(URL_, body))) {
+          fetch(URL_, { method: 'POST', body: body, keepalive: true, mode: 'no-cors' }).catch(function () {});
+        }
+      } catch (_) {}
+    }
+    send('visit', { ref: document.referrer || '', mobile: /Mobi|Android/i.test(navigator.userAgent) });
+
+    var marks = [25, 50, 75, 90], hit = {};
+    window.addEventListener('scroll', function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      if (h <= 0) return;
+      var pct = Math.round(window.scrollY / h * 100);
+      for (var i = 0; i < marks.length; i++) {
+        if (pct >= marks[i] && !hit[marks[i]]) { hit[marks[i]] = 1; send('scroll', { pct: marks[i] }); }
+      }
+    }, { passive: true });
+
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest && e.target.closest('.cta-green, #sticky-cta');
+      if (a && a.id !== 'submit') send('cta', {});
+    }, true);
+
+    var email = document.getElementById('email'), focused = false, lastDraft = '';
+    if (email) {
+      email.addEventListener('focus', function () { if (!focused) { focused = true; send('focus', {}); } });
+      var draft = function () {
+        var v = email.value.trim();
+        if (v && v !== lastDraft && /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(v)) { lastDraft = v; send('draft', { email: v }); }
+      };
+      email.addEventListener('blur', draft);
+      email.addEventListener('change', draft);
+      document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') draft(); });
+    }
+    var form = document.getElementById('lead-form');
+    if (form) form.addEventListener('submit', function () { send('submit', { email: email ? email.value.trim() : '' }); });
+  } catch (_) {}
+})();
+</script>
+
 <!-- the sign-up to Niv's Make webhook (12.11.26): the email, once per address, before their script takes the form on -->
 <script>
 (function () {

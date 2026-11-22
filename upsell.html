@@ -706,6 +706,9 @@
   .bfbuy .soon{display:none;color:#1e2a36;font-size:15px;line-height:1.6;margin:10px auto 0;max-width:420px}
   .bfbuy.waiting .soon{display:block}
   .bfbuy .paylogos{margin:14px auto 0;max-width:400px}
+  .bfbuy .charge-note,.buybox .charge-note{font-family:'Assistant',sans-serif;font-size:14px;line-height:1.5;color:#5b6672;margin:8px auto 0;max-width:420px}
+  .buybox .charge-note{color:#cfd6de}
+  .cta-accept.bought{background:linear-gradient(#cfe9d6,#8fb79b);cursor:default}
   @media(max-width:520px){
     .bfh{font-size:27px} .bfbuy .now{font-size:64px}
     .bflist .item{grid-template-columns:104px 1fr;gap:12px} .bflist .item img{width:104px} .bflist h3{font-size:17px}
@@ -996,7 +999,8 @@
     <span class="badge">רק בדף הזה</span>
     <p class="now">197 ₪</p>
     <a href="#" class="cta-accept" id="btnA1">👈 כן, אני רוצה את הבאנדל</a>
-    <p class="soon">ההוספה עדיין לא זמינה.<br>אפשר להמשיך לקורס בקישור שמתחת.</p>
+    <p class="charge-note">הסכום ייגבה מיד באותו כרטיס שבו שילמת, בלי למלא שוב פרטים.</p>
+    <p class="soon"></p>
     <a href="/thank" class="cta-decline" id="btnD1">לא תודה, אני מוותר על הבאנדל במחיר הזה</a>
     <img class="paylogos" src="assets/upsell/paylogos.png" alt="אמצעי תשלום">
   </div>
@@ -1019,7 +1023,8 @@
     <span class="badge">רק בדף הזה</span>
     <p class="now">197 ₪</p>
     <a href="#" class="cta-accept" id="btnA2">👈 כן, אני רוצה את הבאנדל</a>
-    <p class="soon">ההוספה עדיין לא זמינה.<br>אפשר להמשיך לקורס בקישור שמתחת.</p>
+    <p class="charge-note">הסכום ייגבה מיד באותו כרטיס שבו שילמת, בלי למלא שוב פרטים.</p>
+    <p class="soon"></p>
     <a href="/thank" class="cta-decline" id="btnD2">לא תודה, אני מוותר על הבאנדל במחיר הזה</a>
     <img class="paylogos" src="assets/upsell/paylogos.png" alt="אמצעי תשלום">
   </div>
@@ -1028,26 +1033,133 @@
 <div class="mfoot"><a href="https://mister.cyou/terms" target="_blank" rel="noopener">תקנון ותנאי השימוש</a></div>
 
 <script>
-  /* every green button goes to the bundle's checkout (Mister's system; the link is not there yet); "no thanks" goes on
-     to his thank-you page and carries the order along, so that page still shows the order number and knows the
-     purchase was already counted. Until the link is in, a click shows a note in the price card instead. */
+  /* ── הכפתור הירוק: חיוב בלחיצה אחת ─────────────────────────────────────────
+     הקונה הגיע לכאן מיד אחרי ששילם, והכרטיס שלו שמור אצל מיסטר לחיוב הזה.
+     לכן הלחיצה לא מובילה לצ'קאאוט אלא מחייבת במקום, והדף הופך לאישור.
+
+     למה זה חייב לקרות בדף הזה ולא באתר: הפיקסל של הקמפיין יושב כאן בלבד
+     (לאתר עצמו אין פיקסל), ולכן רק כאן אפשר לספור את רכישת האפסייל. חיוב
+     שמעביר את הקונה לאתר היה נעלם מהדיווח.
+
+     שני מסלולים, ושניהם עובדים:
+       • יש oc בכתובת  → חיוב בלחיצה אחת, בלי לעזוב את הדף
+       • אין oc         → קישור לצ'קאאוט הרגיל ב-mister.cyou/bundle/yaziz
+     אין oc למי ששילם בפייפאל, בקופון של 100%, או שחצי שעה כבר עברה.
+
+     "לא תודה" ממשיך ל-/thank ונושא איתו את מספר ההזמנה, כך שאותו דף יציג
+     אותו ויידע שהרכישה הראשונה כבר נספרה. */
   (function(){
-    var ACCEPT = "__MISTER_UPSELL_CHECKOUT__";
-    var q = location.search || "";
-    /* after a reload the address is already clean: take the order the pixel kept in the visit */
-    if (!q) { try { var last = sessionStorage.getItem("mister_purchase_last"); if (last) q = "?order_number=" + encodeURIComponent(last); } catch (e) {} }
-    var DECLINE = "/thank" + q;
-    document.querySelectorAll(".cta-accept").forEach(function(a){
-      if (ACCEPT.indexOf("http") === 0) a.href = ACCEPT;
-      a.addEventListener("click", function(e){
-        if (ACCEPT.indexOf("http") === 0) return;
-        e.preventDefault();
-        var own = a.closest(".bfbuy"), box = own || document.getElementById("buy1");
+    var SUPABASE = "https://ffdzmgpnyfuoloirwfwg.supabase.co";
+    var PIXEL = "1416221574024512";
+    var STORE = "https://mister.cyou";
+    var CODE = "yaziz";
+    var TOKEN_KEY = "mister_oc_token";
+    var BOUGHT_KEY = "mister_oc_bought";
+
+    /* הטוקן מגיע בכתובת, והסקריפט של הפיקסל מנקה את הכתובת שנייה וחצי אחרי
+       הטעינה. נשמר בביקור כדי שרענון לא יהרוג את הלחיצה. */
+    var params = new URLSearchParams(location.search);
+    var token = (params.get("oc") || "").trim();
+    var order = (params.get("order_number") || "").trim();
+    try {
+      if (token) sessionStorage.setItem(TOKEN_KEY, token);
+      else token = sessionStorage.getItem(TOKEN_KEY) || "";
+      if (!order) order = sessionStorage.getItem("mister_purchase_last") || "";
+    } catch (e) {}
+
+    var orderQuery = order ? "?order_number=" + encodeURIComponent(order) : "";
+    var DECLINE = "/thank" + orderQuery;
+    var FALLBACK = STORE + "/bundle/" + CODE + orderQuery;
+
+    var busy = false, done = false;
+    try { done = sessionStorage.getItem(BOUGHT_KEY) === "1"; } catch (e) {}
+
+    var accepts = [].slice.call(document.querySelectorAll(".cta-accept"));
+    var declines = [].slice.call(document.querySelectorAll(".cta-decline"));
+    var notes = [].slice.call(document.querySelectorAll(".bfbuy .soon, .buybox .soon"));
+
+    declines.forEach(function (a) { a.href = DECLINE; });
+
+    function note(text) {
+      notes.forEach(function (el) { el.textContent = text; });
+      document.querySelectorAll(".bfbuy, .buybox").forEach(function (box) {
         box.classList.add("waiting");
-        if (!own) box.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    }
+
+    /* מצב "נוסף להזמנה": הכפתורים מפסיקים למכור ומובילים לתכנים */
+    function showBought() {
+      done = true;
+      try { sessionStorage.setItem(BOUGHT_KEY, "1"); } catch (e) {}
+      accepts.forEach(function (a) {
+        a.textContent = "✓ הבאנדל נוסף להזמנה שלך";
+        a.href = DECLINE;
+        a.classList.add("bought");
+      });
+      declines.forEach(function (a) { a.textContent = "להמשיך לתכנים שלי"; });
+      note("החיוב עבר באותו כרטיס, וחמשת המדריכים מחכים לך באזור התכנים. שלחנו גם מייל עם האישור.");
+    }
+
+    /* הרכישה השנייה בפיקסל. הראשונה נספרה בטעינת הדף הזה, ולכן אסור לה
+       לשאת את אותו eventID: כאן נכנס מספר ההזמנה החדש. */
+    function countPurchase(res) {
+      try {
+        if (!window.fbq) return;
+        fbq("trackSingle", PIXEL, "Purchase", {
+          value: Number(res.amount) || 0,
+          currency: res.currency || "ILS",
+          content_name: "באנדל היזיז המלא",
+          content_ids: ["yaziz-bundle"],
+          content_type: "product",
+          num_items: (res.items && res.items.length) || 5
+        }, { eventID: "evt_" + (res.order_number || res.order_id || ("bundle_" + Date.now())) });
+      } catch (e) {}
+    }
+
+    if (done) { showBought(); return; }
+
+    /* בלי טוקן אין לחיצה אחת, ולכן הכפתור הוא קישור רגיל לצ'קאאוט */
+    if (!token) {
+      accepts.forEach(function (a) { a.href = FALLBACK; });
+      return;
+    }
+
+    accepts.forEach(function (a) {
+      a.href = FALLBACK;   /* גם אם הסקריפט ייפול, הכפתור מוביל לקנייה */
+      a.addEventListener("click", function (e) {
+        if (done) return;
+        e.preventDefault();
+        if (busy) return;
+        busy = true;
+
+        var label = a.textContent;
+        a.textContent = "רגע, מחייבים…";
+        note("מחייבים את הכרטיס שבו שילמת. אל תסגור את הדף.");
+
+        fetch(SUPABASE + "/functions/v1/upsell-one-click", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token: token, code: CODE })
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (res) {
+            if (res && res.ok) {
+              countPurchase(res);
+              showBought();
+              return;
+            }
+            /* כרטיס שדורש אימות, טוקן שנשרף, או כל כישלון אחר: ממשיכים
+               לצ'קאאוט הרגיל, שם הקונה מאשר את הכרטיס כמו בכל קנייה */
+            a.textContent = label;
+            note((res && res.message) || "נשלים את הרכישה בצ'קאאוט.");
+            location.href = (res && res.fallback_url) || FALLBACK;
+          })
+          .catch(function () {
+            a.textContent = label;
+            location.href = FALLBACK;
+          });
       });
     });
-    document.querySelectorAll(".cta-decline").forEach(function(a){ a.href = DECLINE; });
   })();
   (function(){
     var total = 10 * 60;

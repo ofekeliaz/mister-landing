@@ -1033,6 +1033,8 @@
   (function(){
     var ACCEPT = "__MISTER_UPSELL_CHECKOUT__";
     var q = location.search || "";
+    /* after a reload the address is already clean: take the order the pixel kept in the visit */
+    if (!q) { try { var last = sessionStorage.getItem("mister_purchase_last"); if (last) q = "?order_number=" + encodeURIComponent(last); } catch (e) {} }
     var DECLINE = "/thank" + q;
     document.querySelectorAll(".cta-accept").forEach(function(a){
       if (ACCEPT.indexOf("http") === 0) a.href = ACCEPT;

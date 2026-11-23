@@ -708,6 +708,12 @@
   .bfbuy .paylogos{margin:14px auto 0;max-width:400px}
   .bfbuy .charge-note,.buybox .charge-note{font-family:'Assistant',sans-serif;font-size:14px;line-height:1.5;color:#5b6672;margin:8px auto 0;max-width:420px}
   .buybox .charge-note{color:#cfd6de}
+  .split{margin:14px auto 0;padding-top:12px;border-top:1px solid rgba(10,37,64,.12);max-width:460px}
+  .buybox .split{border-top-color:rgba(255,255,255,.18)}
+  .cta-split{display:block;width:92%;max-width:440px;margin:0 auto;padding:12px 10px;border:2px solid var(--green);border-radius:12px;
+    color:#1f7a37;font-family:'Rubik','Assistant',sans-serif;font-size:17px;font-weight:800;text-align:center;text-decoration:none;background:#fff}
+  .cta-split.main{background:linear-gradient(#6fe089,var(--green));color:#fff;font-size:19px;font-weight:900}
+  .cta-split.busy{opacity:.6;pointer-events:none}
   .cta-accept.bought{background:linear-gradient(#cfe9d6,#8fb79b);cursor:default}
   @media(max-width:520px){
     .bfh{font-size:27px} .bfbuy .now{font-size:64px}
@@ -1000,6 +1006,10 @@
     <p class="now">197 ₪</p>
     <a href="#" class="cta-accept" id="btnA1">👈 כן, אני רוצה את הבאנדל</a>
     <p class="charge-note">הסכום ייגבה מיד באותו כרטיס שבו שילמת, בלי למלא שוב פרטים.</p>
+    <div class="split" hidden>
+      <a href="#" class="cta-split">או ב-2 תשלומים של 98.5 ₪</a>
+      <p class="charge-note">2 תשלומים, בלי תוספת: 98.5 ₪ עכשיו ו-98.5 ₪ בעוד 30 יום, מאותו כרטיס. סך הכול 197 ₪.</p>
+    </div>
     <p class="soon"></p>
     <a href="/thank" class="cta-decline" id="btnD1">לא תודה, אני מוותר על הבאנדל במחיר הזה</a>
     <img class="paylogos" src="assets/upsell/paylogos.png" alt="אמצעי תשלום">
@@ -1024,6 +1034,10 @@
     <p class="now">197 ₪</p>
     <a href="#" class="cta-accept" id="btnA2">👈 כן, אני רוצה את הבאנדל</a>
     <p class="charge-note">הסכום ייגבה מיד באותו כרטיס שבו שילמת, בלי למלא שוב פרטים.</p>
+    <div class="split" hidden>
+      <a href="#" class="cta-split">או ב-2 תשלומים של 98.5 ₪</a>
+      <p class="charge-note">2 תשלומים, בלי תוספת: 98.5 ₪ עכשיו ו-98.5 ₪ בעוד 30 יום, מאותו כרטיס. סך הכול 197 ₪.</p>
+    </div>
     <p class="soon"></p>
     <a href="/thank" class="cta-decline" id="btnD2">לא תודה, אני מוותר על הבאנדל במחיר הזה</a>
     <img class="paylogos" src="assets/upsell/paylogos.png" alt="אמצעי תשלום">
@@ -1124,40 +1138,89 @@
       return;
     }
 
+    /* ── שני תשלומים ────────────────────────────────────────────────────────
+       נוסף ב-23.11.26, אחרי הקונה הראשון של המסלול: הוא פרס את הרכישה הראשונה
+       לשניים, לחץ כאן, והכרטיס נדחה על 197 בבת אחת. הסכומים שכתובים בדף
+       (98.5 + 98.5) הם תצוגה; מה שנגבה נקבע בשרת, מאותה הצעה. */
+    var SPLIT = 2;
+    var splitBoxes = [].slice.call(document.querySelectorAll(".split"));
+    var splits = [].slice.call(document.querySelectorAll(".cta-split"));
+    splitBoxes.forEach(function (box) { box.hidden = false; });
+
+    function fmt(n) { n = Number(n) || 0; return (n % 1 === 0 ? String(n) : n.toFixed(2).replace(/0$/, "")) + " ₪"; }
+
+    function charge(btn, installments) {
+      if (done || busy) return;
+      busy = true;
+      var label = btn.textContent;
+      btn.textContent = "רגע, מחייבים…";
+      splits.concat(accepts).forEach(function (el) { el.classList.add("busy"); });
+      note("מחייבים את הכרטיס שבו שילמת. אל תסגור את הדף.");
+
+      var payload = { token: token, code: CODE };
+      if (installments > 1) payload.installments = installments;
+
+      function release() {
+        busy = false;
+        btn.textContent = label;
+        splits.concat(accepts).forEach(function (el) { el.classList.remove("busy"); });
+      }
+
+      fetch(SUPABASE + "/functions/v1/upsell-one-click", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res && res.ok) {
+            countPurchase(res);
+            showBought();
+            splitBoxes.forEach(function (box) { box.hidden = true; });
+            if (res.installments) {
+              note("הרכישה נפרסה ל-" + res.installments.count + " תשלומים: " + fmt(res.installments.first) +
+                " נגבו עכשיו, ו-" + fmt(res.installments.later) + " ייגבו מאותו כרטיס בעוד 30 יום. " +
+                "חמשת המדריכים מחכים לך באזור התכנים, ושלחנו מייל עם האישור.");
+            }
+            return;
+          }
+          /* חיוב מלא שנדחה, והשרת מציע פריסה: נשארים בדף ומציעים אותה במקום
+             לשלוח את הקונה לצ'קאאוט לנסות שוב את אותו סכום */
+          if (res && res.installments_offer && installments <= 1) {
+            release();
+            note((res.message || "הכרטיס לא אישר את הסכום המלא.") + " אפשר לחלק ל-" +
+              res.installments_offer.count + " תשלומים של " + fmt(res.installments_offer.later) + ".");
+            splits.forEach(function (el) {
+              el.classList.add("main");
+              el.textContent = "כן, ב-" + res.installments_offer.count + " תשלומים של " + fmt(res.installments_offer.later);
+            });
+            return;
+          }
+          /* כרטיס שדורש אימות, טוקן שנשרף, או כל כישלון אחר: ממשיכים
+             לצ'קאאוט הרגיל, שם הקונה מאשר את הכרטיס כמו בכל קנייה */
+          release();
+          note((res && res.message) || "נשלים את הרכישה בצ'קאאוט.");
+          location.href = (res && res.fallback_url) || FALLBACK;
+        })
+        .catch(function () {
+          release();
+          location.href = FALLBACK;
+        });
+    }
+
     accepts.forEach(function (a) {
       a.href = FALLBACK;   /* גם אם הסקריפט ייפול, הכפתור מוביל לקנייה */
       a.addEventListener("click", function (e) {
         if (done) return;
         e.preventDefault();
-        if (busy) return;
-        busy = true;
-
-        var label = a.textContent;
-        a.textContent = "רגע, מחייבים…";
-        note("מחייבים את הכרטיס שבו שילמת. אל תסגור את הדף.");
-
-        fetch(SUPABASE + "/functions/v1/upsell-one-click", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ token: token, code: CODE })
-        })
-          .then(function (r) { return r.json(); })
-          .then(function (res) {
-            if (res && res.ok) {
-              countPurchase(res);
-              showBought();
-              return;
-            }
-            /* כרטיס שדורש אימות, טוקן שנשרף, או כל כישלון אחר: ממשיכים
-               לצ'קאאוט הרגיל, שם הקונה מאשר את הכרטיס כמו בכל קנייה */
-            a.textContent = label;
-            note((res && res.message) || "נשלים את הרכישה בצ'קאאוט.");
-            location.href = (res && res.fallback_url) || FALLBACK;
-          })
-          .catch(function () {
-            a.textContent = label;
-            location.href = FALLBACK;
-          });
+        charge(a, 1);
+      });
+    });
+    splits.forEach(function (a) {
+      a.href = FALLBACK;
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        charge(a, SPLIT);
       });
     });
   })();
